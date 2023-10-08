@@ -32,11 +32,11 @@ header{
     display: flex;
     justify-content: space-between;
     overflow: scroll;
+    gap: 10px;
 }
 
 #preview img{
     width: 350px;
-    margin-right: 10px;
     border-radius: 10px;
 }
 
@@ -77,7 +77,7 @@ nav li:hover{
     position: sticky;
     top:0;
     height: 40px;
-    margin: 10px;
+    margin: 80px 10px 10px 10px;
     font-size: 20px;
     text-align: center;
     line-height: 40px;
@@ -89,12 +89,47 @@ nav li:hover{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: auto;
+    margin: 20px auto 0 auto;
     width: 1200px;
+    gap: 10px;
 }
+
 #day1-gallery img{
     width: 200px;
     height: 200px;
-    margin: 0 10px 10px 0;
     border-radius: 10px;
+}
+
+#day2-gallery{
+    display: flex;
+    justify-content: space-between;
+    width: 900px;
+    margin: 20px auto 0 auto;
+    
+}
+
+#day2-gallery-left, #day2-gallery-right{
+    flex: 1;
+}
+
+#day2-gallery img{
+    border-radius: 10px;
+}
+#day2-gallery-left img{
+    height: 500px;
+}
+
+#day2-gallery-right{
+    display: flex;
+    flex-direction: column;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex: 1;
+}
+#day2-gallery-right img{
+    width: 240px;
+    height: 240px;
 }
