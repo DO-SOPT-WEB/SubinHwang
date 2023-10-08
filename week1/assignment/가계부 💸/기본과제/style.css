@@ -20,7 +20,9 @@ body{
     padding: 10px;
     background-color: #f8f8f8;
 }
-
+button{
+    cursor: pointer;
+}
 header{
     padding: 20px;
     font-size: 20px;
@@ -43,6 +45,7 @@ header{
     display: flex;
     justify-content: space-between;
     margin-top: 16px;
+    font-size: 18px;
 }
 
 #money{
@@ -53,6 +56,8 @@ header{
     display: flex;
     flex:1;
     justify-content: space-between;
+    align-items: center;
+    color: #777777;
 }
 
 #main{
@@ -64,7 +69,7 @@ header{
 #date{
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    margin: 20px 0 10px 0;
     width: 40%;
 }
 
@@ -88,6 +93,7 @@ header{
     color:#777777;
     background-color: #f2f2f2;
     border-radius: 5px;
+    cursor: pointer;
 }
 #money-type input[type=checkbox]:checked+label{
     margin-left: 10px;
