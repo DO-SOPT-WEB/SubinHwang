@@ -9,16 +9,23 @@
     font-family: Pretendard, sans-serif;
 }
 
+p {
+    background-color: transparent;
+}
+
 header{
     height: 80px;
+    margin: 10px;
     text-align: center;
     line-height: 80px;
     font-size: 24px;
     background-color: #99CCFF;
+    border-radius: 10px;
+
 }
 
 #preview{
-    padding: 10px;
+    margin: 0 10px 10px 10px;
 }
 
 #preview div{ 
@@ -28,7 +35,7 @@ header{
 }
 
 #preview img{
-    width: 200px;
+    width: 350px;
     margin-right: 10px;
     border-radius: 10px;
 }
@@ -41,19 +48,21 @@ nav{
     display: flex;
     align-items: center; 
     justify-content: center;
-    height: 60px;
-    background-color: #C2DAF2
+    height: 80px;
+    margin: 10px;
+    font-size: 20px;
+    background-color: #C2DAF2;
+    border-radius: 10px;
 }
 
 nav p{
     margin-right: 80px;
-    font-size: 18px;
 }
 
 nav ul{
     display: flex;
     justify-content: space-between;
-    width: 200px;
+    width: 240px;
     font-weight: 600;
     list-style: none;
 }
@@ -62,4 +71,30 @@ nav li:hover{
     cursor: pointer;
     text-decoration: underline;
     color: #5AB2FF
+}
+
+.index{
+    position: sticky;
+    top:0;
+    height: 40px;
+    margin: 10px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+    background-color: #AAC2DD;
+    border-radius: 8px;
+}
+
+#day1-gallery{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 1200px;
+}
+#day1-gallery img{
+    width: 200px;
+    height: 200px;
+    margin: 0 10px 10px 0;
+    border-radius: 10px;
 }
