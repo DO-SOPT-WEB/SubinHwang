@@ -7,6 +7,7 @@
     margin: 0px;
     padding: 0px;
     font-family: Pretendard, sans-serif;
+    background-color: #DCE4ED;
 }
 
 a {
@@ -23,7 +24,7 @@ header{
     text-align: center;
     line-height: 80px;
     font-size: 24px;
-    background-color: #99CCFF;
+    background-color: #86B1E5;
     border-radius: 10px;
 
 }
@@ -55,7 +56,7 @@ nav{
     height: 80px;
     margin: 10px;
     font-size: 20px;
-    background-color: #C2DAF2;
+    background-color: #B7CAE2;
     border-radius: 10px;
 }
 
@@ -69,10 +70,12 @@ nav ul{
     width: 240px;
     font-weight: 600;
     list-style: none;
+    background-color: #B7CAE2;
 }
 
 nav li{
     color: #000000;
+    background-color: #B7CAE2;
 }
 nav li:hover{
     cursor: pointer;
@@ -195,8 +198,6 @@ footer{
     margin: 40px 10px 10px 10px;
     font-size: 24px;
     text-align: center;
-    background-color: #99CCFF;
+    background-color: #86B1E5;
     border-radius: 10px;
 }
-
-
