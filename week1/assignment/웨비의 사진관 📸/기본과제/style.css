@@ -4,10 +4,11 @@
 }
 
 header{
-    height: 50px;
+    height: 80px;
     text-align: center;
-    line-height: 50px;
+    line-height: 80px;
     font-size: 24px;
+    background-color: #99CCFF;
 }
 
 #preview{
@@ -18,7 +19,6 @@ header{
     display: flex;
     justify-content: space-between;
     overflow: scroll;
-    
 }
 
 #preview img{
@@ -29,4 +29,31 @@ header{
 
 #preview img:last-child{
     margin-right: 0px;
+}
+
+nav{
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    height: 60px;
+    background-color: #C2DAF2
+}
+
+nav p{
+    margin-right: 80px;
+    font-size: 18px;
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    font-weight: 600;
+    list-style: none;
+}
+
+nav li:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    color: #5AB2FF
 }
