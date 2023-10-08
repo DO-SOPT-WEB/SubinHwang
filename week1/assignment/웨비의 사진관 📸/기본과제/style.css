@@ -1,6 +1,12 @@
+@font-face {
+    font-family: 'Pretendard'; /* 글꼴 이름 */
+    src: url('./font/Pretendard-Medium.otf') format('opentype'); 
+}
+
 * {
     margin: 0px;
     padding: 0px;
+    font-family: Pretendard, sans-serif;
 }
 
 header{
