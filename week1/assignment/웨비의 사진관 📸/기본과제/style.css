@@ -85,7 +85,7 @@ nav li:hover{
     border-radius: 8px;
 }
 
-#day1-gallery{
+#day1 .gallery{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -94,13 +94,13 @@ nav li:hover{
     gap: 10px;
 }
 
-#day1-gallery img{
+#day1 .gallery img{
     width: 200px;
     height: 200px;
     border-radius: 10px;
 }
 
-#day2-gallery{
+#day2 .gallery{
     display: flex;
     justify-content: space-between;
     width: 900px;
@@ -108,28 +108,28 @@ nav li:hover{
     
 }
 
-#day2-gallery-left, #day2-gallery-right{
+#day2 .left, #day2 .right{
     flex: 1;
 }
 
-#day2-gallery img{
+#day2 .gallery img{
     border-radius: 10px;
 }
-#day2-gallery-left img{
+#day2 .gallery .left img{
     height: 500px;
 }
 
-#day2-gallery-right{
+#day2 .gallery .right{
     display: flex;
     flex-direction: column;
 }
-.row {
+#day2 .row {
     display: flex;
     justify-content: space-between;
     gap: 20px;
     flex: 1;
 }
-#day2-gallery-right img{
+#day2 .right img{
     width: 240px;
     height: 240px;
 }
