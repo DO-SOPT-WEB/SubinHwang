@@ -9,6 +9,10 @@
     font-family: Pretendard, sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 p {
     background-color: transparent;
 }
@@ -67,6 +71,9 @@ nav ul{
     list-style: none;
 }
 
+nav li{
+    color: #000000;
+}
 nav li:hover{
     cursor: pointer;
     text-decoration: underline;
