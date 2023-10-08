@@ -22,12 +22,57 @@
         </div>
     </section>
     <section id="main">
-        <p>10월 9일</p>
-        <p>내역 리스트</p>
-        <input type="checkbox">수입</section>
-        <input type="checkbox">지출</section>
-        <div>
-
+        <p class="subtitle">내역 리스트</p>
+        <div id="date">
+            <button id="prev-day">◀</button>
+            <p>10월 9일</p>
+            <button id="next-day">▶</button>
+        </div>
+        <div id="money-type">
+            <input type="checkbox" checked="on" id="type-income"/>
+            <label for="type-income">수입</label>
+            <input type="checkbox" id="type-spending"/>
+            <label for="type-spending">지출</label>
+        </div>
+        <div id="history">
+            <ol reversed>
+                <li>
+                    <p class="tag">식비</p>
+                    <p class="name">매운향솥</p>
+                    <p class="price spending">27000</p>
+                    <button class="delete">✕</button>
+                </li>
+                <li>
+                    <p class="tag">교통</p>
+                    <p class="name">티머니</p>
+                    <p class="price spending">6200</p>
+                    <button class="delete">✕</button>
+                </li>
+                <li>
+                    <p class="tag">쇼핑</p>
+                    <p class="name">쿠팡 환불</p>
+                    <p class="price income">120000</p>
+                    <button class="delete">✕</button>
+                </li>
+                <li>
+                    <p class="tag">구독</p>
+                    <p class="name">넷플릭스 구독료</p>
+                    <p class="price spending">4250</p>
+                    <button class="delete">✕</button>
+                </li>
+                <li>
+                    <p class="tag">취미</p>
+                    <p class="name">락휴 코인노래방</p>
+                    <p class="price spending">3000</p>
+                    <button class="delete">✕</button>
+                </li>
+                <li>
+                    <p class="tag">이체</p>
+                    <p class="name">홍길동</p>
+                    <p class="price income">30000</p>
+                    <button class="delete">✕</button>
+                </li>
+            </ol>
         </div>
     </section>
     <footer>

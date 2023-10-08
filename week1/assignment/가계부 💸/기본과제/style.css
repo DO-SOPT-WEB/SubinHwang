@@ -42,7 +42,7 @@ header{
 #money-wrapper{
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    margin-top: 16px;
 }
 
 #money{
@@ -53,4 +53,93 @@ header{
     display: flex;
     flex:1;
     justify-content: space-between;
+}
+
+#main{
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+}
+#date{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 40%;
+}
+
+#date button{
+    border: none;
+    background: transparent;
+}
+#money-type{
+    display: flex;
+    justify-content: end;
+}
+
+#money-type input{
+    display: none;
+}
+
+#money-type label{
+    margin-left: 10px;
+    padding: 5px 20px 5px 20px;
+    color:#777777;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+}
+#money-type input[type=checkbox]:checked+label{
+    margin-left: 10px;
+    padding: 5px 20px 5px 20px;
+    color: #ffffff;
+    background-color: #4880ee;
+}
+
+ol{
+    list-style: none;
+}
+
+#history{
+    overflow: scroll;
+    height: 200px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #d9d9d9;
+}
+#history ol{
+    display: flex;
+    flex-direction: column;
+}
+#history li{
+    display: flex;
+    height: 40px;
+    justify-content: space-between;
+}
+
+#history .tag{
+    flex: 1;
+}
+
+#history .name{
+    flex: 3;
+}
+
+#history .price{
+    flex: 1;
+    text-align: end;
+}
+
+#history .income::before{
+    content: '+';
+}
+
+#history .spending::before{
+    content: '-';
+}
+
+#history li button{
+    flex: 0.5;
+    height: 20px;
+    border: 0;
+    background-color: transparent;
 }
