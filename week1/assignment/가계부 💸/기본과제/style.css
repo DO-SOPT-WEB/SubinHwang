@@ -54,20 +54,19 @@ header{
     display: flex;
     flex:1;
     justify-content: space-between;
-    width: 50%;
+    width: 160px;
     align-items: center;
-    color: #777777;
 }
 
 #new img{
     width: 16px;
     height: 16px;
 }
-#new-income{
+.income{
     color: #4d7cfe;
 }
 
-#new-spending{
+.spending{
     color: #fe4d4d;
 }
 #main{
