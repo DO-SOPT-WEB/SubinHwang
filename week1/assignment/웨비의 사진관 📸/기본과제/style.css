@@ -7,7 +7,10 @@
     margin: 0px;
     padding: 0px;
     font-family: Pretendard, sans-serif;
-    background-color: #DCE4ED;
+}
+
+html{
+    background-color: #DCE4ED;;
 }
 
 a {
@@ -70,12 +73,10 @@ nav ul{
     width: 240px;
     font-weight: 600;
     list-style: none;
-    background-color: #B7CAE2;
 }
 
 nav li{
     color: #000000;
-    background-color: #B7CAE2;
 }
 nav li:hover{
     cursor: pointer;
@@ -200,4 +201,20 @@ footer{
     text-align: center;
     background-color: #86B1E5;
     border-radius: 10px;
+}
+#top div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    background-color: #FFFFFF;
+    border-radius: 100%;
+}
+#top img{
+    width: 40px;
+    height: 40px;
 }
