@@ -37,16 +37,27 @@ header{
 }
 
 #preview{
-    margin: 0 10px 10px 10px;
-}
-
-#preview div{ 
     display: flex;
     justify-content: space-between;
-    overflow: scroll;
+    overflow-x: scroll;
     gap: 10px;
+    margin: 0 10px 10px 10px;
+    padding-bottom: 10px;
 }
 
+#preview::-webkit-scrollbar {
+    width: 10px;  
+}
+
+#preview::-webkit-scrollbar-thumb {
+    background: #86B1E5;
+    border-radius: 10px;
+}
+
+#preview::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #B7CAE2;
+}
 #preview img{
     width: 350px;
     border-radius: 10px;
