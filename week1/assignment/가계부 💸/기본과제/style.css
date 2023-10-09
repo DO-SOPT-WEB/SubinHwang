@@ -31,6 +31,11 @@ header{
 }
 
 #asset{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    align-items: center;
     margin-top: 10px;
     padding: 20px;
     background-color: #ffffff;
@@ -41,25 +46,30 @@ header{
     font-size: 20px;
 }
 
-#money-wrapper{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 16px;
-    font-size: 18px;
-}
-
 #money{
-    flex: 1;
+    font-size: 20px;
 }
 
 #new{
     display: flex;
     flex:1;
     justify-content: space-between;
+    width: 50%;
     align-items: center;
     color: #777777;
 }
 
+#new img{
+    width: 16px;
+    height: 16px;
+}
+#new-income{
+    color: #4d7cfe;
+}
+
+#new-spending{
+    color: #fe4d4d;
+}
 #main{
     margin-top: 10px;
     padding: 20px;
