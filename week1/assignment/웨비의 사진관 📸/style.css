@@ -109,6 +109,10 @@ nav li:hover{
     width: 200px;
     height: 200px;
     border-radius: 10px;
+    transition: transform 1s ease, padding 1s ease;
+}
+#day1 .gallery img:hover{
+    transform: translate(0,-10px);
 }
 
 #day2 .gallery{
@@ -124,6 +128,11 @@ nav li:hover{
 
 #day2 .gallery img{
     border-radius: 10px;
+    transition: transform 1s ease, padding 1s ease;
+}
+
+#day2 .gallery img:hover{
+    transform: translate(0,-10px);
 }
 
 #day2 .gallery .left img{
