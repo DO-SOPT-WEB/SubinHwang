@@ -10,7 +10,8 @@
 }
 
 html{
-    background-color: #DCE4ED;;
+    background-color: #DCE4ED;
+    scroll-behavior: smooth;
 }
 
 a {
