@@ -21,6 +21,9 @@ p {
     background-color: transparent;
 }
 
+img{
+    object-fit: cover;
+}
 header{
     height: 80px;
     margin: 10px;
@@ -101,7 +104,7 @@ nav li:hover{
     justify-content: center;
     flex-wrap: wrap;
     margin: 20px auto 0 auto;
-    max-width: 1100px;
+    padding: 0 140px 0 140px;
     gap: 10px;
 }
 
@@ -119,15 +122,26 @@ nav li:hover{
 #day2 .gallery{
     display: flex;
     justify-content: space-between;
-    width: 900px;
+    flex-wrap: wrap;
     margin: 20px auto 0 auto;
+    padding: 0 200px 0 200px;
+    gap: 20px;
 }
-
-#day2 .left, #day2 .right{
+#day2 .gallery .left{
+    display: flex;
+    flex-wrap: wrap;
     flex: 1;
+}
+#day2 .gallery .right{
+    flex:1;
+    display: flex;
+    flex-basis: 50%;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 #day2 .gallery img{
+    flex-grow: 1;
     border-radius: 10px;
     transition: transform 1s ease, padding 1s ease;
 }
@@ -137,24 +151,14 @@ nav li:hover{
 }
 
 #day2 .gallery .left img{
-    height: 500px;
+    flex-grow: 1;
+    height: 520px;
 }
 
-#day2 .gallery .right{
-    display: flex;
-    flex-direction: column;
-}
 
-#day2 .row {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    flex: 1;
-}
-
-#day2 .right img{
-    width: 240px;
-    height: 240px;
+#day2 .gallery .right img{
+    flex-grow: 1;
+    height: 250px;
 }
 
 #day3 .gallery{
