@@ -26,8 +26,9 @@ img{
     object-fit: cover;
 }
 header{
+    width: 1000px;
     height: 80px;
-    margin: 10px;
+    margin: 10px auto 10px auto;
     text-align: center;
     line-height: 80px;
     font-size: 24px;
@@ -41,7 +42,8 @@ header{
     justify-content: space-between;
     overflow-x: scroll;
     gap: 10px;
-    margin: 0 10px 10px 10px;
+    width: 1000px;
+    margin: 0 auto 10px auto;
     padding-bottom: 10px;
 }
 
@@ -71,8 +73,9 @@ nav{
     display: flex;
     align-items: center; 
     justify-content: center;
+    width: 1000px;
     height: 80px;
-    margin: 10px;
+    margin: 10px auto 10px auto;
     font-size: 20px;
     background-color: #B7CAE2;
     border-radius: 10px;
@@ -86,7 +89,6 @@ nav ul{
     display: flex;
     justify-content: space-between;
     width: 240px;
-    font-weight: 600;
     list-style: none;
 }
 
@@ -102,11 +104,12 @@ nav li:hover{
 .index{
     position: sticky;
     top:0;
-    height: 40px;
-    margin: 10px;
+    width: 1000px;
+    height: 60px;
+    margin: 10px auto;
     font-size: 20px;
     text-align: center;
-    line-height: 40px;
+    line-height: 60px;
     background-color: #AAC2DD;
     border-radius: 8px;
 }
@@ -115,15 +118,16 @@ nav li:hover{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 20px auto 0 auto;
+    max-width: 1000px;
+    margin: 10px auto 0 auto;
     padding: 0 140px 0 140px;
     gap: 10px;
 }
 
 #day1 .gallery img{
     flex-grow: 1;
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 10px;
     transition: transform 1s ease, padding 1s ease;
 }
@@ -135,13 +139,15 @@ nav li:hover{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 20px auto 0 auto;
-    padding: 0 200px 0 200px;
-    gap: 20px;
+    max-width: 1000px;
+    margin: 10px auto 10px auto;
+    padding: 0 10%;
+    gap: 10px;
 }
 #day2 .gallery .left{
     display: flex;
     flex-wrap: wrap;
+    flex-basis: 50%;
     flex: 1;
 }
 #day2 .gallery .right{
@@ -149,11 +155,11 @@ nav li:hover{
     display: flex;
     flex-basis: 50%;
     flex-wrap: wrap;
-    gap: 20px;
+    min-width: 400px;
+    gap: 10px;
 }
 
 #day2 .gallery img{
-    flex-grow: 1;
     border-radius: 10px;
     transition: transform 1s ease, padding 1s ease;
 }
@@ -164,13 +170,15 @@ nav li:hover{
 
 #day2 .gallery .left img{
     flex-grow: 1;
-    height: 520px;
+    width:400px;
+    height: 420px;
 }
 
 
 #day2 .gallery .right img{
     flex-grow: 1;
-    height: 250px;
+    width : 200px;
+    height: 205px;
 }
 
 #day3 .gallery{
@@ -180,7 +188,7 @@ nav li:hover{
     gap: 10px;
     width: 1000px;
     height: 500px;
-    margin: 20px auto 0 auto;
+    margin: 10px auto 0 auto;
 }
 
 #day3 .gallery .item{
@@ -190,39 +198,40 @@ nav li:hover{
 #day3 .gallery .item:nth-child(1) {
     grid-column: span 2;
     grid-row: span 1;
-    background: no-repeat center/cover url('./img/biei.jpg');
+    background: no-repeat center/cover url('./img/nikka.png');
 }
 
 #day3 .gallery .item:nth-child(2) {
     grid-column: span 2;
     grid-row: span 2;
-    background: no-repeat center/cover url('./img/biei.jpg');
+    background: no-repeat center/cover url('./img/ryokan1.jpg');
 }
 
 #day3 .gallery .item:nth-child(3) {
     grid-column: span 2;
     grid-row: span 1;
-    background: no-repeat center/cover url('./img/biei.jpg');
+    background: no-repeat center/cover url('./img/beer-museum.jpg');
 }
 
 #day3 .gallery .item:nth-child(4) {
     grid-column: span 3;
     grid-row: span 2;
-    background: no-repeat center/cover url('./img/biei.jpg');
+    background: no-repeat center/cover url('./img/ferris.png');
 }
 
 #day3 .gallery .item:nth-child(5) {
     grid-column: span 1;
     grid-row: span 2;
-    background: no-repeat center/cover url('./img/biei.jpg');
+    background: no-repeat center/cover url('./img/vending.JPG');
 }
 
 footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
-    margin: 40px 10px 10px 10px;
+    width: 1000px;
+    height: 150px;
+    margin: 10px auto;
     font-size: 24px;
     text-align: center;
     background-color: #86B1E5;
