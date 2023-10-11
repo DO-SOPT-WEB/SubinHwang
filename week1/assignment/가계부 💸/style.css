@@ -53,7 +53,7 @@ header{
     font-size: 20px;
 }
 
-#new{
+#today{
     display: flex;
     flex:1;
     justify-content: space-between;
@@ -61,7 +61,7 @@ header{
     align-items: center;
 }
 
-#new img{
+#today img{
     width: 16px;
     height: 16px;
 }
