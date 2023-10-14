@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Pretendard';
-    src: url('./font/Pretendard-Medium.otf') format('opentype'); 
+    src: url('./font/Pretendard-Medium.otf') format('opentype');
 }
 
 * {
@@ -10,11 +10,11 @@
     box-sizing: border-box;
 }
 
-html{
+html {
     background-color: #d9d9d9;
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -24,17 +24,19 @@ body{
     padding: 10px;
     background-color: #f8f8f8;
 }
-button{
+
+button {
     cursor: pointer;
 }
-header{
+
+header {
     padding: 20px;
     font-size: 20px;
     background-color: #ffffff;
     border-radius: 10px;
 }
 
-#asset{
+#asset {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,36 +47,37 @@ header{
     border-radius: 12px;
 }
 
-.subtitle{
+.subtitle {
     font-size: 20px;
 }
 
-#money{
+#money {
     font-size: 20px;
 }
 
-#today{
+#today {
     display: flex;
-    flex:1;
+    flex: 1;
     justify-content: space-between;
     width: 160px;
     align-items: center;
 }
 
-#today img{
+#today img {
     width: 16px;
     height: 16px;
 }
-.income{
+
+.income {
     color: #4d7cfe;
 }
 
-.spending{
+.spending {
     color: #fe4d4d;
 }
 
 #main {
-    flex-grow: 1; 
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     max-height: calc(100vh - 300px);
@@ -83,101 +86,105 @@ header{
     border-radius: 12px;
 }
 
-#date{
+#date {
     display: flex;
     justify-content: space-between;
     margin: 20px 0 10px 0;
     width: 160px;
 }
 
-#date button{
+#date button {
     border: none;
     background: transparent;
 }
-#money-type{
+
+#money-type {
     display: flex;
     justify-content: end;
     font-size: 14px;
 }
 
-#money-type input{
+#money-type input {
     display: none;
 }
 
-#money-type label{
+#money-type label {
     margin-left: 10px;
     padding: 5px 20px 5px 20px;
-    color:#777777;
+    color: #777777;
     background-color: #f2f2f2;
     border-radius: 5px;
     cursor: pointer;
 }
-#money-type input[type=checkbox]:checked+label{
+
+#money-type input[type=checkbox]:checked+label {
     margin-left: 10px;
     padding: 5px 20px 5px 20px;
     color: #ffffff;
     background-color: #4880ee;
 }
 
-ol{
+ol {
     list-style: none;
 }
 
-#history{
+#history {
     overflow: scroll;
     height: 90%;
     margin-top: 20px;
     padding-top: 20px;
     border-top: 1px solid #d9d9d9;
 }
-#history ol{
+
+#history ol {
     display: flex;
     flex-direction: column;
 }
-#history li{
+
+#history li {
     display: flex;
     height: 40px;
     justify-content: space-between;
 }
 
-#history li p{
+#history li p {
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space:nowrap;
+    white-space: nowrap;
 }
 
-#history .tag{
+#history .tag {
     flex: 1;
 }
 
-#history .name{
+#history .name {
     flex: 3;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space:nowrap;
+    white-space: nowrap;
 }
 
-#history .price{
+#history .price {
     flex: 1.5;
     text-align: end;
 }
 
-#history .income::before{
+#history .income::before {
     content: '+';
 }
 
-#history .spending::before{
+#history .spending::before {
     content: '-';
 }
 
-#history li button{
+#history li button {
     flex: 0.5;
     height: 20px;
     border: 0;
     background-color: transparent;
 }
 
-footer #add{
+footer #add {
     position: fixed;
     bottom: 10px;
     width: calc(100% - 20px);

@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Pretendard';
-    src: url('./font/Pretendard-Medium.otf') format('opentype'); 
+    src: url('./font/Pretendard-Medium.otf') format('opentype');
 }
 
 * {
@@ -9,7 +9,7 @@
     font-family: Pretendard, sans-serif;
 }
 
-html{
+html {
     background-color: #DCE4ED;
     scroll-behavior: smooth;
 }
@@ -22,10 +22,11 @@ p {
     background-color: transparent;
 }
 
-img{
+img {
     object-fit: cover;
 }
-header{
+
+header {
     width: 1000px;
     height: 80px;
     margin: 10px auto 10px auto;
@@ -37,7 +38,7 @@ header{
 
 }
 
-#preview{
+#preview {
     display: flex;
     justify-content: space-between;
     overflow-x: scroll;
@@ -48,7 +49,7 @@ header{
 }
 
 #preview::-webkit-scrollbar {
-    width: 10px;  
+    width: 10px;
 }
 
 #preview::-webkit-scrollbar-thumb {
@@ -60,18 +61,19 @@ header{
     border-radius: 10px;
     background-color: #B7CAE2;
 }
-#preview img{
+
+#preview img {
     width: 350px;
     border-radius: 10px;
 }
 
-#preview img:last-child{
+#preview img:last-child {
     margin-right: 0px;
 }
 
-nav{
+nav {
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     width: 1000px;
     height: 80px;
@@ -81,29 +83,30 @@ nav{
     border-radius: 10px;
 }
 
-nav p{
+nav p {
     margin-right: 80px;
 }
 
-nav ul{
+nav ul {
     display: flex;
     justify-content: space-between;
     width: 240px;
     list-style: none;
 }
 
-nav li{
+nav li {
     color: #000000;
 }
-nav li:hover{
+
+nav li:hover {
     cursor: pointer;
     text-decoration: underline;
     color: #5AB2FF
 }
 
-.index{
+.index {
     position: sticky;
-    top:0;
+    top: 0;
     width: 1000px;
     height: 60px;
     margin: 10px auto;
@@ -114,7 +117,7 @@ nav li:hover{
     border-radius: 8px;
 }
 
-#day1 .gallery{
+#day1 .gallery {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -124,18 +127,19 @@ nav li:hover{
     gap: 10px;
 }
 
-#day1 .gallery img{
+#day1 .gallery img {
     flex-grow: 1;
     width: 180px;
     height: 180px;
     border-radius: 10px;
     transition: transform 1s ease, padding 1s ease;
 }
-#day1 .gallery img:hover{
-    transform: translate(0,-10px);
+
+#day1 .gallery img:hover {
+    transform: translate(0, -10px);
 }
 
-#day2 .gallery{
+#day2 .gallery {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -144,14 +148,16 @@ nav li:hover{
     padding: 0 10%;
     gap: 10px;
 }
-#day2 .gallery .left{
+
+#day2 .gallery .left {
     display: flex;
     flex-wrap: wrap;
     flex-basis: 50%;
     flex: 1;
 }
-#day2 .gallery .right{
-    flex:1;
+
+#day2 .gallery .right {
+    flex: 1;
     display: flex;
     flex-basis: 50%;
     flex-wrap: wrap;
@@ -159,39 +165,39 @@ nav li:hover{
     gap: 10px;
 }
 
-#day2 .gallery img{
+#day2 .gallery img {
     border-radius: 10px;
     transition: transform 1s ease, padding 1s ease;
 }
 
-#day2 .gallery img:hover{
-    transform: translate(0,-10px);
+#day2 .gallery img:hover {
+    transform: translate(0, -10px);
 }
 
-#day2 .gallery .left img{
+#day2 .gallery .left img {
     flex-grow: 1;
-    width:400px;
+    width: 400px;
     height: 420px;
 }
 
 
-#day2 .gallery .right img{
+#day2 .gallery .right img {
     flex-grow: 1;
-    width : 200px;
+    width: 200px;
     height: 205px;
 }
 
-#day3 .gallery{
+#day3 .gallery {
     display: grid;
-	grid-template-columns: repeat(4, 1fr); 
-    grid-template-rows: repeat(4, 1fr); 
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     gap: 10px;
     width: 1000px;
     height: 500px;
     margin: 10px auto 0 auto;
 }
 
-#day3 .gallery .item{
+#day3 .gallery .item {
     border-radius: 10px;
 }
 
@@ -225,7 +231,7 @@ nav li:hover{
     background: no-repeat center/cover url('./img/vending.JPG');
 }
 
-footer{
+footer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -237,7 +243,8 @@ footer{
     background-color: #86B1E5;
     border-radius: 10px;
 }
-#top div{
+
+#top div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -249,7 +256,8 @@ footer{
     background-color: #FFFFFF;
     border-radius: 100%;
 }
-#top img{
+
+#top img {
     width: 40px;
     height: 40px;
 }
