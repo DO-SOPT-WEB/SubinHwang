@@ -109,6 +109,7 @@ nav li:hover {
 
 .index {
     position: sticky;
+    z-index:1;
     top: 0;
     width: 1000px;
     height: 60px;
