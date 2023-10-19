@@ -325,6 +325,7 @@ footer {
     justify-content: center;
     align-items: center;
     position: fixed;
+    opacity: 0;
     bottom: 30px;
     right: 30px;
     width: 80px;
