@@ -98,6 +98,16 @@ button {
     width: 50px;
 }
 
+button.start {
+    background: no-repeat center/cover url('./img/start.png');
+    left: 0;
+}
+
+button.end {
+    background: no-repeat center/cover url('./img/end.png');
+    right: 0
+}
+
 #preview img {
     width: 350px;
     border-radius: 10px;

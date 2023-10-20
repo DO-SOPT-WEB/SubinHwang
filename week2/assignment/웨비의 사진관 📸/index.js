@@ -44,3 +44,26 @@ detailBox.forEach((box, index) => {
     });
   }
 });
+
+/* preview 섹션 양쪽 끝으로 이동하는 기능 */
+const startButton = document.querySelector(".start");
+const endButton = document.querySelector(".end");
+const previewSection = document.querySelector("#preview .gallery");
+
+startButton.addEventListener("click", () => {
+  const scrollOptions = {
+    left: 0,
+    behavior: "smooth",
+  };
+
+  previewSection.scrollTo(scrollOptions);
+});
+
+endButton.addEventListener("click", () => {
+  const scrollOptions = {
+    left: previewSection.scrollWidth,
+    behavior: "smooth",
+  };
+
+  previewSection.scrollTo(scrollOptions);
+});
