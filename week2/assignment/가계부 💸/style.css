@@ -156,7 +156,7 @@ ol {
     white-space: nowrap;
 }
 
-#history .tag {
+#history .category {
     flex-basis: 20%;
 }
 
@@ -188,6 +188,9 @@ ol {
     background-color: transparent;
 }
 
+.delete::after {
+    content: "✕";
+}
 footer #add {
     position: fixed;
     bottom: 10px;
