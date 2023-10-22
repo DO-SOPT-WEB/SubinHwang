@@ -5,7 +5,14 @@ import {
   TRANSACTION_TYPE,
   ELEMENT,
   HISTORY_LIST,
-} from "./constants.js";
+} from "./utils/constants.js";
+
+import {
+  makeCategoryElement,
+  makeNameElement,
+  makePriceElement,
+  makeDeleteButton,
+} from "./utils/elementCreator.js";
 
 const historyDiv = document.querySelector("#history ul");
 const totalMoney = document.querySelector("#asset #money");
@@ -42,39 +49,6 @@ function addList(history) {
     makeDeleteButton()
   );
   historyDiv.appendChild(list);
-}
-
-function makeCategoryElement(category) {
-  const historyCategory = document.createElement(ELEMENT.HTMLTAG.TEXT);
-  historyCategory.className = ELEMENT.CLASSNAME.CATEGORY;
-  historyCategory.innerHTML = category;
-  return historyCategory;
-}
-
-function makeNameElement(name) {
-  const historyName = document.createElement(ELEMENT.HTMLTAG.TEXT);
-  historyName.className = ELEMENT.CLASSNAME.NAME;
-  historyName.innerHTML = name;
-  return historyName;
-}
-
-function makePriceElement(type, price) {
-  const historyPrice = document.createElement(ELEMENT.HTMLTAG.TEXT);
-  historyPrice.className = ELEMENT.CLASSNAME.PRICE;
-  if (type === TRANSACTION_TYPE.SPENDING) {
-    historyPrice.classList.add(ELEMENT.CLASSNAME.SPENDING);
-  }
-  if (type === TRANSACTION_TYPE.INCOME) {
-    historyPrice.classList.add(ELEMENT.CLASSNAME.INCOME);
-  }
-  historyPrice.innerText = price;
-  return historyPrice;
-}
-
-function makeDeleteButton() {
-  const deleteButton = document.createElement(ELEMENT.HTMLTAG.BUTTON);
-  deleteButton.className = ELEMENT.CLASSNAME.DELETE;
-  return deleteButton;
 }
 
 function setInitData() {
