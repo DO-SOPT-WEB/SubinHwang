@@ -1,4 +1,6 @@
 const INIT_BALANCE = 0;
+const INIT_INCOME = 0;
+const INIT_SPENDING = 0;
 
 const HISTORY_LIST = [
   [1, "용돈", "생활비", 1200000], //지출 : 0, 수입 : 1
@@ -8,29 +10,39 @@ const HISTORY_LIST = [
 ];
 const historyDiv = document.querySelector("#history ul");
 const totalMoney = document.querySelector("#asset #money");
+const todayTotalIncome = document.querySelector("#today .income");
+const todayTotalSpending = document.querySelector("#today .spending");
 
-function setTotalMoney() {
-  let total = INIT_BALANCE;
-  HISTORY_LIST.forEach((history) => {
-    if (history[0] === 0) {
-      total -= history[3];
-    }
-    if (history[0] === 1) total += history[3];
-  });
-  totalMoney.innerHTML = total;
+let total = INIT_BALANCE;
+let income = INIT_INCOME;
+let spending = INIT_SPENDING;
+
+function calculateMoney(history) {
+  if (history[0] === 0) {
+    total -= history[3];
+    spending += history[3];
+  }
+  if (history[0] === 1) {
+    total += history[3];
+    income += history[3];
+  }
 }
 
-function addList() {
-  HISTORY_LIST.forEach((history) => {
-    const list = document.createElement("li");
-    list.append(
-      makeTagElement(history[1]),
-      makeNameElement(history[2]),
-      makePriceElement(history[0], history[3]),
-      makeDeleteButton()
-    );
-    historyDiv.appendChild(list);
-  });
+function setMoney() {
+  totalMoney.innerHTML = total;
+  todayTotalIncome.innerHTML = income;
+  todayTotalSpending.innerHTML = spending;
+}
+
+function addList(history) {
+  const list = document.createElement("li");
+  list.append(
+    makeTagElement(history[1]),
+    makeNameElement(history[2]),
+    makePriceElement(history[0], history[3]),
+    makeDeleteButton()
+  );
+  historyDiv.appendChild(list);
 }
 function makeTagElement(tag) {
   const historyTag = document.createElement("p");
@@ -67,5 +79,12 @@ function makeDeleteButton() {
   return deleteButton;
 }
 
-addList();
-setTotalMoney();
+function setInitData() {
+  HISTORY_LIST.forEach((history) => {
+    addList(history);
+    calculateMoney(history);
+  });
+  setMoney();
+}
+
+setInitData();
