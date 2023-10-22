@@ -1,41 +1,11 @@
-const INIT_BALANCE = 0;
-const INIT_INCOME = 0;
-const INIT_SPENDING = 0;
-
-const TRANSACTION_TYPE = {
-  SPENDING: 0,
-  INCOME: 1,
-};
-
-const CATEGORY = {
-  ALLOWANCE: "용돈",
-  TRANSPORTATION: "교통",
-  SHOPPING: "쇼핑",
-  TRANSFER: "이체",
-};
-
-const ELEMENT = {
-  HTMLTAG: {
-    TEXT: "p",
-    LIST: "li",
-    BUTTON: "button",
-  },
-  CLASSNAME: {
-    CATEGORY: "category",
-    NAME: "name",
-    PRICE: "price",
-    SPENDING: "spending",
-    INCOME: "income",
-    DELETE: "delete",
-  },
-};
-
-const HISTORY_LIST = [
-  [TRANSACTION_TYPE.INCOME, CATEGORY.ALLOWANCE, "생활비", 1200000],
-  [TRANSACTION_TYPE.SPENDING, CATEGORY.TRANSPORTATION, "티머니", 6200],
-  [TRANSACTION_TYPE.SPENDING, CATEGORY.SHOPPING, "쿠팡환불", 27000],
-  [TRANSACTION_TYPE.INCOME, CATEGORY.TRANSFER, "홍길동", 3000],
-];
+import {
+  INIT_BALANCE,
+  INIT_INCOME,
+  INIT_SPENDING,
+  TRANSACTION_TYPE,
+  ELEMENT,
+  HISTORY_LIST,
+} from "./constants.js";
 
 const historyDiv = document.querySelector("#history ul");
 const totalMoney = document.querySelector("#asset #money");
