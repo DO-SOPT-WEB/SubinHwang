@@ -9,17 +9,15 @@ const HISTORY_LIST = [
 const historyDiv = document.querySelector("#history ul");
 const totalMoney = document.querySelector("#asset #money");
 
-function setTotalMoney(){
-  
+function setTotalMoney() {
   let total = INIT_BALANCE;
-HISTORY_LIST.forEach((history) =>{
-  if(history[0] === 0){
-    total -= history[3]
-  }
-  if(history[0] === 1)
-    total += history[3]
-})
-totalMoney.innerHTML = total;
+  HISTORY_LIST.forEach((history) => {
+    if (history[0] === 0) {
+      total -= history[3];
+    }
+    if (history[0] === 1) total += history[3];
+  });
+  totalMoney.innerHTML = total;
 }
 
 function addList() {
@@ -53,10 +51,10 @@ function makePriceElement(type, price) {
   const historyPrice = document.createElement("p");
   historyPrice.className = "price";
   if (type === 0) {
-    historyPrice.className = "spending";
+    historyPrice.classList.add("spending");
   }
   if (type === 1) {
-    historyPrice.className = "income";
+    historyPrice.classList.add("income");
   }
   historyPrice.innerText = price;
   return historyPrice;

@@ -147,7 +147,7 @@ ol {
 #history li {
     display: flex;
     height: 40px;
-    justify-content: space-between;
+    justify-content: start;
 }
 
 #history li p {
@@ -157,19 +157,20 @@ ol {
 }
 
 #history .tag {
-    flex: 1;
+    flex-basis: 20%;
 }
 
 #history .name {
-    flex: 3;
+    flex-basis: 40%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 #history .price {
-    flex: 1.5;
+    flex-basis: 30%;
     text-align: end;
+    flex-grow: 1;
 }
 
 #history .income::before {
@@ -181,7 +182,7 @@ ol {
 }
 
 #history li button {
-    flex: 0.5;
+    flex-basis: 10%;
     height: 20px;
     border: 0;
     background-color: transparent;
