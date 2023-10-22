@@ -7,7 +7,7 @@ const TRANSACTION_TYPE = {
   INCOME: 1,
 };
 
-const CATEGORIE = {
+const CATEGORY = {
   ALLOWANCE: "용돈",
   TRANSPORTATION: "교통",
   SHOPPING: "쇼핑",
@@ -21,7 +21,7 @@ const ELEMENT = {
     BUTTON: "button",
   },
   CLASSNAME: {
-    CATEGORIE: "category",
+    CATEGORY: "category",
     NAME: "name",
     PRICE: "price",
     SPENDING: "spending",
@@ -31,10 +31,10 @@ const ELEMENT = {
 };
 
 const HISTORY_LIST = [
-  [TRANSACTION_TYPE.INCOME, CATEGORIE.ALLOWANCE, "생활비", 1200000],
-  [TRANSACTION_TYPE.SPENDING, CATEGORIE.TRANSPORTATION, "티머니", 6200],
-  [TRANSACTION_TYPE.SPENDING, CATEGORIE.SHOPPING, "쿠팡환불", 27000],
-  [TRANSACTION_TYPE.INCOME, CATEGORIE.TRANSFER, "홍길동", 3000],
+  [TRANSACTION_TYPE.INCOME, CATEGORY.ALLOWANCE, "생활비", 1200000],
+  [TRANSACTION_TYPE.SPENDING, CATEGORY.TRANSPORTATION, "티머니", 6200],
+  [TRANSACTION_TYPE.SPENDING, CATEGORY.SHOPPING, "쿠팡환불", 27000],
+  [TRANSACTION_TYPE.INCOME, CATEGORY.TRANSFER, "홍길동", 3000],
 ];
 
 const historyDiv = document.querySelector("#history ul");
@@ -76,7 +76,7 @@ function addList(history) {
 
 function makeCategoryElement(category) {
   const historyCategory = document.createElement(ELEMENT.HTMLTAG.TEXT);
-  historyCategory.className = ELEMENT.CLASSNAME.CATEGORIE;
+  historyCategory.className = ELEMENT.CLASSNAME.CATEGORY;
   historyCategory.innerHTML = category;
   return historyCategory;
 }
