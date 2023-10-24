@@ -3,7 +3,7 @@ import { ELEMENT, HISTORY_LIST } from "./constants.js";
 
 function removeList(index, list) {
   HISTORY_LIST.forEach((history, i) => {
-    if (index === history[4]) {
+    if (index === history[0]) {
       HISTORY_LIST.splice(i, 1);
       list.remove();
     }

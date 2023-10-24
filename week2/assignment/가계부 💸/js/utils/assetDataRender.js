@@ -20,13 +20,13 @@ function resetMoney(){
 }
 
 function calculateMoney(history) {
-  if (history[0] === TRANSACTION_TYPE.SPENDING) {
-    total -= history[3];
-    spending += history[3];
+  if (history[1] === TRANSACTION_TYPE.SPENDING) {
+    total -= history[4];
+    spending += history[4];
   }
-  if (history[0] === TRANSACTION_TYPE.INCOME) {
-    total += history[3];
-    income += history[3];
+  if (history[1] === TRANSACTION_TYPE.INCOME) {
+    total += history[4];
+    income += history[4];
   }
 }
 

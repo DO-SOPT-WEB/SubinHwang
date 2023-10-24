@@ -10,10 +10,10 @@ import { setDeleteEvent } from "./historyDataDeleter.js";
 function addList(history) {
   const list = document.createElement(ELEMENT.HTMLTAG.LIST);
   list.append(
-    makeCategoryElement(history[1]),
-    makeNameElement(history[2]),
-    makePriceElement(history[0], history[3]),
-    makeDeleteButton(history[4])
+    makeCategoryElement(history[2]),
+    makeNameElement(history[3]),
+    makePriceElement(history[1], history[4]),
+    makeDeleteButton(history[0])
   );
   HISTORY_DIV.appendChild(list);
   setDeleteEvent();
