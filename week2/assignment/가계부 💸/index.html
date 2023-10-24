@@ -39,16 +39,61 @@
         </div>
         <div id="history">
             <ul>
-                
+
             </ul>
         </div>
     </section>
     <footer>
         <button id="add">내역 추가</button>
     </footer>
-    <section>
+    <section id="modal-wrapper">
+        <div id="add-history-modal">
+            <h2>내역추가</h2>
+            <div id="type-selector">
+                <input type="radio" id="select-income" name="transaction-type" checked="checked" />
+                <label for="select-income">수입</label>
+                <input type="radio" id="select-spending" name="transaction-type" />
+                <label for="select-spending">지출</label>
+            </div>
+            <div id="category-selector">
+                <p>카테고리</p>
+                <div class="select-category">
+                    <div class="selector">
+                        <p class="selected-category">카테고리를 선택하세요</p>
+                        <button class="drop-down">▾</button>
+                    </div>
+                    <ul class="categories">
+                        <li class="category type-income">
+                            <p>용돈</p>
+                        </li>
+                        <li class="category type-income">
+                            <p>이체</p>
+                        </li>
+                        <li class="category type-spending">
+                            <p>교통</p>
+                        </li>
+                        <li class="category type-spending">
+                            <p>쇼핑</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        <div id="price-input">
+            <p>금액</p>
+            <input type="text" placeholder="금액을 입력하세요" />
+        </div>
+        <div id="content-input">
+            <p>내용</p>
+            <input type="text" placeholder="지출처를 입력하세요" />
+        </div>
+        <div id="modal-button-wrapper">
+            <button id="close">닫기</button>
+            <button id="save">저장하기</button>
+        </div>
+        </div>
 
     </section>
+    <script type="module" src="js/categorySelector.js"></script>
     <script type="module" src="js/initDataRender.js"></script>
     <script type="module" src="js/transactionFilter.js"></script>
 </body>

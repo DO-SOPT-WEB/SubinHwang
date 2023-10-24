@@ -26,6 +26,7 @@ body {
 }
 
 button {
+    border: none;
     cursor: pointer;
 }
 
@@ -36,6 +37,10 @@ header {
 }
 
 h1 {
+    font-size: 20px;
+}
+
+h2 {
     font-size: 20px;
 }
 
@@ -191,6 +196,7 @@ ol {
 .delete::after {
     content: "✕";
 }
+
 footer #add {
     position: fixed;
     bottom: 10px;
@@ -203,4 +209,171 @@ footer #add {
     background-color: #4880ee;
     border: none;
     border-radius: 10px;
+}
+
+section#modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#add-history-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    padding: 20px 10px;
+    width: 100vw;
+    height: 60%;
+    border-radius: 20px 20px 0px 0px;
+    background-color: #ffffff;
+}
+
+#add-history-modal input[type=radio] {
+    display: none;
+}
+
+#add-history-modal input[type=text] {
+    width: 70%;
+    border: none;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+#add-history-modal p {
+    line-height: 40px;
+}
+
+#type-selector {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    width: 90%;
+}
+
+#type-selector label {
+    width: 50%;
+    text-align: center;
+    border-radius: 7px;
+    line-height: 32px;
+}
+
+.select-category {
+    width: 70%;
+}
+
+.drop-down {
+    background-color: transparent;
+}
+
+.select-category .selector {
+    display: flex;
+    height: 40px;
+    background: #ffffff;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.selector p {
+    font-size: 12px;
+}
+
+.select-category.active .drop-down {
+    transform: rotate(-180deg);
+}
+
+.select-category .categories {
+    position: absolute;
+    width: 60%;
+    height: 150px;
+    overflow: scroll;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.select-category.active .categories {
+    display: block;
+}
+
+.categories .category {
+    display: flex;
+    height: 40px;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    font-size: 14px;
+    color: #333333;
+    background: #fff;
+}
+
+.categories .category:hover {
+    background: #F2F2F2;
+}
+
+.categories .type-spending {
+    display: none;
+}
+
+#select-income input[type=radio]:checked+.categories .type-spending {
+    display: none;
+}
+
+#type-selector input[type=radio]:checked+label {
+    background-color: #ffffff;
+}
+
+#category-selector,
+#price-input,
+#content-input,
+#modal-button-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+#modal-button-wrapper {
+    position: absolute;
+    gap: 10px;
+    bottom: 20px;
+    width: 90%;
+    height: 40px;
+}
+
+#modal-button-wrapper button {
+    width: 50%;
+    height: 44px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+button#close {
+    position: left;
+    color: #333333;
+}
+
+button#save {
+    position: right;
+    color: #ffffff;
+    background-color: #4880ee;
 }
