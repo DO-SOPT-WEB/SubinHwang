@@ -1,4 +1,4 @@
-import { HISTORY_LIST } from "./utils/constants.js";
+import { HISTORY_LIST, MESSAGE } from "./utils/constants.js";
 import { renderHistoryList } from "./utils/historyDataRender.js";
 import { renderAssetData } from "./utils/assetDataRender.js";
 const selectorWrapper = document.querySelector(".select-category");
@@ -78,10 +78,20 @@ saveButton.addEventListener("click", () => {
     transactionType = 1;
   }
   const price = parseInt(priceInput.value);
-  console.log(price);
   const content = contentInput.value;
-  console.log(content);
   const category = selectedCategory.innerText;
+
+  if(!price || !content || category === MESSAGE.CATEGORY_UNSELECTED){
+      alert(MESSAGE.EMPTY_FIELD);
+    priceInput.value="";
+    contentInput.value = "";
+  }
+  else if(typeof price !== Number) {
+      alert(MESSAGE.PRICE_IS_NOT_NUMBER);
+       priceInput.value = "";
+       contentInput.value = "";
+  }
+  else{
   HISTORY_LIST.push([
     HISTORY_LIST.length - 1,
     transactionType,
@@ -91,5 +101,8 @@ saveButton.addEventListener("click", () => {
   ]);
   renderHistoryList();
   renderAssetData();
-  alert("내역이 추가되었어요!")
+  alert(MESSAGE.ADD_LIST_SUCCESS)
+   priceInput.value = "";
+   contentInput.value = "";
+}
 });

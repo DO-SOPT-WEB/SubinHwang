@@ -32,7 +32,12 @@ export const ELEMENT = {
     DATA_INDEX: "data-index",
   },
 };
-
+export const MESSAGE = {
+  EMPTY_FIELD: "모든 필드를 입력해주세요",
+  CATEGORY_UNSELECTED: "카테고리를 선택하세요",
+  ADD_LIST_SUCCESS: "내역이 추가되었어요",
+  PRICE_IS_NOT_NUMBER: "금액은 숫자여야 합니다"
+}
 export const HISTORY_LIST = [
   [0, TRANSACTION_TYPE.INCOME, CATEGORY.ALLOWANCE, "생활비", 1200000],
   [1, TRANSACTION_TYPE.SPENDING, CATEGORY.TRANSPORTATION, "티머니", 6200],
