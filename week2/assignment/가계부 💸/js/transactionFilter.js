@@ -1,34 +1,26 @@
 import {
-  INIT_BALANCE,
-  INIT_INCOME,
-  INIT_SPENDING,
   TRANSACTION_TYPE,
-  ELEMENT,
   HISTORY_LIST,
+  INCOME_BUTTON,
+  SPENDING_BUTTON,
 } from "./utils/constants.js";
 
 import {
-  makeCategoryElement,
-  makeNameElement,
-  makePriceElement,
-  makeDeleteButton,
+  renderHistoryList,
+  resetData,
 } from "./utils/elementCreator.js";
 
-const historyDiv = document.querySelector("#history ul");
-const incomeButton = document.querySelector("#money-type #type-income");
-const spendingButton = document.querySelector("#money-type #type-spending");
-
-incomeButton.addEventListener("click", () => {
+INCOME_BUTTON.addEventListener("click", () => {
   handleButtonClick();
 });
 
-spendingButton.addEventListener("click", () => {
+SPENDING_BUTTON.addEventListener("click", () => {
   handleButtonClick();
 });
-
-function handleButtonClick() {
-  const isIncomeChecked = incomeButton.checked;
-  const isSpendingChecked = spendingButton.checked;
+  
+export function handleButtonClick() {
+  const isIncomeChecked = INCOME_BUTTON.checked;
+  const isSpendingChecked = SPENDING_BUTTON.checked;
 
   if (isIncomeChecked && isSpendingChecked) { //둘다체크
     updateData();
@@ -41,34 +33,17 @@ function handleButtonClick() {
   }
 }
 
-function resetData(){
-  while (historyDiv.firstChild) {
-    historyDiv.removeChild(historyDiv.firstChild);
-  }
-}
 function updateData(type) {
-  resetData();
-
+  let typeList = []
   if (type === undefined) {
-    HISTORY_LIST.forEach((history) => {
-      addList(history);
-    });
+    renderHistoryList(HISTORY_LIST);
   } else {
     HISTORY_LIST.forEach((history) => {
-      if (history[0] === type) {
-        addList(history);
+      if (type === history[0]) {
+        typeList.push(history)
       }
     });
+    renderHistoryList(typeList)
   }
-}
-
-function addList(history) {
-  const list = document.createElement(ELEMENT.HTMLTAG.LIST);
-  list.append(
-    makeCategoryElement(history[1]),
-    makeNameElement(history[2]),
-    makePriceElement(history[0], history[3]),
-    makeDeleteButton()
-  );
-  historyDiv.appendChild(list);
+  
 }
