@@ -53,7 +53,6 @@
     flex-direction: column;
     flex-grow: 1;
 
-    max-height: calc(100vh - 280px);
     padding: 20px;
     border-radius: 12px;
 
@@ -211,7 +210,7 @@ footer #add {
     width: 100%;
     height: 100%;
 
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 
@@ -261,7 +260,9 @@ footer #add {
     width: 90%;
     height: 40px;
 
+    margin: 10px auto 5px;
     padding: 4px;
+
     border-radius: 10px;
 
     background-color: #f2f2f2;
@@ -342,7 +343,7 @@ footer #add {
     height: 40px;
 
     padding: 0 16px;
-    
+
     border-radius: 8px;
     
     background-color: #ffffff;
@@ -402,16 +403,37 @@ input {
     font-size: 16px;
 }
 
-button#close {
+button#close,button#cancel {
     position: left;
 
     color: #333333;
 }
 
-button#save {
+button#save,button#confirm {
     position: right;
 
     background-color: #4880ee;
 
     color: #ffffff;
+}
+
+section>#delete-modal{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+
+    position: absolute;
+    z-index: 1;
+    top: calc((100% - 150px)/2);
+    left: calc((100% - 250px)/2);
+
+    width: 250px;
+    height: 150px;
+
+    padding-top: 40px;
+
+    border-radius: 10px;
+
+    background-color: #ffffff;
+    
 }
