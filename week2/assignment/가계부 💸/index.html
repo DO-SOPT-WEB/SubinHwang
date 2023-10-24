@@ -46,7 +46,10 @@
     <footer>
         <button id="add">내역 추가</button>
     </footer>
-    <section id="modal-wrapper">
+    <section>
+        <div id="modal-background">
+
+        </div>
         <div id="add-history-modal">
             <h2>내역추가</h2>
             <div id="type-selector">
@@ -80,11 +83,11 @@
             </div>
         <div id="price-input">
             <p>금액</p>
-            <input type="text" placeholder="금액을 입력하세요" />
+            <input type="text" id="input-price" placeholder="금액을 입력하세요" />
         </div>
         <div id="content-input">
             <p>내용</p>
-            <input type="text" placeholder="지출처를 입력하세요" />
+            <input type="text" id="input-content" placeholder="지출처를 입력하세요" />
         </div>
         <div id="modal-button-wrapper">
             <button id="close">닫기</button>

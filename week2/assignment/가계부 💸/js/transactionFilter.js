@@ -40,7 +40,7 @@ function updateData(type) {
     renderHistoryList(HISTORY_LIST);
   } else {
     HISTORY_LIST.forEach((history) => {
-      if (type === history[0]) {
+      if (type === history[1]) {
         typeList.push(history);
       }
     });
