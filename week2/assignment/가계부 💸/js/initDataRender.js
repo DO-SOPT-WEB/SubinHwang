@@ -1,6 +1,6 @@
 import {
   renderHistoryList,
-} from "./utils/hisoryDataRender.js";
+} from "./utils/historyDataRender.js";
 
 import { 
   renderAssetData,

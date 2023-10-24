@@ -5,7 +5,7 @@ import {
   SPENDING_BUTTON,
 } from "./utils/constants.js";
 
-import { renderHistoryList, resetData } from "./utils/hisoryDataRender.js";
+import { renderHistoryList, resetData } from "./utils/historyDataRender.js";
 
 INCOME_BUTTON.addEventListener("click", () => {
   handleButtonClick();

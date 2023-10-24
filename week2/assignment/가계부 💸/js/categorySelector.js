@@ -1,5 +1,5 @@
 import { HISTORY_LIST } from "./utils/constants.js";
-import { renderHistoryList } from "./utils/hisoryDataRender.js";
+import { renderHistoryList } from "./utils/historyDataRender.js";
 import { renderAssetData } from "./utils/assetDataRender.js";
 const selectorWrapper = document.querySelector(".select-category");
 const selector = document.querySelector(".selector");
