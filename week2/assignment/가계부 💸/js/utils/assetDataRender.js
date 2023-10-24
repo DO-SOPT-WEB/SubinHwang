@@ -13,13 +13,13 @@ let total;
 let income;
 let spending;
 
-export function resetMoney(){
+function resetMoney(){
     total = INIT_BALANCE
     income = INIT_INCOME;
     spending = INIT_SPENDING;
 }
 
-export function calculateMoney(history) {
+function calculateMoney(history) {
   if (history[0] === TRANSACTION_TYPE.SPENDING) {
     total -= history[3];
     spending += history[3];
@@ -30,13 +30,13 @@ export function calculateMoney(history) {
   }
 }
 
-export function setMoney() {
+function setMoney() {
   TOTAL_MONEY.innerHTML = total;
   TODY_TOTAL_INCOME.innerHTML = income;
   TODY_TOTAL_SPENDING.innerHTML = spending;
 }
 
-export function setAssetData(){
+export function renderAssetData(){
   resetMoney();
   HISTORY_LIST.forEach((history) => {
     calculateMoney(history);

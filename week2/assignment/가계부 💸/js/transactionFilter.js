@@ -5,10 +5,7 @@ import {
   SPENDING_BUTTON,
 } from "./utils/constants.js";
 
-import {
-  renderHistoryList,
-  resetData,
-} from "./utils/elementCreator.js";
+import { renderHistoryList, resetData } from "./utils/hisoryDataRender.js";
 
 INCOME_BUTTON.addEventListener("click", () => {
   handleButtonClick();
@@ -17,33 +14,36 @@ INCOME_BUTTON.addEventListener("click", () => {
 SPENDING_BUTTON.addEventListener("click", () => {
   handleButtonClick();
 });
-  
-export function handleButtonClick() {
+
+function handleButtonClick() {
   const isIncomeChecked = INCOME_BUTTON.checked;
   const isSpendingChecked = SPENDING_BUTTON.checked;
 
-  if (isIncomeChecked && isSpendingChecked) { //둘다체크
+  if (isIncomeChecked && isSpendingChecked) {
+    //둘다체크
     updateData();
-  } else if (isIncomeChecked) { //수입만 체크
+  } else if (isIncomeChecked) {
+    //수입만 체크
     updateData(TRANSACTION_TYPE.INCOME);
-  } else if (isSpendingChecked) { //지출만 체크
+  } else if (isSpendingChecked) {
+    //지출만 체크
     updateData(TRANSACTION_TYPE.SPENDING);
-  } else { //둘다체크 안됨
+  } else {
+    //둘다체크 안됨
     resetData();
   }
 }
 
 function updateData(type) {
-  let typeList = []
+  let typeList = [];
   if (type === undefined) {
     renderHistoryList(HISTORY_LIST);
   } else {
     HISTORY_LIST.forEach((history) => {
       if (type === history[0]) {
-        typeList.push(history)
+        typeList.push(history);
       }
     });
-    renderHistoryList(typeList)
+    renderHistoryList(typeList);
   }
-  
 }

@@ -28,6 +28,9 @@ export const ELEMENT = {
     INCOME: "income",
     DELETE: "delete",
   },
+  ATTRIBUTE:{
+    DATA_INDEX:"data-index"
+  }
 };
 
 export const HISTORY_LIST = [
