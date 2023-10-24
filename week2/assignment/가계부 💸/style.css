@@ -1,59 +1,21 @@
+@import "reset.css";
+
 @font-face {
     font-family: 'Pretendard';
     src: url('./font/Pretendard-Medium.otf') format('opentype');
-}
-
-* {
-    margin: 0px;
-    padding: 0px;
-    font-family: Pretendard, sans-serif;
-    box-sizing: border-box;
-}
-
-html {
-    background-color: #d9d9d9;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100vw;
-    min-height: 100vh;
-    margin: auto;
-    overflow: hidden;
-    padding: 10px;
-    background-color: #f8f8f8;
-}
-
-button {
-    border: none;
-    cursor: pointer;
-}
-
-header {
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-}
-
-h1 {
-    font-size: 20px;
-}
-
-h2 {
-    font-size: 20px;
 }
 
 #asset {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 16px;
     align-items: center;
+    gap: 16px;
+
     padding: 20px;
-    background-color: #ffffff;
     border-radius: 12px;
+
+    background-color: #ffffff;
 }
 
 .subtitle {
@@ -68,8 +30,9 @@ h2 {
     display: flex;
     flex: 1;
     justify-content: space-between;
-    width: 160px;
     align-items: center;
+
+    width: 160px;
 }
 
 #today img {
@@ -86,30 +49,35 @@ h2 {
 }
 
 #main {
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    max-height: calc(100vh - 300px);
+    flex-grow: 1;
+
+    max-height: calc(100vh - 280px);
     padding: 20px;
-    background-color: #ffffff;
     border-radius: 12px;
+
+    background-color: #ffffff;
 }
 
 #date {
     display: flex;
     justify-content: space-between;
-    margin: 20px 0 10px 0;
+
     width: 160px;
+    margin: 20px 0 10px;
 }
 
 #date button {
     border: none;
+
     background: transparent;
 }
 
 #money-type {
     display: flex;
     justify-content: end;
+
     font-size: 14px;
 }
 
@@ -118,42 +86,52 @@ h2 {
 }
 
 #money-type label {
+    height: 28px;
     margin-left: 10px;
-    padding: 5px 20px 5px 20px;
-    color: #777777;
-    background-color: #f2f2f2;
+
+    padding: 5px 20px;
+
     border-radius: 5px;
+
+    background-color: #f2f2f2;
+
+    line-height: 18px;
+    color: #777777;
+
     cursor: pointer;
 }
 
 #money-type input[type=checkbox]:checked+label {
     margin-left: 10px;
-    padding: 5px 20px 5px 20px;
-    color: #ffffff;
-    background-color: #4880ee;
-}
 
-ol {
-    list-style: none;
+    padding: 5px 20px 5px 20px;
+
+    background-color: #4880ee;
+
+    color: #ffffff;
 }
 
 #history {
     overflow: scroll;
+
+    margin-top: 15px;
     height: 90%;
-    margin-top: 20px;
-    padding-top: 20px;
     border-top: 1px solid #d9d9d9;
 }
 
-#history ol {
+#history ul {
     display: flex;
     flex-direction: column;
+
+    padding-top: 5px;
 }
 
 #history li {
     display: flex;
-    height: 40px;
+    align-items: center;
     justify-content: start;
+
+    height: 40px;
 }
 
 #history li p {
@@ -164,10 +142,13 @@ ol {
 
 #history .category {
     flex-basis: 20%;
+
+    padding-left: 10px;
 }
 
 #history .name {
     flex-basis: 40%;
+
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -175,8 +156,9 @@ ol {
 
 #history .price {
     flex-basis: 30%;
-    text-align: end;
     flex-grow: 1;
+
+    text-align: end;
 }
 
 #history .income::before {
@@ -189,8 +171,10 @@ ol {
 
 #history li button {
     flex-basis: 10%;
+
     height: 20px;
     border: 0;
+
     background-color: transparent;
 }
 
@@ -201,42 +185,55 @@ ol {
 footer #add {
     position: absolute;
     bottom: 10px;
+
     width: calc(100% - 20px);
     height: 44px;
+
     margin-top: 10px;
-    color: #ffffff;
-    font-size: 16px;
-    line-height: 44px;
-    background-color: #4880ee;
+
     border: none;
     border-radius: 10px;
+
+    background-color: #4880ee;
+
+    font-size: 16px;
+    line-height: 44px;
+    color: #ffffff;
 }
 
 #modal-background {
     display: none;
+
     position: fixed;
     top: 0;
     left: 0;
+
     width: 100%;
     height: 100%;
+
     background-color: rgba(0, 0, 0, 0.7);
 }
 
 
 #add-history-modal {
-    position: relative;
     display: flex;
-    left: 0;
     flex-direction: column;
-    gap: 20px;
     align-items: center;
+    gap: 20px;
+
     position: absolute;
+    left: 0;
     bottom: -60%;
-    padding: 20px 10px;
+
     width: 100%;
     height: 60%;
+
+    padding: 20px 10px;
+
     border-radius: 20px 20px 0px 0px;
+
     background-color: #ffffff;
+
     transition: bottom 0.3s ease-in-out;
 }
 
@@ -246,6 +243,7 @@ footer #add {
 
 #add-history-modal input[type=text] {
     width: 70%;
+
     border: none;
     border-bottom: 1px solid #f2f2f2;
 }
@@ -259,17 +257,22 @@ footer #add {
     justify-content: space-between;
     align-items: center;
     gap: 4px;
-    padding: 4px;
-    height: 40px;
-    border-radius: 10px;
-    background-color: #f2f2f2;
+
     width: 90%;
+    height: 40px;
+
+    padding: 4px;
+    border-radius: 10px;
+
+    background-color: #f2f2f2;
 }
 
 #type-selector label {
     width: 50%;
-    text-align: center;
+
     border-radius: 7px;
+
+    text-align: center;
     line-height: 32px;
 }
 
@@ -283,16 +286,22 @@ footer #add {
 
 .select-category .selector {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     height: 40px;
-    background: #ffffff;
+
     padding: 20px;
+
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+    background: #ffffff;
+
     font-size: 18px;
     font-weight: 400;
-    border-radius: 8px;
-    align-items: center;
+
     cursor: pointer;
-    justify-content: space-between;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .selector p {
@@ -304,16 +313,22 @@ footer #add {
 }
 
 .select-category .categories {
+    display: none;
+
     position: absolute;
+
+    overflow: scroll;
+
     width: 60%;
     height: 150px;
-    overflow: scroll;
+
     padding: 10px;
     margin-top: 10px;
+
     border-radius: 8px;
-    background: #ffffff;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
-    display: none;
+
+    background-color: #ffffff;
 }
 
 .select-category.active .categories {
@@ -322,14 +337,20 @@ footer #add {
 
 .categories .category {
     display: flex;
-    height: 40px;
-    cursor: pointer;
-    padding: 0 16px;
-    border-radius: 8px;
     align-items: center;
+
+    height: 40px;
+
+    padding: 0 16px;
+    
+    border-radius: 8px;
+    
+    background-color: #ffffff;
+
     font-size: 14px;
     color: #333333;
-    background: #fff;
+    
+    cursor: pointer;
 }
 
 .categories .category:hover {
@@ -354,6 +375,7 @@ footer #add {
 #modal-button-wrapper {
     display: flex;
     justify-content: space-between;
+
     width: 90%;
 }
 
@@ -363,8 +385,10 @@ input {
 
 #modal-button-wrapper {
     position: absolute;
-    gap: 10px;
     bottom: 20px;
+
+    gap: 10px;
+
     width: 90%;
     height: 40px;
 }
@@ -372,18 +396,22 @@ input {
 #modal-button-wrapper button {
     width: 50%;
     height: 44px;
-    font-size: 16px;
     border: none;
     border-radius: 5px;
+
+    font-size: 16px;
 }
 
 button#close {
     position: left;
+
     color: #333333;
 }
 
 button#save {
     position: right;
-    color: #ffffff;
+
     background-color: #4880ee;
+
+    color: #ffffff;
 }
