@@ -5,7 +5,7 @@ const selectorWrapper = document.querySelector(".select-category");
 const selector = document.querySelector(".selector");
 const categories = document.querySelectorAll(".categories .category");
 const selectedCategory = document.querySelector(".selected-category");
-const modalBackground = document.querySelector("#modal-background")
+const modalBackground = document.querySelector("#modal-background");
 selector.addEventListener("click", (event) => {
   selectorWrapper.classList.add("active");
 });
@@ -59,7 +59,7 @@ const addHistoryButton = document.querySelector("button#add");
 const modal = document.querySelector("#add-history-modal");
 
 addHistoryButton.addEventListener("click", () => {
-    modalBackground.style.display="block";
+  modalBackground.style.display = "block";
   modal.style.bottom = 0;
 });
 const closeModalButton = document.querySelector("#close");
@@ -77,32 +77,31 @@ saveButton.addEventListener("click", () => {
   } else {
     transactionType = 1;
   }
-  const price = parseInt(priceInput.value);
+  let price = priceInput.value;
   const content = contentInput.value;
   const category = selectedCategory.innerText;
 
-  if(!price || !content || category === MESSAGE.CATEGORY_UNSELECTED){
-      alert(MESSAGE.EMPTY_FIELD);
-    priceInput.value="";
+  if (!price || !content || category === MESSAGE.CATEGORY_UNSELECTED) {
+    price = parseInt(priceInput.value);
+    alert(MESSAGE.EMPTY_FIELD);
+    priceInput.value = "";
+    contentInput.value = "";
+  } else if (typeof price !== "number") {
+    alert(MESSAGE.PRICE_IS_NOT_NUMBER);
+    priceInput.value = "";
+    contentInput.value = "";
+  } else {
+    HISTORY_LIST.push([
+      HISTORY_LIST.length - 1,
+      transactionType,
+      category,
+      content,
+      price,
+    ]);
+    renderHistoryList();
+    renderAssetData();
+    alert(MESSAGE.ADD_LIST_SUCCESS);
+    priceInput.value = "";
     contentInput.value = "";
   }
-  else if(typeof price !== Number) {
-      alert(MESSAGE.PRICE_IS_NOT_NUMBER);
-       priceInput.value = "";
-       contentInput.value = "";
-  }
-  else{
-  HISTORY_LIST.push([
-    HISTORY_LIST.length - 1,
-    transactionType,
-    category,
-    content,
-    price,
-  ]);
-  renderHistoryList();
-  renderAssetData();
-  alert(MESSAGE.ADD_LIST_SUCCESS)
-   priceInput.value = "";
-   contentInput.value = "";
-}
 });
