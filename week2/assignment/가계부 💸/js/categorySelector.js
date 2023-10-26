@@ -1,4 +1,9 @@
-import { CATEGORY, HISTORY_LIST, MESSAGE, TRANSACTION_TYPE } from "./utils/constants.js";
+import {
+  CATEGORY,
+  HISTORY_LIST,
+  MESSAGE,
+  TRANSACTION_TYPE,
+} from "./utils/constants.js";
 import { renderHistoryList } from "./utils/historyDataRender.js";
 import { renderAssetData } from "./utils/assetDataRender.js";
 const selectorWrapper = document.querySelector(".select-category");
@@ -10,8 +15,7 @@ selector.addEventListener("click", (event) => {
   selectorWrapper.classList.add("active");
 });
 
-function setCategoryClickEventLister(){
-  console.log("click")
+function setCategoryClickEventLister() {
   const categories = document.querySelectorAll(".categories .category");
   categories.forEach((category) => {
     category.addEventListener("click", (event) => {
@@ -24,15 +28,15 @@ function setCategoryClickEventLister(){
 const selectIncome = document.querySelector("#select-income");
 const selectSpending = document.querySelector("#select-spending");
 
-function setSelectChangeEvent(){
+function setSelectChangeEvent() {
   selectIncome.addEventListener("change", () => {
     renderCategory(TRANSACTION_TYPE.INCOME, CATEGORY.INCOME);
-    selectedCategory.innerText = Object.values(CATEGORY.INCOME)[0];
+    selectedCategory.innerText = CATEGORY.INCOME[0];
   });
 
   selectSpending.addEventListener("change", () => {
     renderCategory(TRANSACTION_TYPE.SPENDING, CATEGORY.SPENDING);
-    selectedCategory.innerText = Object.values(CATEGORY.SPENDING)[0];
+    selectedCategory.innerText = CATEGORY.SPENDING[0];
   });
 }
 
@@ -61,8 +65,7 @@ saveButton.addEventListener("click", () => {
   const price = parseInt(priceInput.value);
   const content = contentInput.value;
   const category = selectedCategory.innerText;
-  console.log(price)
-  if (price !== NaN || !content || category === MESSAGE.CATEGORY_UNSELECTED) {
+  if (!price || !content || category === MESSAGE.CATEGORY_UNSELECTED) {
     alert(MESSAGE.EMPTY_FIELD);
     priceInput.value = "";
     contentInput.value = "";
@@ -82,43 +85,41 @@ saveButton.addEventListener("click", () => {
   }
 });
 
-function renderCategory(type,categoryList){
+function renderCategory(type, categoryList) {
   resetCategory();
-  Object.keys(categoryList).forEach(function (key) {
-    console.log(categoryList[key]);
-    createCategoryList(type,categoryList[key])
+  categoryList.forEach((category) => {
+    createCategoryList(type, category);
   });
   setSelectChangeEvent();
 }
 
 const dropDownCategories = document.querySelector("ul.categories");
-function createCategoryList(type, category){
-const dropDownList = document.createElement("li");
-dropDownList.className = "category";
-(type === TRANSACTION_TYPE.INCOME)
-  ? dropDownList.classList.add("type-income")
-  : dropDownList.classList.add("type-spending");
 
-dropDownList.innerHTML = category;
-console.log(dropDownList)
-dropDownCategories.appendChild(dropDownList)
-setCategoryClickEventLister();
-console.log(dropDownCategories)
+function createCategoryList(type, category) {
+  const dropDownList = document.createElement("li");
+  dropDownList.className = "category";
+  type === TRANSACTION_TYPE.INCOME
+    ? dropDownList.classList.add("type-income")
+    : dropDownList.classList.add("type-spending");
+
+  dropDownList.innerHTML = category;
+  dropDownCategories.appendChild(dropDownList);
+  setCategoryClickEventLister();
 }
 
-function resetCategory(){
+function resetCategory() {
   while (dropDownCategories.firstChild) {
     dropDownCategories.removeChild(dropDownCategories.firstChild);
   }
 }
 
 const PRICE_INPUT_FIELD = document.querySelector("#input-price");
-PRICE_INPUT_FIELD.addEventListener("input",(e)=>{
-  if(isNaN(e.data)){
+PRICE_INPUT_FIELD.addEventListener("input", (e) => {
+  if (isNaN(e.data)) {
     alert("숫자만 입력할 수 있어요");
     PRICE_INPUT_FIELD.value = "";
   }
-})
+});
 
 renderCategory(TRANSACTION_TYPE.INCOME, CATEGORY.INCOME);
 setCategoryClickEventLister();

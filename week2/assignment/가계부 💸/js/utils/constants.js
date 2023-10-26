@@ -8,14 +8,14 @@ export const TRANSACTION_TYPE = {
 };
 
 export const CATEGORY = {
-  SPENDING: {
-    TRANSPORTATION: "교통",
-    SHOPPING: "쇼핑",
-  },
-  INCOME: {
-    ALLOWANCE: "용돈",
-    TRANSFER: "이체",
-  },
+  SPENDING:
+    localStorage.getItem("categories-spending") !== null //로컬스토리지에 값이 있는지 체크
+      ? JSON.parse(localStorage.getItem("categories-spending"))
+      : ["쇼핑", "교통"],
+  INCOME:
+    localStorage.getItem("categories-income") !== null
+      ? JSON.parse(localStorage.getItem("categories-income"))
+      : ["이체", "용돈"],
 };
 
 export const ELEMENT = {
@@ -43,10 +43,10 @@ export const MESSAGE = {
   PRICE_IS_NOT_NUMBER: "금액은 숫자여야 합니다",
 };
 export const HISTORY_LIST = [
-  [0, TRANSACTION_TYPE.INCOME, CATEGORY.INCOME.ALLOWANCE, "생활비", 1200000],
-  [1, TRANSACTION_TYPE.SPENDING, CATEGORY.SPENDING.TRANSPORTATION, "티머니", 6200],
-  [2, TRANSACTION_TYPE.SPENDING, CATEGORY.SPENDING.SHOPPING, "쿠팡환불", 27000],
-  [3, TRANSACTION_TYPE.INCOME, CATEGORY.INCOME.TRANSFER, "홍길동", 3000],
+  [0, TRANSACTION_TYPE.INCOME, CATEGORY.INCOME[0], "생활비", 1200000],
+  [1, TRANSACTION_TYPE.SPENDING, CATEGORY.SPENDING[0], "티머니", 6200],
+  [2, TRANSACTION_TYPE.SPENDING, CATEGORY.SPENDING[1], "쿠팡환불", 27000],
+  [3, TRANSACTION_TYPE.INCOME, CATEGORY.INCOME[1], "홍길동", 3000],
 ];
 
 export const HISTORY_DIV = document.querySelector("#history ul");
