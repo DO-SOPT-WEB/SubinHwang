@@ -387,13 +387,7 @@ footer #manage-category {
     background: #F2F2F2;
 }
 
-.categories .type-spending {
-    display: none;
-}
 
-#select-income input[type=radio]:checked+.categories .type-spending {
-    display: none;
-}
 
 #type-selector input[type=radio]:checked+label {
     background-color: #ffffff;

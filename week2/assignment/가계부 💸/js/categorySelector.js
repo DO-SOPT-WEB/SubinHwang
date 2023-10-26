@@ -3,59 +3,38 @@ import { renderHistoryList } from "./utils/historyDataRender.js";
 import { renderAssetData } from "./utils/assetDataRender.js";
 const selectorWrapper = document.querySelector(".select-category");
 const selector = document.querySelector(".selector");
-const categories = document.querySelectorAll(".categories .category");
+
 const selectedCategory = document.querySelector(".selected-category");
 const modalBackground = document.querySelector("#modal-background");
 selector.addEventListener("click", (event) => {
   selectorWrapper.classList.add("active");
 });
 
-categories.forEach((category) => {
-  category.addEventListener("click", (event) => {
-    let selectedCategoryText;
-    if (event.target.tagName === "P") {
-      selectedCategoryText = event.target.innerText;
-    }
-    if (event.target.tagName === "LI") {
-      selectedCategoryText = event.target.querySelector("p").innerText;
-    }
-    selectedCategory.innerText = selectedCategoryText;
-    selectorWrapper.classList.remove("active");
+function setCategoryClickEventLister(){
+  console.log("click")
+  const categories = document.querySelectorAll(".categories .category");
+  categories.forEach((category) => {
+    category.addEventListener("click", (event) => {
+      const selectedCategoryText = event.target.innerText;
+      selectedCategory.innerText = selectedCategoryText;
+      selectorWrapper.classList.remove("active");
+    });
   });
-});
-
+}
 const selectIncome = document.querySelector("#select-income");
 const selectSpending = document.querySelector("#select-spending");
-const typeIncomeList = document.querySelectorAll(".categories .type-income");
-const typeSpendingList = document.querySelectorAll(
-  ".categories .type-spending"
-);
 
-selectIncome.addEventListener("change", () => {
-  if (selectIncome.checked) {
-    renderCategory(TRANSACTION_TYPE.INCOME,CATEGORY.INCOME)
-    typeIncomeList.forEach((category) => {
-      category.style.display = "block";
-    });
-    typeSpendingList.forEach((category) => {
-      category.style.display = "none";
-    });
-  }
-  selectedCategory.innerText = typeIncomeList[0].querySelector("p").innerText;
-});
+function setSelectChangeEvent(){
+  selectIncome.addEventListener("change", () => {
+    renderCategory(TRANSACTION_TYPE.INCOME, CATEGORY.INCOME);
+    selectedCategory.innerText = Object.values(CATEGORY.INCOME)[0];
+  });
 
-selectSpending.addEventListener("change", () => {
-  renderCategory(TRANSACTION_TYPE.SPENDING,CATEGORY.SPENDING);
-  if (selectSpending.checked) {
-    typeSpendingList.forEach((category) => {
-      category.style.display = "block";
-    });
-    typeIncomeList.forEach((category) => {
-      category.style.display = "none";
-    });
-  }
-  selectedCategory.innerText = typeSpendingList[0].querySelector("p").innerText;
-});
+  selectSpending.addEventListener("change", () => {
+    renderCategory(TRANSACTION_TYPE.SPENDING, CATEGORY.SPENDING);
+    selectedCategory.innerText = Object.values(CATEGORY.SPENDING)[0];
+  });
+}
 
 const addHistoryButton = document.querySelector("button#add");
 const modal = document.querySelector("#add-history-modal");
@@ -109,6 +88,7 @@ function renderCategory(type,categoryList){
     console.log(categoryList[key]);
     createCategoryList(type,categoryList[key])
   });
+  setSelectChangeEvent();
 }
 
 const dropDownCategories = document.querySelector("ul.categories");
@@ -119,9 +99,11 @@ dropDownList.className = "category";
   ? dropDownList.classList.add("type-income")
   : dropDownList.classList.add("type-spending");
 
-
 dropDownList.innerHTML = category;
+console.log(dropDownList)
 dropDownCategories.appendChild(dropDownList)
+setCategoryClickEventLister();
+console.log(dropDownCategories)
 }
 
 function resetCategory(){
@@ -137,3 +119,6 @@ PRICE_INPUT_FIELD.addEventListener("input",(e)=>{
     PRICE_INPUT_FIELD.value = "";
   }
 })
+
+renderCategory(TRANSACTION_TYPE.INCOME, CATEGORY.INCOME);
+setCategoryClickEventLister();
