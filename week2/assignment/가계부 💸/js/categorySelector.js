@@ -1,4 +1,4 @@
-import { HISTORY_LIST, MESSAGE } from "./utils/constants.js";
+import { CATEGORY, HISTORY_LIST, MESSAGE, TRANSACTION_TYPE } from "./utils/constants.js";
 import { renderHistoryList } from "./utils/historyDataRender.js";
 import { renderAssetData } from "./utils/assetDataRender.js";
 const selectorWrapper = document.querySelector(".select-category");
@@ -33,6 +33,7 @@ const typeSpendingList = document.querySelectorAll(
 
 selectIncome.addEventListener("change", () => {
   if (selectIncome.checked) {
+    renderCategory(TRANSACTION_TYPE.INCOME,CATEGORY.INCOME)
     typeIncomeList.forEach((category) => {
       category.style.display = "block";
     });
@@ -44,6 +45,7 @@ selectIncome.addEventListener("change", () => {
 });
 
 selectSpending.addEventListener("change", () => {
+  renderCategory(TRANSACTION_TYPE.SPENDING,CATEGORY.SPENDING);
   if (selectSpending.checked) {
     typeSpendingList.forEach((category) => {
       category.style.display = "block";
@@ -77,17 +79,12 @@ saveButton.addEventListener("click", () => {
   } else {
     transactionType = 1;
   }
-  let price = priceInput.value;
+  const price = parseInt(priceInput.value);
   const content = contentInput.value;
   const category = selectedCategory.innerText;
-
-  if (!price || !content || category === MESSAGE.CATEGORY_UNSELECTED) {
-    price = parseInt(priceInput.value);
+  console.log(price)
+  if (price !== NaN || !content || category === MESSAGE.CATEGORY_UNSELECTED) {
     alert(MESSAGE.EMPTY_FIELD);
-    priceInput.value = "";
-    contentInput.value = "";
-  } else if (typeof price !== "number") {
-    alert(MESSAGE.PRICE_IS_NOT_NUMBER);
     priceInput.value = "";
     contentInput.value = "";
   } else {
@@ -105,3 +102,38 @@ saveButton.addEventListener("click", () => {
     contentInput.value = "";
   }
 });
+
+function renderCategory(type,categoryList){
+  resetCategory();
+  Object.keys(categoryList).forEach(function (key) {
+    console.log(categoryList[key]);
+    createCategoryList(type,categoryList[key])
+  });
+}
+
+const dropDownCategories = document.querySelector("ul.categories");
+function createCategoryList(type, category){
+const dropDownList = document.createElement("li");
+dropDownList.className = "category";
+(type === TRANSACTION_TYPE.INCOME)
+  ? dropDownList.classList.add("type-income")
+  : dropDownList.classList.add("type-spending");
+
+
+dropDownList.innerHTML = category;
+dropDownCategories.appendChild(dropDownList)
+}
+
+function resetCategory(){
+  while (dropDownCategories.firstChild) {
+    dropDownCategories.removeChild(dropDownCategories.firstChild);
+  }
+}
+
+const PRICE_INPUT_FIELD = document.querySelector("#input-price");
+PRICE_INPUT_FIELD.addEventListener("input",(e)=>{
+  if(isNaN(e.data)){
+    alert("숫자만 입력할 수 있어요");
+    PRICE_INPUT_FIELD.value = "";
+  }
+})

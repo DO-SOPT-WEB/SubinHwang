@@ -7,11 +7,15 @@ export const TRANSACTION_TYPE = {
   INCOME: 1,
 };
 
-const CATEGORY = {
-  ALLOWANCE: "용돈",
-  TRANSPORTATION: "교통",
-  SHOPPING: "쇼핑",
-  TRANSFER: "이체",
+export const CATEGORY = {
+  SPENDING: {
+    TRANSPORTATION: "교통",
+    SHOPPING: "쇼핑",
+  },
+  INCOME: {
+    ALLOWANCE: "용돈",
+    TRANSFER: "이체",
+  },
 };
 
 export const ELEMENT = {
@@ -36,13 +40,13 @@ export const MESSAGE = {
   EMPTY_FIELD: "모든 필드를 입력해주세요",
   CATEGORY_UNSELECTED: "카테고리를 선택하세요",
   ADD_LIST_SUCCESS: "내역이 추가되었어요",
-  PRICE_IS_NOT_NUMBER: "금액은 숫자여야 합니다"
-}
+  PRICE_IS_NOT_NUMBER: "금액은 숫자여야 합니다",
+};
 export const HISTORY_LIST = [
-  [0, TRANSACTION_TYPE.INCOME, CATEGORY.ALLOWANCE, "생활비", 1200000],
-  [1, TRANSACTION_TYPE.SPENDING, CATEGORY.TRANSPORTATION, "티머니", 6200],
-  [2, TRANSACTION_TYPE.SPENDING, CATEGORY.SHOPPING, "쿠팡환불", 27000],
-  [3, TRANSACTION_TYPE.INCOME, CATEGORY.TRANSFER, "홍길동", 3000],
+  [0, TRANSACTION_TYPE.INCOME, CATEGORY.INCOME.ALLOWANCE, "생활비", 1200000],
+  [1, TRANSACTION_TYPE.SPENDING, CATEGORY.SPENDING.TRANSPORTATION, "티머니", 6200],
+  [2, TRANSACTION_TYPE.SPENDING, CATEGORY.SPENDING.SHOPPING, "쿠팡환불", 27000],
+  [3, TRANSACTION_TYPE.INCOME, CATEGORY.INCOME.TRANSFER, "홍길동", 3000],
 ];
 
 export const HISTORY_DIV = document.querySelector("#history ul");
@@ -50,7 +54,6 @@ export const INCOME_BUTTON = document.querySelector("#money-type #type-income");
 export const SPENDING_BUTTON = document.querySelector(
   "#money-type #type-spending"
 );
-export const historyDiv = document.querySelector("#history ul");
 export const TOTAL_MONEY = document.querySelector("#asset #money");
 export const TODY_TOTAL_INCOME = document.querySelector("#today .income");
 export const TODY_TOTAL_SPENDING = document.querySelector("#today .spending");
