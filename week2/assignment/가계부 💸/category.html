@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="category.css" />
+    <link rel="shortcut icon" href="./img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수빈 | 가계부 | 카테고리 관리</title>
+</head>
+
+<body>
+    <header>
+        <h1>카테고리 관리</h1>
+    </header>
+    <section class="category-manage-section">
+        <h2 class="subtitle">수입 카테고리</h2>
+        <div class="category-tag-wrapper" id="income-category">
+        </div>
+        <div class="add-category">
+            <p>카테고리 추가</p>
+            <input type="text" id="input-category" placeholder="카테고리를 입력하세요" />
+        </div>
+    </section>
+    <section class="category-manage-section">
+        <h2 class="subtitle">지출 카테고리</h2>
+        <div class="category-tag-wrapper" id="spending-category">
+        </div>
+        <div class="add-category">
+            <p>카테고리 추가</p>
+            <input type="text" id="input-category" placeholder="카테고리를 입력하세요" />
+        </div>
+    </section>
+    <button id="go-home-button">메인으로</button>
+    <script type="module" src="js/categoryManager.js"></script>
+</body>
+
+</html>

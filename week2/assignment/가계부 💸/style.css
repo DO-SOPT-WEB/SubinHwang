@@ -183,13 +183,12 @@
     content: "✕";
 }
 
-footer{
-display: flex;
-justify-content: center;
+footer {
+    display: flex;
+    justify-content: center;
 }
-footer #add {
-    
 
+footer #add {
     position: absolute;
     bottom: 10px;
 
@@ -374,12 +373,12 @@ footer #manage-category {
     padding: 0 16px;
 
     border-radius: 8px;
-    
+
     background-color: #ffffff;
 
     font-size: 14px;
     color: #333333;
-    
+
     cursor: pointer;
 }
 
@@ -426,13 +425,15 @@ input {
     font-size: 16px;
 }
 
-button#close,button#cancel {
+button#close,
+button#cancel {
     position: left;
 
     color: #333333;
 }
 
-button#save,button#confirm {
+button#save,
+button#confirm {
     position: right;
 
     background-color: #4880ee;
@@ -440,7 +441,7 @@ button#save,button#confirm {
     color: #ffffff;
 }
 
-section>#delete-modal{
+section>#delete-modal {
     display: none;
     flex-direction: column;
     align-items: center;
@@ -458,5 +459,5 @@ section>#delete-modal{
     border-radius: 10px;
 
     background-color: #ffffff;
-    
+
 }
