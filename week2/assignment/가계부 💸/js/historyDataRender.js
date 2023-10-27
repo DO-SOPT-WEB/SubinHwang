@@ -1,12 +1,13 @@
-import { ELEMENT, HISTORY_DIV, HISTORY_LIST } from "./constants.js";
+import { ELEMENT, HISTORY_LIST } from "./utils/constants.js";
+import { HISTORY_DIV } from "./utils/documentElements.js";
+import { setDeleteEvent } from "./historyDataDeleter.js";
+import { changeFormat } from "./utils/moneyFormatter.js";
 import {
   makeCategoryElement,
   makeDeleteButton,
   makeNameElement,
   makePriceElement,
 } from "./elementCreator.js";
-import { setDeleteEvent } from "./historyDataDeleter.js";
-import { changeFormat } from "./moneyFormatter.js";
 
 function addList(history) {
   const list = document.createElement(ELEMENT.HTMLTAG.LIST);
@@ -27,13 +28,13 @@ export function resetData() {
 }
 
 export function renderHistoryList(list) {
-  if (list === undefined) { //전체 데이터를 렌더링 하고자 호출했을 때
+  if (list === undefined) {
+    //전체 데이터를 렌더링 하고자 호출했을 때
     list = HISTORY_LIST;
   }
   resetData();
   list.forEach((history) => {
     addList(history);
   });
-  console.log("냥");
   changeFormat();
 }

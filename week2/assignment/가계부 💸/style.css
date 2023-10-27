@@ -29,11 +29,10 @@
 #date>p {
     vertical-align: middle;
     line-height: 24px;
-
 }
 
-#date>button{
-font-size: 20px;
+#date>button {
+    font-size: 20px;
     color: #505866;
 }
 
@@ -47,7 +46,7 @@ font-size: 20px;
     justify-content: space-between;
     align-items: center;
 
-    width: 160px;
+    width: 180px;
 }
 
 #today img {

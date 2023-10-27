@@ -1,49 +1,28 @@
-import {
-  TRANSACTION_TYPE,
-  HISTORY_LIST,
-  INCOME_BUTTON,
-  SPENDING_BUTTON,
-} from "./utils/constants.js";
+import { TRANSACTION_TYPE, HISTORY_LIST } from "./utils/constants.js";
+import { INCOME_BUTTON, SPENDING_BUTTON } from "./utils/documentElements.js";
+import { renderHistoryList, resetData } from "./historyDataRender.js";
 
-import { renderHistoryList, resetData } from "./utils/historyDataRender.js";
-
-INCOME_BUTTON.addEventListener("click", () => {
-  handleButtonClick();
-});
-
-SPENDING_BUTTON.addEventListener("click", () => {
-  handleButtonClick();
-});
+INCOME_BUTTON.addEventListener("click", handleButtonClick);
+SPENDING_BUTTON.addEventListener("click", handleButtonClick);
 
 function handleButtonClick() {
   const isIncomeChecked = INCOME_BUTTON.checked;
   const isSpendingChecked = SPENDING_BUTTON.checked;
 
-  if (isIncomeChecked && isSpendingChecked) {
-    //둘다체크
-    updateData();
-  } else if (isIncomeChecked) {
-    //수입만 체크
-    updateData(TRANSACTION_TYPE.INCOME);
-  } else if (isSpendingChecked) {
-    //지출만 체크
-    updateData(TRANSACTION_TYPE.SPENDING);
-  } else {
-    //둘다체크 안됨
+  if (!isIncomeChecked && !isSpendingChecked) {
+    // 둘 다 체크 안된 경우
     resetData();
+  } else {
+    const selectedTypes = [];
+
+    if (isIncomeChecked) selectedTypes.push(TRANSACTION_TYPE.INCOME);
+    if (isSpendingChecked) selectedTypes.push(TRANSACTION_TYPE.SPENDING);
+
+    const filteredHistoryList = filterHistoryList(selectedTypes);
+    renderHistoryList(filteredHistoryList);
   }
 }
 
-function updateData(type) {
-  let typeList = [];
-  if (type === undefined) {
-    renderHistoryList(HISTORY_LIST);
-  } else {
-    HISTORY_LIST.forEach((history) => {
-      if (type === history[1]) {
-        typeList.push(history);
-      }
-    });
-    renderHistoryList(typeList);
-  }
+function filterHistoryList(types) {
+  return HISTORY_LIST.filter((history) => types.includes(history[1]));
 }

@@ -1,37 +1,39 @@
 import { renderAssetData } from "./assetDataRender.js";
+import { ELEMENT, HISTORY_LIST } from "./utils/constants.js";
 import {
   BACKGROUND_OF_MODAL,
   CANCEL_BUTTON,
   CONFIRM_BUTTON,
-  ELEMENT,
-  HISTORY_LIST,
   MODAL_DELETE,
-} from "./constants.js";
+} from "./utils/documentElements.js";
 
 let indexToDelete;
 let listToDelete;
 let isConfirmed = false;
 
-function deleteList(index, list) {
-  HISTORY_LIST.forEach((history, i) => {
-    if (index === history[0]) {
-      HISTORY_LIST.splice(i, 1);
-      list.remove();
-    }
-  });
-  renderAssetData();
+function findIndexToDelete() {
+  return HISTORY_LIST.findIndex((history) => indexToDelete === history[0]);
 }
 
-CONFIRM_BUTTON.addEventListener("click", () => {
-  isConfirmed = true;
-  deleteList(indexToDelete, listToDelete);
-  closeModal();
-});
+function deleteList() {
+  const index = findIndexToDelete();
+  if (index !== -1) {
+    HISTORY_LIST.splice(index, 1);
+    listToDelete.remove();
+    renderAssetData();
+  }
+}
 
-CANCEL_BUTTON.addEventListener("click", () => {
+function handleConfirmClick() {
+  isConfirmed = true;
+  deleteList();
+  closeModal();
+}
+
+function handleCancelClick() {
   isConfirmed = false;
   closeModal();
-});
+}
 
 function openModal() {
   MODAL_DELETE.style.display = "flex";
@@ -54,4 +56,7 @@ export function setDeleteEvent() {
       openModal();
     });
   });
+
+  CONFIRM_BUTTON.addEventListener("click", handleConfirmClick);
+  CANCEL_BUTTON.addEventListener("click", handleCancelClick);
 }

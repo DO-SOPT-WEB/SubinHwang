@@ -3,12 +3,16 @@ import {
   INIT_BALANCE,
   INIT_INCOME,
   INIT_SPENDING,
+  TRANSACTION_TYPE,
+} from "./utils/constants.js";
+
+import {
   TODY_TOTAL_INCOME,
   TODY_TOTAL_SPENDING,
   TOTAL_MONEY,
-  TRANSACTION_TYPE,
-} from "./constants.js";
-import { changeFormat } from "./moneyFormatter.js";
+} from "./utils/documentElements.js";
+
+import { changeFormat } from "./utils/moneyFormatter.js";
 
 let total;
 let income;
