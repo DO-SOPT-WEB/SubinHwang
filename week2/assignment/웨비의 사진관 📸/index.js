@@ -33,7 +33,6 @@ function showDetail(detail) {
 /* 조건에 따라 디테일 버튼을 만들고 디테일 버튼의 클릭이벤트를 처리하는 기능 */
 detailBox.forEach((box, index) => {
   const detail = details[index];
-console.log("!")
   if (shouldShowButton(detail)) {
     const detailButton = createDetailButton();
     box.appendChild(detailButton);
