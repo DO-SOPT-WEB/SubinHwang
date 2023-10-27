@@ -3,6 +3,7 @@ export const INCOME_BUTTON = document.querySelector("#money-type #type-income");
 export const SPENDING_BUTTON = document.querySelector(
   "#money-type #type-spending"
 );
+export const HOME_BUTTON = document.querySelector("#go-home-button");
 export const TOTAL_MONEY = document.querySelector("#asset #money");
 export const TODY_TOTAL_INCOME = document.querySelector("#today .income");
 export const TODY_TOTAL_SPENDING = document.querySelector("#today .spending");
@@ -30,3 +31,5 @@ export const INCOME_CATEGORY_INPUT = document.querySelector(
 export const SPENDING_CATEGORY_INPUT = document.querySelector(
   "#input-spending-category"
 );
+export const INCOME_CATEGORY_SECTION = document.querySelector("#income-category");
+export const SPENDING_CATEGORY_SECTION = document.querySelector("#spending-category");

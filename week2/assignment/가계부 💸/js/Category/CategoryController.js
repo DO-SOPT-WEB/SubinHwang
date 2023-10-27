@@ -1,10 +1,11 @@
 import { CATEGORY, TRANSACTION_TYPE } from "../utils/constants.js";
 import {
+  HOME_BUTTON,
   INCOME_CATEGORY_INPUT,
+  INCOME_CATEGORY_SECTION,
   SPENDING_CATEGORY_INPUT,
+  SPENDING_CATEGORY_SECTION,
 } from "../utils/documentElements.js";
-
-const HOME_BUTTON = document.querySelector("#go-home-button");
 
 HOME_BUTTON.addEventListener("click", () => {
   window.location.href = "../index.html";
@@ -54,19 +55,16 @@ function renderCategoryTag(type, categorySection) {
   });
 }
 
-const incomeCategorySection = document.querySelector("#income-category");
-const spendingCategorySection = document.querySelector("#spending-category");
-
-renderCategoryTag(TRANSACTION_TYPE.INCOME, incomeCategorySection);
-renderCategoryTag(TRANSACTION_TYPE.SPENDING, spendingCategorySection);
+renderCategoryTag(TRANSACTION_TYPE.INCOME, INCOME_CATEGORY_SECTION);
+renderCategoryTag(TRANSACTION_TYPE.SPENDING, SPENDING_CATEGORY_SECTION);
 
 handleCategoryInput(
   TRANSACTION_TYPE.INCOME,
   INCOME_CATEGORY_INPUT,
-  incomeCategorySection
+  INCOME_CATEGORY_SECTION
 );
 handleCategoryInput(
   TRANSACTION_TYPE.SPENDING,
   SPENDING_CATEGORY_INPUT,
-  spendingCategorySection
+  SPENDING_CATEGORY_SECTION
 );
