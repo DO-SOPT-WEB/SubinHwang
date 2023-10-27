@@ -1,8 +1,8 @@
-@import "reset.css";
+@import "./styles/reset.css";
 
 @font-face {
     font-family: 'Pretendard';
-    src: url('./font/Pretendard-Medium.otf') format('opentype');
+    src: url('assets/font/Pretendard-Medium.otf') format('opentype');
 }
 
 #asset {

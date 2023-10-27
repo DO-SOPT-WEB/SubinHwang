@@ -1,11 +1,11 @@
-import { CATEGORY, ELEMENT, TRANSACTION_TYPE } from "./utils/constants.js";
+import { CATEGORY, ELEMENT, TRANSACTION_TYPE } from "../utils/constants.js";
 import {
   DROP_DOWN_CATEGORIES,
   SELECTED_CATEGORY,
   SELECTOR_DIV,
   SELECT_TYPE_INCOME,
   SELECT_TYPE_SPENDING,
-} from "./utils/documentElements.js";
+} from "../utils/documentElements.js";
 
 function handleSelectChange() {
   SELECT_TYPE_INCOME.addEventListener("change", () => {

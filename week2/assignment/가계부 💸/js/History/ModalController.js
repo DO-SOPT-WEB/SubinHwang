@@ -1,6 +1,6 @@
-import { HISTORY_LIST, MESSAGE } from "./utils/constants.js";
-import { renderHistoryList } from "./historyDataRender.js";
-import { renderAssetData } from "./assetDataRender.js";
+import { HISTORY_LIST, MESSAGE } from "../utils/constants.js";
+import { renderHistoryList } from "./HistoryView.js";
+import { renderAssetData } from "../Asset/AssetView.js";
 import {
   ADD_HISTORY_BUTTON,
   CLOSE_MODAL_BUTTON,
@@ -14,7 +14,7 @@ import {
   SELECTOR,
   SELECTOR_DIV,
   SELECT_TYPE_SPENDING,
-} from "./utils/documentElements.js";
+} from "../utils/documentElements.js";
 
 function handleSelectorClick() {
   SELECTOR_DIV.classList.add("active");
@@ -66,8 +66,10 @@ function resetField() {
   CONTENT_INPUT.value = "";
 }
 
-SELECTOR.addEventListener("click", handleSelectorClick);
-ADD_HISTORY_BUTTON.addEventListener("click", handleAddHistoryButtonClick);
-CLOSE_MODAL_BUTTON.addEventListener("click", handleCloseModalButtonClick);
-SAVE_BUTTON.addEventListener("click", handleSaveButtonClick);
-PRICE_INPUT_FIELD.addEventListener("input", handlePriceInputFieldInput);
+export function handleModal() {
+  SELECTOR.addEventListener("click", handleSelectorClick);
+  ADD_HISTORY_BUTTON.addEventListener("click", handleAddHistoryButtonClick);
+  CLOSE_MODAL_BUTTON.addEventListener("click", handleCloseModalButtonClick);
+  SAVE_BUTTON.addEventListener("click", handleSaveButtonClick);
+  PRICE_INPUT_FIELD.addEventListener("input", handlePriceInputFieldInput);
+}

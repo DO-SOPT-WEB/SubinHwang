@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="./img/favicon.ico">
+    <link rel="stylesheet" href="index.css" />
+    <link rel="shortcut icon" href="./assets/img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>수빈 | 가계부</title>
 </head>
@@ -18,9 +18,9 @@
         <h2 class="subtitle">나의 자산</h2>
         <b id="money" class="money"></b>
         <div id="today">
-            <img src="./img/triangle-up.png" alt="위쪽화살표" />
+            <img src="./assets/img/triangle-up.png" alt="위쪽화살표" />
             <p class="income money"></p>
-            <img src="./img/triangle-down.png" alt="아래쪽화살표" />
+            <img src="./assets/img/triangle-down.png" alt="아래쪽화살표" />
             <p class="spending money"></p>
         </div>
     </section>
@@ -45,7 +45,7 @@
     </section>
     <footer>
         <button type="button" id="add">내역 추가</button>
-        <a href="./category.html" id="manage-category">카테고리</a>
+        <a href="pages/category.html" id="manage-category">카테고리</a>
     </footer>
     <section>
         <div id="modal-background">
@@ -97,9 +97,8 @@
             </div>
         </div>
     </section>
-    <script type="module" src="js/addModalController.js"></script>
-    <script type="module" src="js/initDataRender.js"></script>
-    <script type="module" src="js/transactionFilter.js"></script>
+    <script type="module" src="index.js"></script>
+    <script type="module" src="js/History/transactionFilter.js"></script>
 </body>
 
 </html>

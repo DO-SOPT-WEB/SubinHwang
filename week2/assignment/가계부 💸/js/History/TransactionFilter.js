@@ -1,6 +1,6 @@
-import { TRANSACTION_TYPE, HISTORY_LIST } from "./utils/constants.js";
-import { INCOME_BUTTON, SPENDING_BUTTON } from "./utils/documentElements.js";
-import { renderHistoryList, resetData } from "./historyDataRender.js";
+import { TRANSACTION_TYPE, HISTORY_LIST } from "../utils/constants.js";
+import { INCOME_BUTTON, SPENDING_BUTTON } from "../utils/documentElements.js";
+import { renderHistoryList, resetData } from "./HistoryView.js";
 
 INCOME_BUTTON.addEventListener("click", handleButtonClick);
 SPENDING_BUTTON.addEventListener("click", handleButtonClick);

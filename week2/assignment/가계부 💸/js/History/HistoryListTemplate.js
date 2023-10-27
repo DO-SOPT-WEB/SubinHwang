@@ -1,4 +1,4 @@
-import { TRANSACTION_TYPE, ELEMENT } from "./utils/constants.js";
+import { TRANSACTION_TYPE, ELEMENT } from "../utils/constants.js";
 
 export function makeCategoryElement(category) {
   const historyCategory = document.createElement(ELEMENT.HTMLTAG.TEXT);

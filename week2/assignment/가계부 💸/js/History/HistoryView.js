@@ -1,13 +1,14 @@
-import { ELEMENT, HISTORY_LIST } from "./utils/constants.js";
-import { HISTORY_DIV } from "./utils/documentElements.js";
-import { setDeleteEvent } from "./historyDataDeleter.js";
-import { changeFormat } from "./utils/moneyFormatter.js";
+import { ELEMENT, HISTORY_LIST } from "../utils/constants.js";
+import { HISTORY_DIV } from "../utils/documentElements.js";
+import { setDeleteEvent } from "./HistoryController.js";
+import { changeFormat } from "../utils/moneyFormatter.js";
 import {
   makeCategoryElement,
   makeDeleteButton,
   makeNameElement,
   makePriceElement,
-} from "./elementCreator.js";
+} from "./HistoryListTemplate.js";
+import { handleModal } from "./ModalController.js";
 
 function addList(history) {
   const list = document.createElement(ELEMENT.HTMLTAG.LIST);
@@ -38,3 +39,5 @@ export function renderHistoryList(list) {
   });
   changeFormat();
 }
+
+handleModal();

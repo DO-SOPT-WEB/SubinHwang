@@ -1,11 +1,11 @@
-import { renderAssetData } from "./assetDataRender.js";
-import { ELEMENT, HISTORY_LIST } from "./utils/constants.js";
+import { renderAssetData } from "../Asset/AssetView.js";
+import { ELEMENT, HISTORY_LIST } from "../utils/constants.js";
 import {
   BACKGROUND_OF_MODAL,
   CANCEL_BUTTON,
   CONFIRM_BUTTON,
   MODAL_DELETE,
-} from "./utils/documentElements.js";
+} from "../utils/documentElements.js";
 
 let indexToDelete;
 let listToDelete;

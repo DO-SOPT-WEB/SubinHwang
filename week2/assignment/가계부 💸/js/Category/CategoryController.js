@@ -1,13 +1,13 @@
-import { CATEGORY, TRANSACTION_TYPE } from "./utils/constants.js";
+import { CATEGORY, TRANSACTION_TYPE } from "../utils/constants.js";
 import {
   INCOME_CATEGORY_INPUT,
   SPENDING_CATEGORY_INPUT,
-} from "./utils/documentElements.js";
+} from "../utils/documentElements.js";
 
 const HOME_BUTTON = document.querySelector("#go-home-button");
 
 HOME_BUTTON.addEventListener("click", () => {
-  window.location.href = "./index.html";
+  window.location.href = "../index.html";
 });
 
 function addToCategoryList(type, name) {
