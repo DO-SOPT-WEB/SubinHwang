@@ -62,7 +62,8 @@ saveButton.addEventListener("click", () => {
   } else {
     transactionType = 1;
   }
-  const price = parseInt(priceInput.value);
+  const price = parseInt(priceInput.value.replace(/,/g, ''));
+  console.log(price)
   const content = contentInput.value;
   const category = selectedCategory.innerText;
   if (!price || !content || category === MESSAGE.CATEGORY_UNSELECTED) {

@@ -27,6 +27,7 @@ CONFIRM_BUTTON.addEventListener("click", () => {
   deleteList(indexToDelete, listToDelete);
   closeModal();
 });
+
 CANCEL_BUTTON.addEventListener("click", () => {
   isConfirmed = false;
   closeModal();

@@ -6,6 +6,7 @@ import {
   makePriceElement,
 } from "./elementCreator.js";
 import { setDeleteEvent } from "./historyDataDeleter.js";
+import { changeFormat } from "./moneyFormatter.js";
 
 function addList(history) {
   const list = document.createElement(ELEMENT.HTMLTAG.LIST);
@@ -33,5 +34,6 @@ export function renderHistoryList(list) {
   list.forEach((history) => {
     addList(history);
   });
-  setDeleteEvent();
+  console.log("냥");
+  changeFormat();
 }

@@ -1,7 +1,4 @@
-import {
-  TRANSACTION_TYPE,
-  ELEMENT,
-} from "./constants.js";
+import { TRANSACTION_TYPE, ELEMENT } from "./constants.js";
 
 export function makeCategoryElement(category) {
   const historyCategory = document.createElement(ELEMENT.HTMLTAG.TEXT);
@@ -21,10 +18,16 @@ export function makePriceElement(type, price) {
   const historyPrice = document.createElement(ELEMENT.HTMLTAG.TEXT);
   historyPrice.className = ELEMENT.CLASSNAME.PRICE;
   if (type === TRANSACTION_TYPE.SPENDING) {
-    historyPrice.classList.add(ELEMENT.CLASSNAME.SPENDING);
+    historyPrice.classList.add(
+      ELEMENT.CLASSNAME.SPENDING,
+      ELEMENT.CLASSNAME.MONEY
+    );
   }
   if (type === TRANSACTION_TYPE.INCOME) {
-    historyPrice.classList.add(ELEMENT.CLASSNAME.INCOME);
+    historyPrice.classList.add(
+      ELEMENT.CLASSNAME.INCOME,
+      ELEMENT.CLASSNAME.MONEY
+    );
   }
   historyPrice.innerText = price;
   return historyPrice;
@@ -38,3 +41,4 @@ export function makeDeleteButton(id) {
   deleteButton.setAttribute(attributeName, attributeValue);
   return deleteButton;
 }
+

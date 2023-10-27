@@ -8,6 +8,7 @@ import {
   TOTAL_MONEY,
   TRANSACTION_TYPE,
 } from "./constants.js";
+import { changeFormat } from "./moneyFormatter.js";
 
 let total;
 let income;
@@ -42,4 +43,5 @@ export function renderAssetData(){
     calculateMoney(history);
   });
   setMoney();
+  changeFormat();
 }

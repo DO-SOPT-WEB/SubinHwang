@@ -31,6 +31,7 @@ export const ELEMENT = {
     SPENDING: "spending",
     INCOME: "income",
     DELETE: "delete",
+    MONEY: "money",
   },
   ATTRIBUTE: {
     DATA_INDEX: "data-index",
