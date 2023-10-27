@@ -1,8 +1,75 @@
-@import "reset.css";
-
 @font-face {
     font-family: 'Pretendard';
     src: url('./font/Pretendard-Medium.otf') format('opentype');
+}
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Pretendard, sans-serif;
+}
+
+html {
+    background-color: #DCE4ED;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+a:hover {
+    color: #5AB2FF;
+}
+
+p {
+    background-color: transparent;
+}
+
+img {
+    object-fit: cover;
+}
+
+header {
+    width: 1000px;
+    height: 80px;
+    margin: 10px auto 10px auto;
+    text-align: center;
+    line-height: 80px;
+    background-color: #86B1E5;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+h4 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+    height: 80px;
+    margin: 10px auto 10px auto;
+    font-size: 20px;
+    background-color: #B7CAE2;
+    border-radius: 10px;
 }
 
 #preview {
