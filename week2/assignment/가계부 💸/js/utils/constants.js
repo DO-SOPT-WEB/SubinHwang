@@ -7,14 +7,19 @@ export const TRANSACTION_TYPE = {
   INCOME: 1,
 };
 
+export const LOCAL_STORAGE = {
+  SPENDING: "categories-spending",
+  INCOME: "categories-income",
+};
+
 export const CATEGORY = {
   SPENDING:
-    localStorage.getItem("categories-spending") !== null //로컬스토리지에 값이 있는지 체크
-      ? JSON.parse(localStorage.getItem("categories-spending"))
+    localStorage.getItem(LOCAL_STORAGE.SPENDING) !== null //로컬스토리지에 값이 있는지 체크
+      ? JSON.parse(localStorage.getItem(LOCAL_STORAGE.SPENDING))
       : ["쇼핑", "교통"],
   INCOME:
-    localStorage.getItem("categories-income") !== null
-      ? JSON.parse(localStorage.getItem("categories-income"))
+    localStorage.getItem(LOCAL_STORAGE.INCOME) !== null
+      ? JSON.parse(localStorage.getItem(LOCAL_STORAGE.INCOME))
       : ["이체", "용돈"],
 };
 
@@ -23,6 +28,7 @@ export const ELEMENT = {
     TEXT: "p",
     LIST: "li",
     BUTTON: "button",
+    DIV: "div",
   },
   CLASSNAME: {
     CATEGORY: "category",
@@ -34,9 +40,18 @@ export const ELEMENT = {
     MONEY: "money",
     TYPE_INCOME: "type-income",
     TYPE_SPENDING: "type-spending",
+    CATEGORY_TAG: "category-tag",
+    ACTIVE: "active",
   },
   ATTRIBUTE: {
     DATA_INDEX: "data-index",
+  },
+  STYLE: {
+    DISPLAY: {
+      FLEX: "flex",
+      BLOCK: "block",
+      NONE: "none",
+    },
   },
 };
 

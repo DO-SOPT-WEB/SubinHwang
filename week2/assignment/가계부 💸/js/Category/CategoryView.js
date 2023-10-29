@@ -25,7 +25,7 @@ function handleCategoryClick() {
     category.addEventListener("click", (event) => {
       const selectedCategoryText = event.target.innerText;
       SELECTED_CATEGORY.innerText = selectedCategoryText;
-      SELECTOR_DIV.classList.remove("active");
+      SELECTOR_DIV.classList.remove(ELEMENT.CLASSNAME.ACTIVE);
     });
   });
 }

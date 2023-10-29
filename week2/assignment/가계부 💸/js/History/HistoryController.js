@@ -1,7 +1,7 @@
 import { renderAssetData } from "../Asset/AssetView.js";
 import { ELEMENT, HISTORY_LIST } from "../utils/constants.js";
 import {
-  BACKGROUND_OF_MODAL,
+  MODAL_BACKGROUND,
   CANCEL_BUTTON,
   CONFIRM_BUTTON,
   MODAL_DELETE,
@@ -36,13 +36,13 @@ function handleCancelClick() {
 }
 
 function openModal() {
-  MODAL_DELETE.style.display = "flex";
-  BACKGROUND_OF_MODAL.style.display = "block";
+  MODAL_DELETE.style.display = ELEMENT.STYLE.DISPLAY.FLEX;
+  MODAL_BACKGROUND.style.display = ELEMENT.STYLE.DISPLAY.BLOCK;
 }
 
 function closeModal() {
-  MODAL_DELETE.style.display = "none";
-  BACKGROUND_OF_MODAL.style.display = "none";
+  MODAL_DELETE.style.display = ELEMENT.STYLE.DISPLAY.NONE;
+  MODAL_BACKGROUND.style.display = ELEMENT.STYLE.DISPLAY.NONE;
 }
 
 export function setDeleteEvent() {

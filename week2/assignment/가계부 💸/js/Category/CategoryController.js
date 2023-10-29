@@ -1,4 +1,4 @@
-import { CATEGORY, TRANSACTION_TYPE } from "../utils/constants.js";
+import { CATEGORY, ELEMENT, LOCAL_STORAGE, TRANSACTION_TYPE } from "../utils/constants.js";
 import {
   HOME_BUTTON,
   INCOME_CATEGORY_INPUT,
@@ -18,8 +18,8 @@ function addToCategoryList(type, name) {
 }
 
 function appendCategoryTagElement(name, categorySection) {
-  const CATEGORY_TAG = document.createElement("div");
-  CATEGORY_TAG.className = "category-tag";
+  const CATEGORY_TAG = document.createElement(ELEMENT.HTMLTAG.DIV);
+  CATEGORY_TAG.className = ELEMENT.CLASSNAME.CATEGORY_TAG;
   CATEGORY_TAG.innerHTML = name;
   categorySection.appendChild(CATEGORY_TAG);
 }
@@ -27,8 +27,8 @@ function appendCategoryTagElement(name, categorySection) {
 function saveToLocalStorage(type) {
   const storageKey =
     type === TRANSACTION_TYPE.INCOME
-      ? "categories-income"
-      : "categories-spending";
+      ? LOCAL_STORAGE.INCOME
+      : LOCAL_STORAGE.SPENDING;
   const categoryList =
     type === TRANSACTION_TYPE.INCOME ? CATEGORY.INCOME : CATEGORY.SPENDING;
   localStorage.setItem(storageKey, JSON.stringify(categoryList));
