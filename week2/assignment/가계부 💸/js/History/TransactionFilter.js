@@ -24,5 +24,5 @@ function handleButtonClick() {
 }
 
 function filterHistoryList(types) {
-  return HISTORY_LIST.filter((history) => types.includes(history[1]));
+  return HISTORY_LIST.filter((history) => types.includes(history.type));
 }

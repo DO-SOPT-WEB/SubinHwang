@@ -1,18 +1,13 @@
 import { renderAssetData } from "../Asset/AssetView.js";
 import { ELEMENT, HISTORY_LIST } from "../utils/constants.js";
-import {
-  MODAL_BACKGROUND,
-  CANCEL_BUTTON,
-  CONFIRM_BUTTON,
-  MODAL_DELETE,
-} from "../utils/documentElements.js";
+import { MODAL_BACKGROUND, CANCEL_BUTTON, CONFIRM_BUTTON, MODAL_DELETE } from "../utils/documentElements.js";
 
 let indexToDelete;
 let listToDelete;
 let isConfirmed = false;
 
 function findIndexToDelete() {
-  return HISTORY_LIST.findIndex((history) => indexToDelete === history[0]);
+  return HISTORY_LIST.findIndex((history) => indexToDelete === history.id);
 }
 
 function deleteList() {
@@ -49,9 +44,7 @@ export function setDeleteEvent() {
   const deleteButtons = document.querySelectorAll("button.delete");
   deleteButtons.forEach((button) => {
     button.addEventListener("click", (event) => {
-      indexToDelete = parseInt(
-        event.target.getAttribute(ELEMENT.ATTRIBUTE.DATA_INDEX)
-      );
+      indexToDelete = parseInt(event.target.getAttribute(ELEMENT.ATTRIBUTE.DATA_INDEX));
       listToDelete = event.target.parentElement;
       openModal();
     });

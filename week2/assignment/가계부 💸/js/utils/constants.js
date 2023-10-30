@@ -63,8 +63,32 @@ export const MESSAGE = {
 };
 
 export const HISTORY_LIST = [
-  [0, TRANSACTION_TYPE.INCOME, CATEGORY.INCOME[0], "생활비", 1200000],
-  [1, TRANSACTION_TYPE.SPENDING, CATEGORY.SPENDING[0], "티머니", 6200],
-  [2, TRANSACTION_TYPE.SPENDING, CATEGORY.SPENDING[1], "쿠팡환불", 27000],
-  [3, TRANSACTION_TYPE.INCOME, CATEGORY.INCOME[1], "홍길동", 3000],
+  {
+    id: 0,
+    type: TRANSACTION_TYPE.INCOME,
+    category: CATEGORY.INCOME[0],
+    content: "생활비",
+    money: 1200000,
+  },
+  {
+    id: 1,
+    type: TRANSACTION_TYPE.SPENDING,
+    category: CATEGORY.INCOME[0],
+    content: "티머니",
+    money: 6200,
+  },
+  {
+    id: 2,
+    type: TRANSACTION_TYPE.SPENDING,
+    category: CATEGORY.SPENDING[1],
+    content: "쿠팡환불",
+    money: 27000,
+  },
+  {
+    id: 3,
+    type: TRANSACTION_TYPE.INCOME,
+    category: CATEGORY.INCOME[1],
+    content: "홍길동",
+    money: 3000,
+  },
 ];

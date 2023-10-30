@@ -1,4 +1,4 @@
-import { ELEMENT, HISTORY_LIST, MESSAGE } from "../utils/constants.js";
+import { ELEMENT, HISTORY_LIST, MESSAGE, TRANSACTION_TYPE } from "../utils/constants.js";
 import { renderHistoryList } from "./HistoryView.js";
 import { renderAssetData } from "../Asset/AssetView.js";
 import {
@@ -30,16 +30,22 @@ function handleCloseModalButtonClick() {
 }
 
 function handleSaveButtonClick() {
-  const transactionType = SELECT_TYPE_SPENDING.checked ? 0 : 1;
-  const price = parseInt(PRICE_INPUT.value.replace(/,/g, ""));
+  const transactionType = SELECT_TYPE_SPENDING.checked ? TRANSACTION_TYPE.SPENDING : TRANSACTION_TYPE.INCOME;
+  const money = parseInt(PRICE_INPUT.value.replace(/,/g, ""));
   const content = CONTENT_INPUT.value;
   const category = SELECTED_CATEGORY.innerText;
 
-  if (!price || !content || category === MESSAGE.CATEGORY_UNSELECTED) {
+  if (!money || !content || category === MESSAGE.CATEGORY_UNSELECTED) {
     alert(MESSAGE.EMPTY_FIELD);
     resetField();
   } else {
-    HISTORY_LIST.push([HISTORY_LIST.length - 1, transactionType, category, content, price]);
+    HISTORY_LIST.push({
+      id: HISTORY_LIST.length - 1,
+      type: transactionType,
+      category: category,
+      content: content,
+      money: money,
+    });
     renderHistoryList();
     renderAssetData();
     alert(MESSAGE.ADD_LIST_SUCCESS);

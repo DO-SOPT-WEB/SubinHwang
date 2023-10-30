@@ -18,16 +18,10 @@ export function makePriceElement(type, price) {
   const historyPrice = document.createElement(ELEMENT.HTMLTAG.TEXT);
   historyPrice.className = ELEMENT.CLASSNAME.PRICE;
   if (type === TRANSACTION_TYPE.SPENDING) {
-    historyPrice.classList.add(
-      ELEMENT.CLASSNAME.SPENDING,
-      ELEMENT.CLASSNAME.MONEY
-    );
+    historyPrice.classList.add(ELEMENT.CLASSNAME.SPENDING, ELEMENT.CLASSNAME.MONEY);
   }
   if (type === TRANSACTION_TYPE.INCOME) {
-    historyPrice.classList.add(
-      ELEMENT.CLASSNAME.INCOME,
-      ELEMENT.CLASSNAME.MONEY
-    );
+    historyPrice.classList.add(ELEMENT.CLASSNAME.INCOME, ELEMENT.CLASSNAME.MONEY);
   }
   historyPrice.innerText = price;
   return historyPrice;
@@ -41,4 +35,3 @@ export function makeDeleteButton(id) {
   deleteButton.setAttribute(attributeName, attributeValue);
   return deleteButton;
 }
-
