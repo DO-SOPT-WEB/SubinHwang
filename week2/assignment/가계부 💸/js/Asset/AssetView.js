@@ -1,6 +1,16 @@
-import { HISTORY_LIST, INIT_BALANCE, INIT_INCOME, INIT_SPENDING, TRANSACTION_TYPE } from "../utils/constants.js";
+import {
+  HISTORY_LIST,
+  INIT_BALANCE,
+  INIT_INCOME,
+  INIT_SPENDING,
+  TRANSACTION_TYPE,
+} from "../utils/constants.js";
 
-import { TODY_TOTAL_INCOME, TODY_TOTAL_SPENDING, TOTAL_MONEY } from "../utils/documentElements.js";
+import {
+  TODY_TOTAL_INCOME,
+  TODY_TOTAL_SPENDING,
+  TOTAL_MONEY,
+} from "../utils/documentElements.js";
 
 import { changeFormat } from "../utils/moneyFormatter.js";
 
@@ -15,13 +25,17 @@ function resetMoney() {
 }
 
 function calculateMoney(history) {
-  if (history.type === TRANSACTION_TYPE.SPENDING) {
-    total -= history.money;
-    spending += history.money;
-  }
-  if (history.type === TRANSACTION_TYPE.INCOME) {
-    total += history.money;
-    income += history.money;
+  switch (history.type) {
+    case TRANSACTION_TYPE.SPENDING:
+      total -= history.money;
+      spending += history.money;
+      break;
+    case TRANSACTION_TYPE.INCOME:
+      total += history.money;
+      income += history.money;
+      break;
+    default:
+      break;
   }
 }
 
