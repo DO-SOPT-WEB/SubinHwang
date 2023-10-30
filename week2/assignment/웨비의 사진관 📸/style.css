@@ -2,6 +2,7 @@
     font-family: 'Pretendard';
     src: url('./font/Pretendard-Medium.otf') format('opentype');
 }
+
 * {
     margin: 0px;
     padding: 0px;
@@ -71,9 +72,11 @@ nav {
     background-color: #B7CAE2;
     border-radius: 10px;
 }
-li{
+
+li {
     list-style: none;
 }
+
 #preview {
     display: flex;
     justify-content: space-between;
@@ -231,8 +234,6 @@ nav li:hover {
 }
 
 #day1 .gallery .item:hover {
-    background-color: rgba(0, 0, 0, 0.5);
-
     transform: translate(0, -10px);
 }
 
@@ -294,7 +295,7 @@ nav li:hover {
 
     opacity: 0;
 
-    transition: background-color 0.3s ease, opacity 0.3s ease;
+    transition: opacity 0.3s ease;
 }
 
 #day1 .detail p {
