@@ -15,8 +15,8 @@ function handleButtonClick() {
   } else {
     const selectedTypes = [];
 
-    if (isIncomeChecked) selectedTypes.push(TRANSACTION_TYPE.INCOME);
-    if (isSpendingChecked) selectedTypes.push(TRANSACTION_TYPE.SPENDING);
+    isIncomeChecked && selectedTypes.push(TRANSACTION_TYPE.INCOME);
+    isSpendingChecked && selectedTypes.push(TRANSACTION_TYPE.SPENDING);
 
     const filteredHistoryList = filterHistoryList(selectedTypes);
     renderHistoryList(filteredHistoryList);
