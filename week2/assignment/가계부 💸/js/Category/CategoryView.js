@@ -23,8 +23,7 @@ function handleCategoryClick() {
   const categories = document.querySelectorAll(".categories .category");
   categories.forEach((category) => {
     category.addEventListener("click", (event) => {
-      const selectedCategoryText = event.target.innerText;
-      SELECTED_CATEGORY.innerText = selectedCategoryText;
+      SELECTED_CATEGORY.innerText = event.target.innerText;
       SELECTOR_DIV.classList.remove(ELEMENT.CLASSNAME.ACTIVE);
     });
   });
