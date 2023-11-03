@@ -1,11 +1,18 @@
 import { styled, createGlobalStyle } from "styled-components";
 import BMHANNAWOFF from "../assets/fonts/BMHANNAProOTF.woff";
+import BMEULJIRO from "../assets/fonts/BMEULJIRO.woff";
 const GlobalStyle = createGlobalStyle`
 
 * {
     @font-face {
         font-family: 'HANNA'; 
         src: url(${BMHANNAWOFF}) format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'EULJIRO'; 
+        src: url(${BMEULJIRO}) format('woff');
         font-weight: normal;
         font-style: normal;
     }
@@ -127,6 +134,12 @@ q:before, q:after {
     content: '';
     content: none;
 }
+button{
+    border:none;
+    font-family:"EULJIRO";
+
+    cursor:pointer;
+}
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -139,5 +152,8 @@ export const Header = styled.header`
   padding: 20px 0;
 `;
 export const Section = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 `;

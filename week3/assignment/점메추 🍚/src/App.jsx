@@ -6,7 +6,7 @@ import { useState } from "react";
 
 function App() {
   const Title = styled.h1`
-    font-size: 2rem;
+    font-size: 1.8rem;
   `;
   const Quetion = styled.h2`
     font-size: 3rem;
@@ -24,7 +24,7 @@ function App() {
     background-color: #fff;
     color: #000;
     padding: 10px;
-    border-radius: 20px; /* 더 큰 값으로 설정하여 끝을 뽀죡하게 만듭니다. */
+    border-radius: 20px;
     width: 200px;
     height: 200px;
 
@@ -36,7 +36,7 @@ function App() {
       position: absolute;
       top: 100%;
       left: 50%;
-      margin-left: -10px; /* 가운데 정렬을 위해 가로 마진을 조정합니다. */
+      margin-left: -10px;
       border-width: 10px;
       border-style: solid;
       border-color: #fff transparent transparent transparent;
@@ -56,13 +56,39 @@ function App() {
     display: flex;
     justify-content: center;
 
-    padding: 50px 0 0;
+    padding: 40px 0 0;
   `;
 
+  const WhiteBox = styled.div`
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    border-radius: 20px;
+    width: 200px;
+    height: 150px;
+
+    margin: 20px;
+  `;
+
+  const Button = styled.button`
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    background: #13868d;
+    color: white;
+  `;
   const [page, setPage] = useState(0);
-  const nextPage = () => {
+  const nextPage = (answer) => {
+    setAnswer(answer);
     setPage(page + 1);
   };
+  const [answer, setAnswer] = useState("");
+
   {
     switch (page) {
       case 0:
@@ -74,13 +100,31 @@ function App() {
             <Section>
               <Quetion>원하는 추천 방식을 골라줘!</Quetion>
               <Answer>
-                <Balloon onClick={() => nextPage()}>
+                <Balloon onClick={() => nextPage("취향대로 추천")}>
                   <BalloonText>취향대로 추천</BalloonText>
                 </Balloon>
-                <Balloon onClick={() => nextPage()}>
+                <Balloon onClick={() => nextPage("랜덤 추천")}>
                   <BalloonText>랜덤 추천</BalloonText>
                 </Balloon>
               </Answer>
+              <Character src={mainCharacter} />
+            </Section>
+          </>
+        );
+      case 1:
+        return (
+          <>
+            <Header>
+              <Title>오늘의 점메추</Title>
+            </Header>
+            <Section>
+              <Quetion>원하는 추천 방식을 골라줘!</Quetion>
+              <Answer>
+                <WhiteBox>
+                  <BalloonText>{answer}</BalloonText>
+                </WhiteBox>
+              </Answer>
+              <Button>시작!</Button>
               <Character src={mainCharacter} />
             </Section>
           </>
