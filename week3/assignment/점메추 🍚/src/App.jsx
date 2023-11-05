@@ -133,27 +133,19 @@ function App() {
     border: none;
     border-radius: 20px;
     background: #13868d;
-    color: #000;
-  `;
-  const NextButton = styled.button`
-    width: 100px;
-    height: 40px;
-    border: none;
-    border-radius: 10px;
-    background: #13868d;
     color: #fff;
-
+  `;
+  const DisabledNextButton = styled(Button)`
+    opacity: 50%;
+  `;
+  const ActiveNextButton = styled(Button)`
     &:hover {
-      box-shadow: 0 0 10px 5px #13868d;
+      box-shadow: 0 0 8px 4px #13868d;
     }
   `;
-  const PrevButton = styled.button`
-    width: 100px;
-    height: 40px;
-    border: none;
-    border-radius: 10px;
+  const PrevButton = styled(Button)`
     background: #dadada;
-    color: #000;
+    color: #333;
     &:hover {
       box-shadow: 0 0 8px 4px #dadada;
     }
@@ -162,12 +154,48 @@ function App() {
   const nextPage = (answer) => {
     setAnswer(answer);
     setPage(page + 1);
+    setSelected(false);
   };
   const prevPage = () => {
     setPage(page - 1);
+    setSelected(true);
   };
   const [answer, setAnswer] = useState("");
+  const [isSelected, setSelected] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState("");
+  const [selectedAmount, setSelectedAmount] = useState("");
+  const [selectedFlavor, setSelectedFlavor] = useState("");
+  const countryOptions = [
+    { id: "korean-food", label: "한식" },
+    { id: "western-food", label: "양식" },
+    { id: "japanese-and-chinese-food", label: "일/중식" },
+  ];
+  const amountOptions = [
+    { id: "largely", label: "거하게" },
+    { id: "properly", label: "적당하게" },
+    { id: "simply", label: "간단하게" },
+  ];
+  const flavorOptions = [
+    { id: "fat", label: "기름진 맛" },
+    { id: "plain", label: "담백한 맛" },
+  ];
 
+  const handleNextButton = (value, questionNumber) => {
+    !isSelected && setSelected(!isSelected);
+    switch (questionNumber) {
+      case 1:
+        setSelectedCountry(value);
+        break;
+      case 2:
+        setSelectedAmount(value);
+        break;
+      case 3:
+        setSelectedFlavor(value);
+        break;
+      default:
+        break;
+    }
+  };
   {
     switch (page) {
       case 0:
@@ -217,30 +245,20 @@ function App() {
             <Section>
               <Quetion>나는 지금 __ 이 땡긴다!</Quetion>
               <Answer>
-                <RadioInput
-                  type="radio"
-                  id="korean-food"
-                  name="country"
-                ></RadioInput>
-                <RadioBalloon htmlFor="korean-food">
-                  <BalloonText>한식</BalloonText>
-                </RadioBalloon>
-                <RadioInput
-                  type="radio"
-                  id="western-food"
-                  name="country"
-                ></RadioInput>
-                <RadioBalloon htmlFor="western-food">
-                  <BalloonText>양식</BalloonText>
-                </RadioBalloon>
-                <RadioInput
-                  type="radio"
-                  id="japnese-and-chinese-food"
-                  name="country"
-                ></RadioInput>
-                <RadioBalloon htmlFor="japnese-and-chinese-food">
-                  <BalloonText>일/중식</BalloonText>
-                </RadioBalloon>
+                {countryOptions.map((option) => (
+                  <div key={option.id}>
+                    <RadioInput
+                      type="radio"
+                      id={option.id}
+                      name="country"
+                      onChange={() => handleNextButton(option.id, 1)}
+                      checked={selectedCountry === option.id}
+                    ></RadioInput>
+                    <RadioBalloon htmlFor={option.id}>
+                      <BalloonText>{option.label}</BalloonText>
+                    </RadioBalloon>
+                  </div>
+                ))}
               </Answer>
 
               <Character src={mainCharacter} />
@@ -248,9 +266,15 @@ function App() {
                 <PrevButton type="button" onClick={() => prevPage()}>
                   이전으로
                 </PrevButton>
-                <NextButton type="button" onClick={() => nextPage()}>
-                  다음으로
-                </NextButton>
+                {isSelected ? (
+                  <ActiveNextButton type="button" onClick={() => nextPage()}>
+                    다음으로
+                  </ActiveNextButton>
+                ) : (
+                  <DisabledNextButton type="button" onClick={() => nextPage()}>
+                    다음으로
+                  </DisabledNextButton>
+                )}
               </ButtonSection>
             </Section>
           </>
@@ -264,35 +288,35 @@ function App() {
             <Section>
               <Quetion>나는 지금 ___ 하게 먹고싶다</Quetion>
               <Answer>
-                <RadioInput
-                  type="radio"
-                  id="largely"
-                  name="amount"
-                ></RadioInput>
-                <RadioBalloon htmlFor="largely">
-                  <BalloonText>거하게</BalloonText>
-                </RadioBalloon>
-                <RadioInput
-                  type="radio"
-                  id="properly"
-                  name="amount"
-                ></RadioInput>
-                <RadioBalloon htmlFor="properly">
-                  <BalloonText>적당하게</BalloonText>
-                </RadioBalloon>
-                <RadioInput type="radio" id="simply" name="amount"></RadioInput>
-                <RadioBalloon htmlFor="simply">
-                  <BalloonText>간단하게</BalloonText>
-                </RadioBalloon>
+                {amountOptions.map((option) => (
+                  <div key={option.id}>
+                    <RadioInput
+                      type="radio"
+                      id={option.id}
+                      name="amount"
+                      onChange={() => handleNextButton(option.id, 2)}
+                      checked={selectedAmount === option.id}
+                    ></RadioInput>
+                    <RadioBalloon htmlFor={option.id}>
+                      <BalloonText>{option.label}</BalloonText>
+                    </RadioBalloon>
+                  </div>
+                ))}
               </Answer>
               <Character src={mainCharacter} />
               <ButtonSection>
                 <PrevButton type="button" onClick={() => prevPage()}>
                   이전으로
                 </PrevButton>
-                <NextButton type="button" onClick={() => nextPage()}>
-                  다음으로
-                </NextButton>
+                {isSelected ? (
+                  <ActiveNextButton type="button" onClick={() => nextPage()}>
+                    다음으로
+                  </ActiveNextButton>
+                ) : (
+                  <DisabledNextButton type="button" onClick={() => nextPage()}>
+                    다음으로
+                  </DisabledNextButton>
+                )}
               </ButtonSection>
             </Section>
           </>
@@ -306,23 +330,35 @@ function App() {
             <Section>
               <Quetion>나는 지금 __ 맛이 땡긴다</Quetion>
               <Answer>
-                <RadioInput type="radio" id="fat" name="flavor"></RadioInput>
-                <RadioBalloon htmlFor="fat">
-                  <BalloonText>기름진 맛</BalloonText>
-                </RadioBalloon>
-                <RadioInput type="radio" id="plain" name="flavor"></RadioInput>
-                <RadioBalloon htmlFor="plain">
-                  <BalloonText>담백한 맛</BalloonText>
-                </RadioBalloon>
+                {flavorOptions.map((option) => (
+                  <div key={option.id}>
+                    <RadioInput
+                      type="radio"
+                      id={option.id}
+                      name="flavor"
+                      onChange={() => handleNextButton(option.id, 3)}
+                      checked={selectedFlavor === option.id}
+                    ></RadioInput>
+                    <RadioBalloon htmlFor={option.id}>
+                      <BalloonText>{option.label}</BalloonText>
+                    </RadioBalloon>
+                  </div>
+                ))}
               </Answer>
               <Character src={mainCharacter} />
               <ButtonSection>
                 <PrevButton type="button" onClick={() => prevPage()}>
                   이전으로
                 </PrevButton>
-                <NextButton type="button" onClick={() => nextPage()}>
-                  결과보기
-                </NextButton>
+                {isSelected ? (
+                  <ActiveNextButton type="button" onClick={() => nextPage()}>
+                    결과보기
+                  </ActiveNextButton>
+                ) : (
+                  <DisabledNextButton type="button" onClick={() => nextPage()}>
+                    결과보기
+                  </DisabledNextButton>
+                )}
               </ButtonSection>
             </Section>
           </>
