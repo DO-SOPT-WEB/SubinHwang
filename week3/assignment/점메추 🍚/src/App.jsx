@@ -271,7 +271,11 @@ function App() {
                     다음으로
                   </ActiveNextButton>
                 ) : (
-                  <DisabledNextButton type="button" onClick={() => nextPage()}>
+                  <DisabledNextButton
+                    type="button"
+                    disabled
+                    onClick={() => nextPage()}
+                  >
                     다음으로
                   </DisabledNextButton>
                 )}
@@ -313,7 +317,11 @@ function App() {
                     다음으로
                   </ActiveNextButton>
                 ) : (
-                  <DisabledNextButton type="button" onClick={() => nextPage()}>
+                  <DisabledNextButton
+                    type="button"
+                    disabled
+                    onClick={() => nextPage()}
+                  >
                     다음으로
                   </DisabledNextButton>
                 )}
@@ -355,7 +363,11 @@ function App() {
                     결과보기
                   </ActiveNextButton>
                 ) : (
-                  <DisabledNextButton type="button" onClick={() => nextPage()}>
+                  <DisabledNextButton
+                    type="button"
+                    disabled
+                    onClick={() => nextPage()}
+                  >
                     결과보기
                   </DisabledNextButton>
                 )}
