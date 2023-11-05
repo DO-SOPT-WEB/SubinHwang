@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
         font-weight: normal;
         font-style: normal;
     }
-    
+    box-sizing : border;
 }
 
 #root {
@@ -137,7 +137,7 @@ q:before, q:after {
 button{
     border:none;
     font-family:"EULJIRO";
-
+    font-size:1rem;
     cursor:pointer;
 }
 table {
@@ -153,7 +153,21 @@ export const Header = styled.header`
 `;
 export const Section = styled.section`
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
+  max-width: 800px;
+  height: calc(100vh - 70px);
   text-align: center;
+`;
+export const Title = styled.h1`
+  font-size: 1.8rem;
+`;
+export const Quetion = styled.h2`
+  font-size: 3rem;
+  font-weight: 100;
+`;
+export const Character = styled.img`
+  width: 150px;
 `;
