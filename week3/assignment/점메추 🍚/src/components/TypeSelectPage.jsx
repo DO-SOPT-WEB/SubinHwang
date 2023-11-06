@@ -16,10 +16,10 @@ export default function TypeSelectPage({ nextPage }) {
       <Section>
         <Quetion>원하는 추천 방식을 골라줘!</Quetion>
         <Answer>
-          <Balloon onClick={() => nextPage(RECOMMEND_BY.TYPE)}>
+          <Balloon onClick={() => nextPage(0, RECOMMEND_BY.TYPE)}>
             <BalloonText>{RECOMMEND_BY.TYPE}</BalloonText>
           </Balloon>
-          <Balloon onClick={() => nextPage(RECOMMEND_BY.RANDOM)}>
+          <Balloon onClick={() => nextPage(0, RECOMMEND_BY.RANDOM)}>
             <BalloonText>{RECOMMEND_BY.RANDOM}</BalloonText>
           </Balloon>
         </Answer>

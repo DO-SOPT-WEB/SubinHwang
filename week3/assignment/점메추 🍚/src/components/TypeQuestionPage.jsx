@@ -6,15 +6,17 @@ import {
   RadioInput,
   Section,
 } from "../styles/globalStyle";
-import { tasteOptions } from "../utils/constants";
 import Header from "./common/Header";
 import MainCharacter from "./common/MainCharacter";
 import PageMoveButton from "./common/PageMoveButton";
 
-export default function TasteQuestionPage({
+export default function TypeQuestionPage({
+  type,
+  options,
   isSelected,
   selectedValue,
   handleNextButton,
+  currentPage,
   prevPage,
   nextPage,
 }) {
@@ -22,15 +24,15 @@ export default function TasteQuestionPage({
     <>
       <Header />
       <Section>
-        <Quetion>나는 지금 __ 맛이 땡긴다!</Quetion>
+        <Quetion>{type.question}</Quetion>
         <Answer>
-          {tasteOptions.map((option) => (
+          {options.map((option) => (
             <div key={option.id}>
               <RadioInput
                 type="radio"
                 id={option.id}
-                name="taste"
-                onChange={() => handleNextButton(option.id, 3)}
+                name={type.name}
+                onChange={() => handleNextButton(option.id, currentPage)}
                 checked={selectedValue === option.id}
               ></RadioInput>
               <RadioBalloon htmlFor={option.id}>
@@ -39,9 +41,10 @@ export default function TasteQuestionPage({
             </div>
           ))}
         </Answer>
+
         <MainCharacter />
         <PageMoveButton
-          currentPage={4}
+          currentPage={currentPage}
           isSelected={isSelected}
           prevPage={prevPage}
           nextPage={nextPage}

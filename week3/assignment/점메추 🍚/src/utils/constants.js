@@ -179,6 +179,20 @@ export const tasteOptions = [
   { id: "plain", label: "담백한 맛" },
 ];
 
+export const question = {
+  region: {
+    name: "region",
+    question: "나는 지금 __ 이 땡긴다!",
+  },
+  amount: {
+    name: "amount",
+    question: "나는 지금 ___ 하게 먹고싶다!",
+  },
+  taste: {
+    name: "taste",
+    question: "나는 지금 __ 맛이 땡긴다!",
+  },
+};
 export const RECOMMEND_BY = {
   TYPE: "취향대로 추천",
   RANDOM: "랜덤 추천",

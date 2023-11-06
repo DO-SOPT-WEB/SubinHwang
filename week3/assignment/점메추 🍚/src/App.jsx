@@ -1,11 +1,16 @@
 import { useState } from "react";
-import { foodData, RECOMMEND_BY } from "./utils/constants";
+import {
+  amountOptions,
+  foodData,
+  question,
+  RECOMMEND_BY,
+  regionOptions,
+  tasteOptions,
+} from "./utils/constants";
 import TypeSelectPage from "./components/TypeSelectPage";
 import TypeResultPage from "./components/TypeResultPage";
-import RegionQuestionPage from "./components/RegionQuestionPage";
-import AmountQuestionPage from "./components/AmountQuestionPage";
-import TasteQuestionPage from "./components/TasteQuestionPage";
 import ResultPage from "./components/ResultPage";
+import TypeQuestionPage from "./components/TypeQuestionPage";
 
 function App() {
   const [page, setPage] = useState(0);
@@ -16,13 +21,11 @@ function App() {
   const [selectedTaste, setSelectedTaste] = useState("");
   const [result, setResult] = useState("");
 
-  const goTypeResultPage = (type) => {
-    setAnswer(type);
-    setPage(page + 1);
-  };
-  const nextPage = (currentPage) => {
-    console.log(selectedRegion);
+  const nextPage = (currentPage, selectedType) => {
     switch (currentPage) {
+      case 0:
+        setAnswer(selectedType);
+        break;
       case 1:
         !selectedRegion && setSelected(false);
         break;
@@ -39,7 +42,6 @@ function App() {
         break;
     }
     setPage(page + 1);
-    //isLastPage === true && resultPage;
   };
   const prevPage = () => {
     setPage(page - 1);
@@ -76,13 +78,13 @@ function App() {
   const handleNextButton = (value, questionNumber) => {
     !isSelected && setSelected(!isSelected);
     switch (questionNumber) {
-      case 1:
+      case 2:
         setSelectedRegion(value);
         break;
-      case 2:
+      case 3:
         setSelectedAmount(value);
         break;
-      case 3:
+      case 4:
         setSelectedTaste(value);
         break;
       default:
@@ -108,37 +110,46 @@ function App() {
   {
     switch (page) {
       case 0: //추천 방식 선택 화면
-        return <TypeSelectPage nextPage={goTypeResultPage} />;
+        return <TypeSelectPage nextPage={nextPage} />;
       case 1: //선택된 추천 방식 확인 화면
         return <TypeResultPage answer={answer} nextPage={nextPage} />;
       case 2: //취향대로 추천 - 첫번째 질문 - 나는 지금 __ 이 땡긴다!
         return (
-          <RegionQuestionPage
+          <TypeQuestionPage
+            type={question.region}
+            options={regionOptions}
             isSelected={isSelected}
             selectedValue={selectedRegion}
             handleNextButton={handleNextButton}
+            currentPage={page}
             prevPage={prevPage}
             nextPage={nextPage}
           />
         );
-      case 3: //취향대로 추천 - 두번째 질문 - 나는 지금 ___ 하게 먹고싶다!
+      case 3: //취향대로 추천 - 두번째 질문 - 나는 지금 ___ 하게 먹고 싶다!
         return (
-          <AmountQuestionPage
+          <TypeQuestionPage
+            type={question.amount}
+            options={amountOptions}
             isSelected={isSelected}
             selectedValue={selectedAmount}
             handleNextButton={handleNextButton}
+            currentPage={page}
             prevPage={prevPage}
             nextPage={nextPage}
           />
         );
       case 4: //취향대로 추천 - 세번째 질문 - 나는 지금 __ 맛이 땡긴다!
         return (
-          <TasteQuestionPage
+          <TypeQuestionPage
+            type={question.taste}
+            options={tasteOptions}
             isSelected={isSelected}
             selectedValue={selectedTaste}
             handleNextButton={handleNextButton}
+            currentPage={page}
             prevPage={prevPage}
-            nextPage={resultPage}
+            nextPage={nextPage}
           />
         );
       case 5: //결과페이지
