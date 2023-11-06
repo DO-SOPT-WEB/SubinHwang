@@ -51,7 +51,7 @@ export const foodData = {
   떡볶이: {
     country: "korean",
     amount: "simply",
-    taste: "palin",
+    taste: "plain",
     score: 0,
     image: "src/assets/img/teokbokki.png",
   },

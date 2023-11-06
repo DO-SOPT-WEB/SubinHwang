@@ -188,7 +188,6 @@ function App() {
       foodData[food].amount === selectedAmount && foodData[food].score++;
       foodData[food].taste === selectedTaste && foodData[food].score++;
     });
-    console.log(foodData);
     findMostSuitableFood();
     nextPage();
   };
@@ -205,13 +204,11 @@ function App() {
         mostSuitableFoods.push(food);
       }
     }
-    console.log(mostSuitableFoods);
     const randomIndex = Math.floor(Math.random() * mostSuitableFoods.length);
     setResult(foodData[mostSuitableFoods[randomIndex]].image);
   };
 
   const handleNextButton = (value, questionNumber) => {
-    console.log(value);
     !isSelected && setSelected(!isSelected);
     switch (questionNumber) {
       case 1:
@@ -227,8 +224,19 @@ function App() {
         break;
     }
   };
+  const resetAnswer = () => {
+    setSelected(false);
+    setSelectedCountry("");
+    setSelectedAmount("");
+    setSelectedTaste("");
+    setResult("");
+    Object.keys(foodData).map((food) => {
+      foodData[food].score = 0;
+    });
+  };
   const goTypeSelectPage = () => {
     setPage(1);
+    resetAnswer();
   };
   {
     switch (page) {
