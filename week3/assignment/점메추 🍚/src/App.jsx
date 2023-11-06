@@ -7,7 +7,6 @@ import {
   amountOptions,
   countryOptions,
   foodData,
-  foodScore,
   tasteOptions,
 } from "./utils/constants";
 
@@ -21,7 +20,9 @@ const Quetion = styled.h2`
 const Character = styled.img`
   width: 150px;
 `;
-
+const FoodImg = styled.img`
+  width: 150px;
+`;
 const RadioBalloon = styled.label`
   position: relative;
   display: flex;
@@ -108,7 +109,7 @@ const Answer = styled.div`
   display: flex;
   justify-content: center;
 
-  padding: 40px 0 0;
+  padding: 20px 0 0;
 `;
 
 const WhiteBox = styled.div`
@@ -182,41 +183,31 @@ function App() {
   const [result, setResult] = useState("");
 
   const recommendFood = () => {
-    if (selectedCountry && selectedAmount && selectedCountry) {
-      const amountOptions = foodData.amount[selectedAmount];
-      const countryOptions = foodData.country[selectedCountry];
-      const tasteOptions = foodData.taste[selectedTaste];
-      console.log(selectedCountry);
-
-      amountOptions.map((food) => {
-        foodScore[food] += 1;
-      });
-      countryOptions.map((food) => {
-        foodScore[food] += 1;
-      });
-      tasteOptions.map((food) => {
-        foodScore[food] += 1;
-      });
-      console.log(foodScore);
-      findMostSuitableFood();
-      nextPage();
-    }
+    Object.keys(foodData).map((food) => {
+      foodData[food].country === selectedCountry && foodData[food].score++;
+      foodData[food].amount === selectedAmount && foodData[food].score++;
+      foodData[food].taste === selectedTaste && foodData[food].score++;
+    });
+    console.log(foodData);
+    findMostSuitableFood();
+    nextPage();
   };
+
   const findMostSuitableFood = () => {
     let mostSuitableFoods = [];
     let maxCount = -1;
 
-    for (const label in foodScore) {
-      if (foodScore[label] > maxCount) {
-        mostSuitableFoods = [label];
-        maxCount = foodScore[label];
-      } else if (foodScore[label] === maxCount) {
-        mostSuitableFoods.push(label);
+    for (const food in foodData) {
+      if (foodData[food].score > maxCount) {
+        mostSuitableFoods = [food];
+        maxCount = foodData[food].score;
+      } else if (foodData[food].score === maxCount) {
+        mostSuitableFoods.push(food);
       }
     }
-
+    console.log(mostSuitableFoods);
     const randomIndex = Math.floor(Math.random() * mostSuitableFoods.length);
-    setResult(mostSuitableFoods[randomIndex]);
+    setResult(foodData[mostSuitableFoods[randomIndex]].image);
   };
 
   const handleNextButton = (value, questionNumber) => {
@@ -418,7 +409,9 @@ function App() {
             <Section>
               <Quetion>오늘의 추천음식은</Quetion>
               <Answer>
-                <WhiteBox>{result}</WhiteBox>
+                <WhiteBox>
+                  <FoodImg src={result}></FoodImg>
+                </WhiteBox>
               </Answer>
               <ActiveNextButton
                 type="button"
