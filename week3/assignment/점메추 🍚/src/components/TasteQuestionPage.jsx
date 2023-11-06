@@ -41,7 +41,7 @@ export default function TasteQuestionPage({
         </Answer>
         <MainCharacter />
         <PageMoveButton
-          isLastQuestion={true}
+          currentPage={4}
           isSelected={isSelected}
           prevPage={prevPage}
           nextPage={nextPage}

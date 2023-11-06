@@ -6,7 +6,7 @@ import {
 } from "../../styles/globalStyle";
 
 export default function PageMoveButton({
-  isLastQuestion,
+  currentPage,
   isSelected,
   prevPage,
   nextPage,
@@ -17,10 +17,7 @@ export default function PageMoveButton({
         이전으로
       </PrevButton>
       {isSelected ? (
-        <ActiveNextButton
-          type="button"
-          onClick={() => nextPage(isLastQuestion)}
-        >
+        <ActiveNextButton type="button" onClick={() => nextPage(currentPage)}>
           다음으로
         </ActiveNextButton>
       ) : (

@@ -20,7 +20,7 @@ export default function TypeResultPage({ answer, nextPage }) {
             <BalloonText>{answer}</BalloonText>
           </WhiteBox>
         </Answer>
-        <Button onClick={() => nextPage()}>시작!</Button>
+        <Button onClick={() => nextPage(1)}>시작!</Button>
         <MainCharacter />
       </Section>
     </>

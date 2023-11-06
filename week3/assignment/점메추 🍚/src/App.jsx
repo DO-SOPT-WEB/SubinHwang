@@ -20,10 +20,26 @@ function App() {
     setAnswer(type);
     setPage(page + 1);
   };
-  const nextPage = (isLastPage) => {
-    isLastPage === true && resultPage;
+  const nextPage = (currentPage) => {
+    console.log(selectedRegion);
+    switch (currentPage) {
+      case 1:
+        !selectedRegion && setSelected(false);
+        break;
+      case 2:
+        !selectedAmount && setSelected(false);
+        break;
+      case 3:
+        !selectedTaste && setSelected(false);
+        break;
+      case 4:
+        resultPage();
+        break;
+      default:
+        break;
+    }
     setPage(page + 1);
-    setSelected(false);
+    //isLastPage === true && resultPage;
   };
   const prevPage = () => {
     setPage(page - 1);
@@ -125,7 +141,7 @@ function App() {
             nextPage={resultPage}
           />
         );
-      case 5:
+      case 5: //결과페이지
         return <ResultPage result={result} handleRetry={retry} />;
     }
   }

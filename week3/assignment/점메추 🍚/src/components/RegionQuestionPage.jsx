@@ -42,6 +42,7 @@ export default function RegionQuestionPage({
 
         <MainCharacter />
         <PageMoveButton
+          currentPage={2}
           isSelected={isSelected}
           prevPage={prevPage}
           nextPage={nextPage}

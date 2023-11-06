@@ -41,6 +41,7 @@ export default function AmountQuestionPage({
         </Answer>
         <MainCharacter />
         <PageMoveButton
+          currentPage={3}
           isSelected={isSelected}
           prevPage={prevPage}
           nextPage={nextPage}
