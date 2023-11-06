@@ -15,6 +15,7 @@ import StartPage from "./components/StartPage";
 import ResultPage from "./components/ResultPage";
 import TypeQuestionPage from "./components/TypeQuestionPage";
 import RandomRecommendPage from "./components/RandomRecommendPage";
+import Header from "./components/common/Header";
 
 function App() {
   const [page, setPage] = useState(0);
@@ -116,13 +117,19 @@ function App() {
     resetAnswer();
     setPage(PAGE.START);
   };
+  const restart = () => {
+    resetAnswer();
+    setPage(PAGE.TYPE_SELECT);
+  };
 
   {
     switch (page) {
       case PAGE.TYPE_SELECT: //추천 방식 선택 화면
         return <TypeSelectPage nextPage={nextPage} />;
       case PAGE.START: //선택된 추천 방식 확인 & 시작 화면
-        return <StartPage answer={answer} nextPage={nextPage} />;
+        return (
+          <StartPage answer={answer} nextPage={nextPage} restart={restart} />
+        );
       case PAGE.RECOMMEND_BY_TYPE_QUESTION_1: //취향대로 추천 - 첫번째 질문 - 나는 지금 __ 이 땡긴다!
         return (
           <TypeQuestionPage
@@ -134,6 +141,7 @@ function App() {
             currentPage={page}
             prevPage={prevPage}
             nextPage={nextPage}
+            restart={restart}
           />
         );
       case PAGE.RECOMMEND_BY_TYPE_QUESTION_2: //취향대로 추천 - 두번째 질문 - 나는 지금 ___ 하게 먹고 싶다!
@@ -147,6 +155,7 @@ function App() {
             currentPage={page}
             prevPage={prevPage}
             nextPage={nextPage}
+            restart={restart}
           />
         );
       case PAGE.RECOMMEND_BY_TYPE_QUESTION_3: //취향대로 추천 - 세번째 질문 - 나는 지금 __ 맛이 땡긴다!
@@ -160,12 +169,13 @@ function App() {
             currentPage={page}
             prevPage={prevPage}
             nextPage={nextPage}
+            restart={restart}
           />
         );
       case PAGE.RECOMMEND_BY_TYPE_RESULT: //취향대로 추천 - 결과 페이지
-        return <ResultPage result={result} handleRetry={retry} />;
+        return <ResultPage result={result} retry={retry} restart={restart} />;
       case PAGE.RECOMMEND_BY_RANDOM: //랜덤 추천
-        return <RandomRecommendPage handleRetry={retry} />;
+        return <RandomRecommendPage retry={retry} restart={restart} />;
       default:
         break;
     }

@@ -29,7 +29,7 @@ const Spinner = styled.img`
   }
 `;
 
-export default function RandomRecommendPage({ handleRetry }) {
+export default function RandomRecommendPage({ retry, restart }) {
   const [count, setCount] = useState(3);
   const [image, setImage] = useState(spinner1);
   const [isFinish, setIsFinish] = useState(false);
@@ -80,10 +80,10 @@ export default function RandomRecommendPage({ handleRetry }) {
   }, [count]);
 
   return isFinish ? ( //랜덤 추천 결과 페이지
-    <ResultPage result={result} handleRetry={handleRetry} />
+    <ResultPage result={result} retry={retry} />
   ) : (
     <>
-      <Header />
+      <Header restart={restart} />
       <Section>
         <LoadingBox>
           <CountNumber>{count}</CountNumber>

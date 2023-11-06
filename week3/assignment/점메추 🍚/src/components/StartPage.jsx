@@ -10,10 +10,10 @@ import { PAGE } from "../utils/constants";
 import Header from "./common/Header";
 import MainCharacter from "./common/MainCharacter";
 
-export default function StartPage({ answer, nextPage }) {
+export default function StartPage({ answer, nextPage, restart }) {
   return (
     <>
-      <Header />
+      <Header restart={restart} />
       <Section>
         <Quetion>원하는 추천 방식을 골라줘!</Quetion>
         <Answer>

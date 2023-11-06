@@ -19,10 +19,11 @@ export default function TypeQuestionPage({
   currentPage,
   prevPage,
   nextPage,
+  restart,
 }) {
   return (
     <>
-      <Header />
+      <Header restart={restart} />
       <Section>
         <Quetion>{type.question}</Quetion>
         <Answer>

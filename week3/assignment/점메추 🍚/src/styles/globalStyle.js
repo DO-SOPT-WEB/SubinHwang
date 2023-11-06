@@ -148,9 +148,6 @@ table {
 
 export default GlobalStyle;
 
-export const HeaderWrapper = styled.header`
-  padding: 20px 0;
-`;
 export const Section = styled.section`
   display: flex;
   justify-content: center;
@@ -161,9 +158,7 @@ export const Section = styled.section`
   height: calc(100vh - 70px);
   text-align: center;
 `;
-export const Title = styled.h1`
-  font-size: 1.8rem;
-`;
+
 export const Quetion = styled.h2`
   font-size: 3rem;
   font-weight: 100;
