@@ -231,6 +231,7 @@ export const Button = styled.button`
   border-radius: 20px;
   background: #13868d;
   color: #fff;
+  transition: 0.3s;
 `;
 export const RadioBalloon = styled.label`
   position: relative;
@@ -291,16 +292,20 @@ export const ButtonSection = styled.div`
 
 export const DisabledNextButton = styled(Button)`
   opacity: 50%;
+  cursor: not-allowed;
 `;
 export const ActiveNextButton = styled(Button)`
   &:hover {
     box-shadow: 0 0 8px 4px #13868d;
+    transition: 0.3s;
   }
 `;
 export const PrevButton = styled(Button)`
   background: #dadada;
   color: #333;
+  transition: 0.3s;
   &:hover {
     box-shadow: 0 0 8px 4px #dadada;
+    transition: 0.3s;
   }
 `;

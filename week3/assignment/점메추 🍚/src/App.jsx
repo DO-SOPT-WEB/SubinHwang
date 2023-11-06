@@ -11,6 +11,7 @@ import TypeSelectPage from "./components/TypeSelectPage";
 import TypeResultPage from "./components/TypeResultPage";
 import ResultPage from "./components/ResultPage";
 import TypeQuestionPage from "./components/TypeQuestionPage";
+import RandomRecommendPage from "./components/RandomRecommendPage";
 
 function App() {
   const [page, setPage] = useState(0);
@@ -25,23 +26,28 @@ function App() {
     switch (currentPage) {
       case 0:
         setAnswer(selectedType);
+        setPage(page + 1);
         break;
       case 1:
-        !selectedRegion && setSelected(false);
+        selectedType === RECOMMEND_BY.TYPE
+          ? !selectedRegion && setSelected(false)
+          : setPage(6);
         break;
       case 2:
         !selectedAmount && setSelected(false);
+        setPage(page + 1);
         break;
       case 3:
         !selectedTaste && setSelected(false);
+        setPage(page + 1);
         break;
       case 4:
         resultPage();
         break;
       default:
+        setPage(page + 1);
         break;
     }
-    setPage(page + 1);
   };
   const prevPage = () => {
     setPage(page - 1);
@@ -102,9 +108,9 @@ function App() {
     });
   };
 
-  const retry = (type) => {
+  const retry = () => {
     resetAnswer();
-    type === RECOMMEND_BY.TYPE ? setPage(1) : setPage(5);
+    setPage(1);
   };
 
   {
@@ -152,8 +158,10 @@ function App() {
             nextPage={nextPage}
           />
         );
-      case 5: //결과페이지
+      case 5: //취향대로 추천 - 결과 페이지
         return <ResultPage result={result} handleRetry={retry} />;
+      case 6:
+        return <RandomRecommendPage handleRetry={retry} />;
     }
   }
 }

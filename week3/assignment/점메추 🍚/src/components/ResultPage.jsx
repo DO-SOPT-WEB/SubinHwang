@@ -1,5 +1,5 @@
 import {
-  ActiveNextButton,
+  Button,
   Answer,
   Quetion,
   Section,
@@ -8,13 +8,12 @@ import {
 import Header from "./common/Header";
 import { styled } from "styled-components";
 import MainCharacter from "./common/MainCharacter";
-import { RECOMMEND_BY } from "../utils/constants";
 
 const FoodImg = styled.img`
   width: 150px;
 `;
 
-export default function ResultPage({ result, handleRetry }) {
+export default function ResultPage({ type, result, handleRetry }) {
   return (
     <>
       <Header />
@@ -25,12 +24,9 @@ export default function ResultPage({ result, handleRetry }) {
             <FoodImg src={result}></FoodImg>
           </WhiteBox>
         </Answer>
-        <ActiveNextButton
-          type="button"
-          onClick={() => handleRetry(RECOMMEND_BY.TYPE)}
-        >
+        <Button type="button" onClick={() => handleRetry(type)}>
           다시하기
-        </ActiveNextButton>
+        </Button>
 
         <MainCharacter />
       </Section>
