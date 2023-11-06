@@ -2,21 +2,17 @@ import {
   Answer,
   BalloonText,
   Button,
-  Character,
-  Header,
   Quetion,
   Section,
-  Title,
   WhiteBox,
 } from "../styles/globalStyle";
-import mainCharacter from "../assets/img/character.png";
+import Header from "./common/Header";
+import MainCharacter from "./common/MainCharacter";
 
-export default function TypeResultPage(answer) {
+export default function TypeResultPage({ answer, nextPage }) {
   return (
     <>
-      <Header>
-        <Title>오늘의 점메추</Title>
-      </Header>
+      <Header />
       <Section>
         <Quetion>원하는 추천 방식을 골라줘!</Quetion>
         <Answer>
@@ -24,8 +20,8 @@ export default function TypeResultPage(answer) {
             <BalloonText>{answer}</BalloonText>
           </WhiteBox>
         </Answer>
-        <Button type="button">시작!</Button>
-        <Character src={mainCharacter} />
+        <Button onClick={() => nextPage()}>시작!</Button>
+        <MainCharacter />
       </Section>
     </>
   );

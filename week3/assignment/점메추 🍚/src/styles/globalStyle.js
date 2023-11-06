@@ -148,7 +148,7 @@ table {
 
 export default GlobalStyle;
 
-export const Header = styled.header`
+export const HeaderWrapper = styled.header`
   padding: 20px 0;
 `;
 export const Section = styled.section`
@@ -170,4 +170,137 @@ export const Quetion = styled.h2`
 `;
 export const Character = styled.img`
   width: 150px;
+`;
+export const Answer = styled.div`
+  display: flex;
+  justify-content: center;
+
+  padding: 20px 0 0;
+`;
+export const Balloon = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  color: #000;
+  padding: 10px;
+  border-radius: 20px;
+  width: 200px;
+  height: 150px;
+
+  margin: 20px;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+  }
+
+  &:hover {
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  }
+`;
+export const BalloonText = styled.p`
+  color: #000;
+  font-size: 1.5rem;
+`;
+export const WhiteBox = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  color: #000;
+  padding: 10px;
+  border-radius: 20px;
+  width: 200px;
+  height: 150px;
+  margin: 20px;
+`;
+export const Button = styled.button`
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  background: #13868d;
+  color: #fff;
+`;
+export const RadioBalloon = styled.label`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  color: #000;
+  padding: 10px;
+  border-radius: 20px;
+  width: 200px;
+  height: 150px;
+
+  margin: 20px;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+  }
+
+  &:hover {
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  }
+  &:checked {
+    background: red;
+  }
+`;
+
+export const RadioInput = styled.input`
+  display: none;
+
+  &:checked + label {
+    background: #13868d;
+  }
+  &:checked + label > p {
+    color: #fff;
+  }
+  &:checked + label::before {
+    border-color: #13868d transparent transparent transparent;
+    color: #fff;
+  }
+`;
+
+export const ButtonSection = styled.div`
+  position: relative;
+  bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+  width: 750px;
+`;
+
+export const DisabledNextButton = styled(Button)`
+  opacity: 50%;
+`;
+export const ActiveNextButton = styled(Button)`
+  &:hover {
+    box-shadow: 0 0 8px 4px #13868d;
+  }
+`;
+export const PrevButton = styled(Button)`
+  background: #dadada;
+  color: #333;
+  &:hover {
+    box-shadow: 0 0 8px 4px #dadada;
+  }
 `;
