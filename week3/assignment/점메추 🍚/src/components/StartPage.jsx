@@ -6,10 +6,11 @@ import {
   Section,
   WhiteBox,
 } from "../styles/globalStyle";
+import { PAGE } from "../utils/constants";
 import Header from "./common/Header";
 import MainCharacter from "./common/MainCharacter";
 
-export default function TypeResultPage({ answer, nextPage }) {
+export default function StartPage({ answer, nextPage }) {
   return (
     <>
       <Header />
@@ -20,7 +21,7 @@ export default function TypeResultPage({ answer, nextPage }) {
             <BalloonText>{answer}</BalloonText>
           </WhiteBox>
         </Answer>
-        <Button onClick={() => nextPage(1, answer)}>시작!</Button>
+        <Button onClick={() => nextPage(PAGE.START, answer)}>시작!</Button>
         <MainCharacter />
       </Section>
     </>

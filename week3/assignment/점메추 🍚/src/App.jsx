@@ -1,14 +1,17 @@
 import { useState } from "react";
+
 import {
   amountOptions,
   foodData,
+  PAGE,
   question,
   RECOMMEND_BY,
   regionOptions,
   tasteOptions,
 } from "./utils/constants";
+
 import TypeSelectPage from "./components/TypeSelectPage";
-import TypeResultPage from "./components/TypeResultPage";
+import StartPage from "./components/StartPage";
 import ResultPage from "./components/ResultPage";
 import TypeQuestionPage from "./components/TypeQuestionPage";
 import RandomRecommendPage from "./components/RandomRecommendPage";
@@ -22,36 +25,37 @@ function App() {
   const [selectedTaste, setSelectedTaste] = useState("");
   const [result, setResult] = useState("");
 
+  const prevPage = () => {
+    setPage(page - 1);
+    setSelected(true);
+  };
+
   const nextPage = (currentPage, selectedType) => {
     switch (currentPage) {
-      case 0:
+      case PAGE.TYPE_SELECT:
         setAnswer(selectedType);
         setPage(page + 1);
         break;
-      case 1:
+      case PAGE.START:
         selectedType === RECOMMEND_BY.TYPE
-          ? !selectedRegion && setSelected(false)
+          ? !selectedRegion && (setSelected(false), setPage(2))
           : setPage(6);
         break;
-      case 2:
+      case PAGE.RECOMMEND_BY_TYPE_QUESTION_1:
         !selectedAmount && setSelected(false);
         setPage(page + 1);
         break;
-      case 3:
+      case PAGE.RECOMMEND_BY_TYPE_QUESTION_2:
         !selectedTaste && setSelected(false);
         setPage(page + 1);
         break;
-      case 4:
+      case PAGE.RECOMMEND_BY_TYPE_QUESTION_3:
         resultPage();
         break;
       default:
         setPage(page + 1);
         break;
     }
-  };
-  const prevPage = () => {
-    setPage(page - 1);
-    setSelected(true);
   };
 
   const resultPage = () => {
@@ -60,43 +64,43 @@ function App() {
       foodData[food].amount === selectedAmount && foodData[food].score++;
       foodData[food].taste === selectedTaste && foodData[food].score++;
     });
-    findMostSuitableFood();
+    findBestFood();
     setPage(page + 1);
   };
 
-  const findMostSuitableFood = () => {
-    let mostSuitableFoods = [];
+  const findBestFood = () => {
+    let bestFoods = [];
     let maxCount = -1;
 
     for (const food in foodData) {
       if (foodData[food].score > maxCount) {
-        mostSuitableFoods = [food];
+        bestFoods = [food];
         maxCount = foodData[food].score;
       } else if (foodData[food].score === maxCount) {
-        mostSuitableFoods.push(food);
+        bestFoods.push(food);
       }
     }
-    console.log(mostSuitableFoods);
-    const randomIndex = Math.floor(Math.random() * mostSuitableFoods.length);
-    setResult(foodData[mostSuitableFoods[randomIndex]].image);
+    const randomIndex = Math.floor(Math.random() * bestFoods.length);
+    setResult(foodData[bestFoods[randomIndex]].image);
   };
 
   const handleNextButton = (value, questionNumber) => {
     !isSelected && setSelected(!isSelected);
     switch (questionNumber) {
-      case 2:
+      case PAGE.RECOMMEND_BY_TYPE_QUESTION_1:
         setSelectedRegion(value);
         break;
-      case 3:
+      case PAGE.RECOMMEND_BY_TYPE_QUESTION_2:
         setSelectedAmount(value);
         break;
-      case 4:
+      case PAGE.RECOMMEND_BY_TYPE_QUESTION_3:
         setSelectedTaste(value);
         break;
       default:
         break;
     }
   };
+
   const resetAnswer = () => {
     setSelected(false);
     setSelectedRegion("");
@@ -110,16 +114,16 @@ function App() {
 
   const retry = () => {
     resetAnswer();
-    setPage(1);
+    setPage(PAGE.START);
   };
 
   {
     switch (page) {
-      case 0: //추천 방식 선택 화면
+      case PAGE.TYPE_SELECT: //추천 방식 선택 화면
         return <TypeSelectPage nextPage={nextPage} />;
-      case 1: //선택된 추천 방식 확인 화면
-        return <TypeResultPage answer={answer} nextPage={nextPage} />;
-      case 2: //취향대로 추천 - 첫번째 질문 - 나는 지금 __ 이 땡긴다!
+      case PAGE.START: //선택된 추천 방식 확인 & 시작 화면
+        return <StartPage answer={answer} nextPage={nextPage} />;
+      case PAGE.RECOMMEND_BY_TYPE_QUESTION_1: //취향대로 추천 - 첫번째 질문 - 나는 지금 __ 이 땡긴다!
         return (
           <TypeQuestionPage
             type={question.region}
@@ -132,7 +136,7 @@ function App() {
             nextPage={nextPage}
           />
         );
-      case 3: //취향대로 추천 - 두번째 질문 - 나는 지금 ___ 하게 먹고 싶다!
+      case PAGE.RECOMMEND_BY_TYPE_QUESTION_2: //취향대로 추천 - 두번째 질문 - 나는 지금 ___ 하게 먹고 싶다!
         return (
           <TypeQuestionPage
             type={question.amount}
@@ -145,7 +149,7 @@ function App() {
             nextPage={nextPage}
           />
         );
-      case 4: //취향대로 추천 - 세번째 질문 - 나는 지금 __ 맛이 땡긴다!
+      case PAGE.RECOMMEND_BY_TYPE_QUESTION_3: //취향대로 추천 - 세번째 질문 - 나는 지금 __ 맛이 땡긴다!
         return (
           <TypeQuestionPage
             type={question.taste}
@@ -158,10 +162,12 @@ function App() {
             nextPage={nextPage}
           />
         );
-      case 5: //취향대로 추천 - 결과 페이지
+      case PAGE.RECOMMEND_BY_TYPE_RESULT: //취향대로 추천 - 결과 페이지
         return <ResultPage result={result} handleRetry={retry} />;
-      case 6:
+      case PAGE.RECOMMEND_BY_RANDOM: //랜덤 추천
         return <RandomRecommendPage handleRetry={retry} />;
+      default:
+        break;
     }
   }
 }
