@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
   margin:0 auto;
 }
 html{
-    background: #2BC1BC;
+    background: ${({ theme }) => theme.colors.primary};
 }
 html,
 body,
@@ -111,7 +111,7 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.white};
   font-family: 'HANNA';
   vertical-align: baseline;
 }
@@ -137,7 +137,7 @@ q:before, q:after {
 button{
     border:none;
     font-family:"EULJIRO";
-    font-size:1rem;
+    font-size:${({ theme }) => theme.fontSize.sm};
     cursor:pointer;
 }
 table {
@@ -160,7 +160,7 @@ export const Section = styled.section`
 `;
 
 export const Quetion = styled.h2`
-  font-size: 3rem;
+  font-size: ${({ theme }) => theme.fontSize.lg};
   font-weight: 100;
 `;
 export const Character = styled.img`
@@ -177,8 +177,8 @@ export const Balloon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
-  color: #000;
+  background-color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
   padding: 10px;
   border-radius: 20px;
   width: 200px;
@@ -195,7 +195,8 @@ export const Balloon = styled.div`
     margin-left: -10px;
     border-width: 10px;
     border-style: solid;
-    border-color: #fff transparent transparent transparent;
+    border-color: ${({ theme }) => theme.colors.white} transparent transparent
+      transparent;
   }
 
   &:hover {
@@ -203,16 +204,16 @@ export const Balloon = styled.div`
   }
 `;
 export const BalloonText = styled.p`
-  color: #000;
-  font-size: 1.5rem;
+  color: ${({ theme }) => theme.colors.black};
+  font-size: ${({ theme }) => theme.fontSize.base};
 `;
 export const WhiteBox = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
-  color: #000;
+  background-color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
   padding: 10px;
   border-radius: 20px;
   width: 200px;
@@ -224,8 +225,8 @@ export const Button = styled.button`
   height: 40px;
   border: none;
   border-radius: 20px;
-  background: #13868d;
-  color: #fff;
+  background: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.white};
   transition: 0.3s;
 `;
 export const RadioBalloon = styled.label`
@@ -233,8 +234,8 @@ export const RadioBalloon = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
-  color: #000;
+  background-color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
   padding: 10px;
   border-radius: 20px;
   width: 200px;
@@ -251,14 +252,12 @@ export const RadioBalloon = styled.label`
     margin-left: -10px;
     border-width: 10px;
     border-style: solid;
-    border-color: #fff transparent transparent transparent;
+    border-color: ${({ theme }) => theme.colors.white} transparent transparent
+      transparent;
   }
 
   &:hover {
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-  }
-  &:checked {
-    background: red;
   }
 `;
 
@@ -266,14 +265,15 @@ export const RadioInput = styled.input`
   display: none;
 
   &:checked + label {
-    background: #13868d;
+    background: ${({ theme }) => theme.colors.secondary};
   }
   &:checked + label > p {
-    color: #fff;
+    color: ${({ theme }) => theme.colors.white};
   }
   &:checked + label::before {
-    border-color: #13868d transparent transparent transparent;
-    color: #fff;
+    border-color: ${({ theme }) => theme.colors.secondary} transparent
+      transparent transparent;
+    color: ${({ theme }) => theme.colors.white};
   }
 `;
 
@@ -291,16 +291,16 @@ export const DisabledNextButton = styled(Button)`
 `;
 export const ActiveNextButton = styled(Button)`
   &:hover {
-    box-shadow: 0 0 8px 4px #13868d;
+    box-shadow: 0 0 8px 4px ${({ theme }) => theme.colors.secondary};
     transition: 0.3s;
   }
 `;
 export const PrevButton = styled(Button)`
-  background: #dadada;
-  color: #333;
+  background: ${({ theme }) => theme.colors.grey};
+  color: ${({ theme }) => theme.colors.darkGrey};
   transition: 0.3s;
   &:hover {
-    box-shadow: 0 0 8px 4px #dadada;
+    box-shadow: 0 0 8px 4px ${({ theme }) => theme.colors.grey};
     transition: 0.3s;
   }
 `;

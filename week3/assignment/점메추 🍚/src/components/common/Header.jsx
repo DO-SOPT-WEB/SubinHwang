@@ -7,7 +7,7 @@ const HeaderWrapper = styled.header`
   padding: 20px 0;
 `;
 const Title = styled.h1`
-  font-size: 1.8rem;
+  font-size: ${({ theme }) => theme.fontSize.md};
 `;
 export default function Header({ isTypeSelectPage, restart }) {
   return (

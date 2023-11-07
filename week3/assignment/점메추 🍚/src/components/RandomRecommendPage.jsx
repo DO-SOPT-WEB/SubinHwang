@@ -13,8 +13,8 @@ const LoadingBox = styled(WhiteBox)`
   height: 500px;
 `;
 const CountNumber = styled.p`
-  color: #000;
-  font-size: 3rem;
+  color: ${({ theme }) => theme.colors.black};
+  font-size: ${({ theme }) => theme.fontSize.lg};
 `;
 
 const Spinner = styled.img`
