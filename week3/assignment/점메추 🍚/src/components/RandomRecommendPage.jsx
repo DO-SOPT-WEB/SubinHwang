@@ -80,7 +80,7 @@ export default function RandomRecommendPage({ retry, restart }) {
   }, [count]);
 
   return isFinish ? ( //랜덤 추천 결과 페이지
-    <ResultPage result={result} retry={retry} />
+    <ResultPage result={result} retry={retry} restart={restart} />
   ) : (
     <>
       <Header restart={restart} />
