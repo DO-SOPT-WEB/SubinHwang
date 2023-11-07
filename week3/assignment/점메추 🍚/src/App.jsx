@@ -15,7 +15,6 @@ import StartPage from "./components/StartPage";
 import ResultPage from "./components/ResultPage";
 import TypeQuestionPage from "./components/TypeQuestionPage";
 import RandomRecommendPage from "./components/RandomRecommendPage";
-import Header from "./components/common/Header";
 
 function App() {
   const [page, setPage] = useState(0);
@@ -38,9 +37,15 @@ function App() {
         setPage(page + 1);
         break;
       case PAGE.START:
-        selectedType === RECOMMEND_BY.TYPE
-          ? !selectedRegion && (setSelected(false), setPage(2))
-          : setPage(6);
+        if (selectedType === RECOMMEND_BY.TYPE) {
+          setPage(
+            selectedRegion
+              ? PAGE.RECOMMEND_BY_TYPE_QUESTION_1
+              : PAGE.RECOMMEND_BY_TYPE_QUESTION_1
+          );
+        } else {
+          setPage(PAGE.RECOMMEND_BY_RANDOM);
+        }
         break;
       case PAGE.RECOMMEND_BY_TYPE_QUESTION_1:
         !selectedAmount && setSelected(false);
@@ -117,6 +122,7 @@ function App() {
     resetAnswer();
     setPage(PAGE.START);
   };
+
   const restart = () => {
     resetAnswer();
     setPage(PAGE.TYPE_SELECT);
