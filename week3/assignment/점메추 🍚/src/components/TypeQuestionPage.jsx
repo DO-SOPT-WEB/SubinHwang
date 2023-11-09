@@ -15,9 +15,8 @@ import ProgressBar from "./common/ProgressBar";
 export default function TypeQuestionPage({
   type,
   options,
-  isSelected,
   selectedValue,
-  handleNextButton,
+  saveAnswer,
   currentPage,
   prevPage,
   nextPage,
@@ -36,7 +35,7 @@ export default function TypeQuestionPage({
                 type="radio"
                 id={option.id}
                 name={type.name}
-                onChange={() => handleNextButton(option.id, currentPage)}
+                onChange={() => saveAnswer(option.id, currentPage)}
                 checked={selectedValue === option.id}
               ></RadioInput>
               <RadioBalloon htmlFor={option.id}>
@@ -49,7 +48,7 @@ export default function TypeQuestionPage({
         <MainCharacter />
         <PageMoveButton
           currentPage={currentPage}
-          isSelected={isSelected}
+          isSelected={selectedValue}
           prevPage={prevPage}
           nextPage={nextPage}
         />
