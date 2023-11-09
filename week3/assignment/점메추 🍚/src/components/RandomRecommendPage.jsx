@@ -12,6 +12,7 @@ const LoadingBox = styled(WhiteBox)`
   width: 500px;
   height: 500px;
 `;
+
 const CountNumber = styled.p`
   color: ${({ theme }) => theme.colors.black};
   font-size: ${({ theme }) => theme.fontSize.lg};

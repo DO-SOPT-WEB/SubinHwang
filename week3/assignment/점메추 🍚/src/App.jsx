@@ -16,6 +16,38 @@ import ResultPage from "./components/ResultPage";
 import TypeQuestionPage from "./components/TypeQuestionPage";
 import RandomRecommendPage from "./components/RandomRecommendPage";
 
+const initialState = {
+  page: 0,
+  selectedRecommendType: "",
+  selectedRegion: "",
+  selectedAmount: "",
+  selectedTaste: "",
+  result: "",
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "MOVE_TO_PREV_PAGE": // 이전 페이지로 이동
+      return { ...state, page: state.page - 1 };
+    case "MOVE_TO_NEXT_PAGE": // 다음 페이지로 이동
+      return { ...state, page: state.page + 1 };
+    case "MOVE_TO_PAGE": // 특정 페이지로 이동
+      return { ...state, page: action.payload };
+    case "SET_SELECTED_RECOMMEND_TYPE":
+      return { ...state, selectedRecommendType: action.payload };
+    case "SET_SELECTED_REGION":
+      return { ...state, selectedRegion: action.payload };
+    case "SET_SELECTED_AMOUNT":
+      return { ...state, selectedAmount: action.payload };
+    case "SET_SELECTED_TASTE":
+      return { ...state, selectedTaste: action.payload };
+    case "SET_RESULT":
+      return { ...state, result: action.payload };
+    default:
+      return state;
+  }
+};
+
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -225,37 +257,5 @@ function App() {
     }
   }
 }
-
-const initialState = {
-  page: 0,
-  selectedRecommendType: "",
-  selectedRegion: "",
-  selectedAmount: "",
-  selectedTaste: "",
-  result: "",
-};
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "MOVE_TO_PREV_PAGE": // 이전 페이지로 이동
-      return { ...state, page: state.page - 1 };
-    case "MOVE_TO_NEXT_PAGE": // 다음 페이지로 이동
-      return { ...state, page: state.page + 1 };
-    case "MOVE_TO_PAGE": // 특정 페이지로 이동
-      return { ...state, page: action.payload };
-    case "SET_SELECTED_RECOMMEND_TYPE":
-      return { ...state, selectedRecommendType: action.payload };
-    case "SET_SELECTED_REGION":
-      return { ...state, selectedRegion: action.payload };
-    case "SET_SELECTED_AMOUNT":
-      return { ...state, selectedAmount: action.payload };
-    case "SET_SELECTED_TASTE":
-      return { ...state, selectedTaste: action.payload };
-    case "SET_RESULT":
-      return { ...state, result: action.payload };
-    default:
-      return state;
-  }
-};
 
 export default App;

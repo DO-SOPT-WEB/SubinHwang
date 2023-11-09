@@ -27,7 +27,6 @@ export default function ResultPage({ type, result, retry, restart }) {
         <Button type="button" onClick={() => retry(type)}>
           다시하기
         </Button>
-
         <MainCharacter />
       </Section>
     </>

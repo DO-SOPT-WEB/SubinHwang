@@ -6,6 +6,7 @@ const HeaderWrapper = styled.header`
   justify-content: space-between;
   padding: 20px 0;
 `;
+
 const Title = styled.h1`
   font-size: ${({ theme }) => theme.fontSize.md};
 `;
