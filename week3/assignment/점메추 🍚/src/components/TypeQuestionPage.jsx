@@ -6,9 +6,11 @@ import {
   RadioInput,
   Section,
 } from "../styles/globalStyle";
+
 import Header from "./common/Header";
 import MainCharacter from "./common/MainCharacter";
 import PageMoveButton from "./common/PageMoveButton";
+import ProgressBar from "./common/ProgressBar";
 
 export default function TypeQuestionPage({
   type,
@@ -25,6 +27,7 @@ export default function TypeQuestionPage({
     <>
       <Header restart={restart} />
       <Section>
+        <ProgressBar page={currentPage - 1} />
         <Quetion>{type.question}</Quetion>
         <Answer>
           {options.map((option) => (
