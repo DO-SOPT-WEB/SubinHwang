@@ -103,7 +103,7 @@ function App() {
     }
   };
 
-  /* 선택된 답변에 해당하는 음식의 점수를 증가 시킨 후 가장 점수가 높은 음식을 찾아 결과 화면으로 */
+  /* 선택된 답변에 해당하는 음식의 점수를 증가 시킨 후 가장 점수가 높은 음식을 찾아 결과 화면으로 이동 */
   const resultPage = () => {
     Object.keys(foodData).forEach((food) => {
       foodData[food].region === state.selectedRegion && foodData[food].score++;
