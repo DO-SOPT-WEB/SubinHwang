@@ -4,7 +4,7 @@ import spinner1 from "../assets/img/spinner1.png";
 import spinner2 from "../assets/img/spinner2.png";
 import spinner3 from "../assets/img/spinner3.png";
 import { styled } from "styled-components";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ResultPage from "./ResultPage";
 import { foodData } from "../utils/constants";
 
@@ -36,6 +36,23 @@ export default function RandomRecommendPage({ retry, restart }) {
   const [isFinish, setIsFinish] = useState(false);
   const [result, setResult] = useState("");
 
+  function useInterval(callback, delay) {
+    const savedCallback = useRef();
+    useEffect(() => {
+      savedCallback.current = callback;
+    }, [callback]);
+
+    useEffect(() => {
+      function tick() {
+        savedCallback.current();
+      }
+      if (delay !== null) {
+        let id = setInterval(tick, delay);
+        return () => clearInterval(id);
+      }
+    }, [delay]);
+  }
+
   const makeRandomResult = () => {
     const foodArray = Object.keys(foodData);
     const randomIndex = Math.floor(Math.random() * foodArray.length);
@@ -43,16 +60,13 @@ export default function RandomRecommendPage({ retry, restart }) {
     setResult(randomFood);
   };
 
-  const startCountdown = () => {
-    const countdownInterval = setInterval(() => {
-      if (count === 1) {
-        clearInterval(countdownInterval);
-        setIsFinish(true);
-      } else {
-        setCount(count - 1);
-      }
-    }, 1000);
-  };
+  useInterval(() => {
+    if (count === 1) {
+      setIsFinish(true);
+    } else {
+      setCount(count - 1);
+    }
+  }, 1000);
 
   const changeSpinner = () => {
     switch (count) {
@@ -76,7 +90,6 @@ export default function RandomRecommendPage({ retry, restart }) {
   }, []);
 
   useEffect(() => {
-    startCountdown();
     changeSpinner();
   }, [count]);
 
