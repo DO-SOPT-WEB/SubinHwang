@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import {
   Answer,
   BalloonText,
@@ -36,32 +37,36 @@ const TypeQuestionPage = ({
   prevPage,
   nextPage,
   restart,
-}) => (
-  <>
-    <Header restart={restart} />
-    <Section>
-      <ProgressBar page={currentPage - 1} />
-      <Quetion>{type.question}</Quetion>
-      <Answer>
-        {options.map((option) => (
-          <Option
-            key={option.id}
-            option={option}
-            saveAnswer={saveAnswer}
-            currentPage={currentPage}
-            selectedValue={selectedValue}
-          />
-        ))}
-      </Answer>
-      <MainCharacter />
-      <PageMoveButton
-        currentPage={currentPage}
-        isSelected={selectedValue}
-        prevPage={prevPage}
-        nextPage={nextPage}
-      />
-    </Section>
-  </>
-);
+}) => {
+  const mainCharacter = useMemo(() => <MainCharacter />, []);
+
+  return (
+    <>
+      <Header restart={restart} />
+      <Section>
+        <ProgressBar page={currentPage - 1} />
+        <Quetion>{type.question}</Quetion>
+        <Answer>
+          {options.map((option) => (
+            <Option
+              key={option.id}
+              option={option}
+              saveAnswer={saveAnswer}
+              currentPage={currentPage}
+              selectedValue={selectedValue}
+            />
+          ))}
+        </Answer>
+        {mainCharacter}
+        <PageMoveButton
+          currentPage={currentPage}
+          isSelected={selectedValue}
+          prevPage={prevPage}
+          nextPage={nextPage}
+        />
+      </Section>
+    </>
+  );
+};
 
 export default TypeQuestionPage;
