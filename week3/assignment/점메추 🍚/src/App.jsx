@@ -54,7 +54,6 @@ function App() {
   /* 이전 페이지로 */
   const prevPage = () => {
     dispatch({ type: "MOVE_TO_PREV_PAGE" });
-    dispatch({ type: "ANSWER_SELECTED" });
   };
 
   /* 다음 페이지로 */
