@@ -68,28 +68,28 @@ export default function RandomRecommendPage({ retry, restart }) {
     }
   }, 1000);
 
-  const changeSpinner = () => {
-    switch (count) {
-      case 3:
-        setImage(spinner1);
-        break;
-      case 2:
-        setImage(spinner2);
-        break;
-      case 1:
-        setImage(spinner3);
-        break;
-      default:
-        setImage(spinner1);
-        break;
-    }
-  };
-
   useEffect(() => {
     makeRandomResult();
   }, []);
 
   useEffect(() => {
+    const changeSpinner = () => {
+      switch (count) {
+        case 3:
+          setImage(spinner1);
+          break;
+        case 2:
+          setImage(spinner2);
+          break;
+        case 1:
+          setImage(spinner3);
+          break;
+        default:
+          setImage(spinner1);
+          break;
+      }
+    };
+
     changeSpinner();
   }, [count]);
 
