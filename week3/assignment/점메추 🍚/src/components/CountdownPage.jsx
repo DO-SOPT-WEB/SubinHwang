@@ -30,7 +30,7 @@ const Spinner = styled.img`
   }
 `;
 
-export default function RandomRecommendPage({ retry, restart }) {
+export default function CountdownPage({ retry, restart }) {
   const [count, setCount] = useState(3);
   const [image, setImage] = useState(spinner1);
   const [isFinish, setIsFinish] = useState(false);

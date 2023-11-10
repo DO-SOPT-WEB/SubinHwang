@@ -14,7 +14,7 @@ import TypeSelectPage from "./components/TypeSelectPage";
 import StartPage from "./components/StartPage";
 import ResultPage from "./components/ResultPage";
 import TypeQuestionPage from "./components/TypeQuestionPage";
-import RandomRecommendPage from "./components/RandomRecommendPage";
+import RandomRecommendPage from "./components/CountdownPage";
 
 const initialState = {
   page: 0,
