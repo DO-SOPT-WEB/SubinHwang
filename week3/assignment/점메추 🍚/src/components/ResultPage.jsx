@@ -21,7 +21,7 @@ export default function ResultPage({ type, result, retry, restart }) {
         <Quetion>오늘의 추천음식은</Quetion>
         <Answer>
           <WhiteBox>
-            <FoodImg src={result}></FoodImg>
+            <FoodImg src={result} alt="추천음식"></FoodImg>
           </WhiteBox>
         </Answer>
         <Button type="button" onClick={() => retry(type)}>
