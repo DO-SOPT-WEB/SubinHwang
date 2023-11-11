@@ -4,11 +4,11 @@ import {
   BalloonText,
   Quetion,
   Section,
-} from "../styles/globalStyle";
+} from "../styles/GlobalStyle";
 
 import { PAGE, RECOMMEND_BY } from "../utils/constants";
 import Header from "../components/Header";
-import MainCharacter from "../components/common/MainCharacter";
+import MainCharacter from "../components/MainCharacter";
 
 export default function TypeSelectPage({ nextPage }) {
   return (

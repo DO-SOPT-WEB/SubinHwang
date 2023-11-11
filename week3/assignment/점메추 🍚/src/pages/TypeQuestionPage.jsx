@@ -6,7 +6,7 @@ import {
   RadioBalloon,
   RadioInput,
   Section,
-} from "../styles/globalStyle";
+} from "../styles/GlobalStyle";
 
 import Header from "../components/Header";
 import MainCharacter from "../components/MainCharacter";

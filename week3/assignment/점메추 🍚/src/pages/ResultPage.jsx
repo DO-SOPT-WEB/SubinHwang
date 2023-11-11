@@ -4,10 +4,10 @@ import {
   Quetion,
   Section,
   WhiteBox,
-} from "../styles/globalStyle";
+} from "../styles/GlobalStyle";
 import { styled } from "styled-components";
 import Header from "../components/Header";
-import MainCharacter from "../components/common/MainCharacter";
+import MainCharacter from "../components/MainCharacter";
 
 const FoodImg = styled.img`
   width: 150px;

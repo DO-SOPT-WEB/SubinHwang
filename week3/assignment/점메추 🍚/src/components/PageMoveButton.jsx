@@ -3,7 +3,7 @@ import {
   ButtonSection,
   DisabledNextButton,
   PrevButton,
-} from "../../styles/globalStyle";
+} from "../styles/GlobalStyle";
 
 export default function PageMoveButton({
   currentPage,

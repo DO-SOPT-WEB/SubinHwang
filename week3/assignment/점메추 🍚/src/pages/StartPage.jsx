@@ -5,10 +5,10 @@ import {
   Quetion,
   Section,
   WhiteBox,
-} from "../styles/globalStyle";
+} from "../styles/GlobalStyle";
 import { PAGE } from "../utils/constants";
 import Header from "../components/Header";
-import MainCharacter from "../components/common/MainCharacter";
+import MainCharacter from "../components/MainCharacter";
 
 export default function StartPage({ answer, nextPage, restart }) {
   return (
