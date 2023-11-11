@@ -1,4 +1,4 @@
-import { Button } from "../../styles/globalStyle";
+import { Button } from "../styles/globalStyle";
 import { styled } from "styled-components";
 
 const HeaderWrapper = styled.header`

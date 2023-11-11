@@ -10,11 +10,11 @@ import {
   tasteOptions,
 } from "./utils/constants";
 
-import TypeSelectPage from "./components/TypeSelectPage";
-import StartPage from "./components/StartPage";
-import ResultPage from "./components/ResultPage";
-import TypeQuestionPage from "./components/TypeQuestionPage";
-import RandomRecommendPage from "./components/CountdownPage";
+import TypeSelectPage from "./pages/TypeSelectPage";
+import StartPage from "./pages/StartPage";
+import ResultPage from "./pages/ResultPage";
+import TypeQuestionPage from "./pages/TypeQuestionPage";
+import RandomRecommendPage from "./pages/CountdownPage";
 
 const initialState = {
   page: 0,

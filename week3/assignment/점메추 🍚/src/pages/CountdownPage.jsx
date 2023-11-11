@@ -1,5 +1,5 @@
 import { Section, WhiteBox } from "../styles/globalStyle";
-import Header from "./common/Header";
+import Header from "../components/Header";
 import spinner1 from "../assets/img/spinner1.png";
 import spinner2 from "../assets/img/spinner2.png";
 import spinner3 from "../assets/img/spinner3.png";

@@ -7,8 +7,8 @@ import {
   WhiteBox,
 } from "../styles/globalStyle";
 import { PAGE } from "../utils/constants";
-import Header from "./common/Header";
-import MainCharacter from "./common/MainCharacter";
+import Header from "../components/Header";
+import MainCharacter from "../components/common/MainCharacter";
 
 export default function StartPage({ answer, nextPage, restart }) {
   return (

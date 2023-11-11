@@ -7,8 +7,8 @@ import {
 } from "../styles/globalStyle";
 
 import { PAGE, RECOMMEND_BY } from "../utils/constants";
-import Header from "./common/Header";
-import MainCharacter from "./common/MainCharacter";
+import Header from "../components/Header";
+import MainCharacter from "../components/common/MainCharacter";
 
 export default function TypeSelectPage({ nextPage }) {
   return (

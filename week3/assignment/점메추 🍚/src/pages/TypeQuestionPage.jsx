@@ -8,10 +8,10 @@ import {
   Section,
 } from "../styles/globalStyle";
 
-import Header from "./common/Header";
-import MainCharacter from "./common/MainCharacter";
-import PageMoveButton from "./common/PageMoveButton";
-import ProgressBar from "./common/ProgressBar";
+import Header from "../components/Header";
+import MainCharacter from "../components/MainCharacter";
+import PageMoveButton from "../components/PageMoveButton";
+import ProgressBar from "../components/ProgressBar";
 
 const Option = ({ option, saveAnswer, currentPage, selectedValue }) => (
   <div key={option.id}>

@@ -5,9 +5,9 @@ import {
   Section,
   WhiteBox,
 } from "../styles/globalStyle";
-import Header from "./common/Header";
 import { styled } from "styled-components";
-import MainCharacter from "./common/MainCharacter";
+import Header from "../components/Header";
+import MainCharacter from "../components/common/MainCharacter";
 
 const FoodImg = styled.img`
   width: 150px;
