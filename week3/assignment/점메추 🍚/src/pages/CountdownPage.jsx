@@ -20,7 +20,9 @@ const CountNumber = styled.p`
 
 const Spinner = styled.img`
   position: absolute;
+
   width: 400px;
+
   animation: rotate_image 5s linear infinite;
   transform-origin: 50% 50%;
   @keyframes rotate_image {
