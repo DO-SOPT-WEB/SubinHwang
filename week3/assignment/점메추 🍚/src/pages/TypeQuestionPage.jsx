@@ -1,32 +1,11 @@
 import { useMemo } from "react";
-import {
-  Answer,
-  BalloonText,
-  Quetion,
-  RadioBalloon,
-  RadioInput,
-  Section,
-} from "../styles/GlobalStyle";
+import { Answer, Quetion, Section } from "../styles/GlobalStyle";
 
 import Header from "../components/Header";
 import MainCharacter from "../components/MainCharacter";
 import PageMoveButton from "../components/PageMoveButton";
 import ProgressBar from "../components/ProgressBar";
-
-const Option = ({ option, saveAnswer, currentPage, selectedValue }) => (
-  <div key={option.id}>
-    <RadioInput
-      type="radio"
-      id={option.id}
-      name={option.name}
-      onChange={() => saveAnswer(option.id, currentPage)}
-      checked={selectedValue === option.id}
-    ></RadioInput>
-    <RadioBalloon htmlFor={option.id}>
-      <BalloonText>{option.label}</BalloonText>
-    </RadioBalloon>
-  </div>
-);
+import { Option } from "../components/Option";
 
 const TypeQuestionPage = ({
   type,
