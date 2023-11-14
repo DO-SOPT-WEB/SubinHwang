@@ -9,7 +9,10 @@ const SignForm = ({ type }) => {
       <Input pageType={type} inputType={FLAG.ID}></Input>
       <Input pageType={type} inputType={FLAG.PW}></Input>
       {type === FLAG.SIGNUP && (
-        <Input pageType={type} inputType={FLAG.PWCHECK}></Input>
+        <>
+          <Input pageType={type} inputType={FLAG.PWCHECK}></Input>
+          <Input pageType={type} inputType={FLAG.NAME}></Input>
+        </>
       )}
       <Sign.Button>{type === FLAG.LOGIN ? "로그인" : "회원가입"}</Sign.Button>
       {type === FLAG.LOGIN && (
