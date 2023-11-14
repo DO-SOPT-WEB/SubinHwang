@@ -8,6 +8,7 @@ import { PAGE } from "../constants/page";
 import Input from "./Input";
 import SignUp from "./SingUp";
 import Login from "./Login";
+import { CHECK } from "../constants/check";
 
 const SignForm = ({ type }) => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const SignForm = ({ type }) => {
     navigate("/signup");
   };
 
-  const [isExist, setIsExist] = useState(0); //기본 값(중복체크 안함)은 0, 중복이라면 1, 중복이 아니라면 2
+  const [isAvailable, setIsAvailable] = useState(CHECK.NOT_CHECKED);
   const [isInputsFilled, setIsInputsFilled] = useState(false);
   const [inputValues, setInputValues] = useState({
     [INPUT.ID]: "",
@@ -42,7 +43,7 @@ const SignForm = ({ type }) => {
     };
 
     const validateDoubleCheck = () => {
-      return isExist === 2;
+      return isAvailable === CHECK.NOT_EXIST;
     };
 
     const validatePasswordCheck = () => {
@@ -53,7 +54,7 @@ const SignForm = ({ type }) => {
       validateInputs() & validateDoubleCheck() & validatePasswordCheck();
 
     isAllValid ? setIsInputsFilled(true) : setIsInputsFilled(false);
-  }, [inputValues, isExist]);
+  }, [inputValues, isAvailable]);
 
   return (
     <Sign.Wrapper>
@@ -62,8 +63,8 @@ const SignForm = ({ type }) => {
         pageType={type}
         inputType={INPUT.ID}
         onInputChange={handleInputChange}
-        isExist={isExist}
-        setIsExist={setIsExist}
+        isAvailable={isAvailable}
+        setIsAvailable={setIsAvailable}
       ></Input>
       <Input
         pageType={type}

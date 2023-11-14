@@ -10,14 +10,20 @@ import loginIcon from "../assets/icons/Message.svg";
 import passwordIcon from "../assets/icons/Password.svg";
 import UserIcon from "../assets/icons/User.svg";
 
-const Input = ({ pageType, inputType, onInputChange, isExist, setIsExist }) => {
+const Input = ({
+  pageType,
+  inputType,
+  onInputChange,
+  isAvailable,
+  setIsAvailable,
+}) => {
   const [iconSrc, setIconSrc] = useState("");
   const [placeholderText, setPlaceholderText] = useState("");
 
   const [inputValue, setInputValue] = useState("");
 
   const handleChange = (e) => {
-    setIsExist && setIsExist(0);
+    setIsAvailable && setIsAvailable(0);
     setInputValue(e.target.value);
     onInputChange(inputType, e.target.value);
   };
@@ -54,8 +60,8 @@ const Input = ({ pageType, inputType, onInputChange, isExist, setIsExist }) => {
       {pageType === PAGE.SIGNUP && inputType === INPUT.ID && (
         <DoubleCheck
           id={inputValue}
-          isExist={isExist}
-          setIsExist={setIsExist}
+          isAvailable={isAvailable}
+          setIsAvailable={setIsAvailable}
         />
       )}
     </Sign.InputWrapper>
