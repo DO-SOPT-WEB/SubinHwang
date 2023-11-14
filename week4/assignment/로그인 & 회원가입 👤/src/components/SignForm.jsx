@@ -1,8 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import { Sign } from "../styles/commonStyle";
 import { FLAG } from "../constants/constant";
 import Input from "./Input";
 
 const SignForm = ({ type }) => {
+  const navigate = useNavigate();
+
+  const navigateToSignUpPage = () => {
+    navigate("/signup");
+  };
   return (
     <Sign.Wrapper>
       <Sign.Title>{type === FLAG.LOGIN ? "로그인" : "회원가입"}</Sign.Title>
@@ -16,7 +22,7 @@ const SignForm = ({ type }) => {
       )}
       <Sign.Button>{type === FLAG.LOGIN ? "로그인" : "회원가입"}</Sign.Button>
       {type === FLAG.LOGIN && (
-        <Sign.OthersiseWrapper>
+        <Sign.OthersiseWrapper onClick={navigateToSignUpPage}>
           계정이 없으신가요 ?<Sign.Otherwise>회원가입</Sign.Otherwise>
         </Sign.OthersiseWrapper>
       )}
