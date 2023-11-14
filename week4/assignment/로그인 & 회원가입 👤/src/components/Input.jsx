@@ -19,7 +19,7 @@ const Input = ({ pageType, inputType, onInputChange, isExist, setIsExist }) => {
   const handleChange = (e) => {
     setIsExist && setIsExist(0);
     setInputValue(e.target.value);
-    pageType === PAGE.SIGNUP && onInputChange(inputType, e.target.value);
+    onInputChange(inputType, e.target.value);
   };
 
   useEffect(() => {

@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { Sign } from "../styles/commonStyle";
+import { INPUT } from "../constants/input";
+import { PAGE } from "../constants/page";
 
 import Input from "./Input";
 import SignUp from "./SingUp";
-
-import { PAGE } from "../constants/page";
-import { INPUT } from "../constants/input";
+import Login from "./Login";
 
 const SignForm = ({ type }) => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const SignForm = ({ type }) => {
   const [isExist, setIsExist] = useState(0); //기본 값(중복체크 안함)은 0, 중복이라면 1, 중복이 아니라면 2
   const [isInputsFilled, setIsInputsFilled] = useState(false);
   const [inputValues, setInputValues] = useState({
+    [INPUT.ID]: "",
     [INPUT.PW]: "",
     [INPUT.PWCHECK]: "",
     [INPUT.NAME]: "",
@@ -83,7 +85,7 @@ const SignForm = ({ type }) => {
         </>
       )}
       {type === PAGE.LOGIN ? (
-        <Sign.Button>로그인</Sign.Button>
+        <Login info={inputValues} />
       ) : (
         <SignUp isInputsFilled={isInputsFilled} info={inputValues} />
       )}
