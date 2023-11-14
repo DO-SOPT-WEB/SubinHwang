@@ -67,6 +67,13 @@ const Button = styled.button`
   font-weight: 700;
 `;
 
+const SignUpButton = styled(Button)`
+  background-color: ${({ $isInputsFilled, theme }) =>
+    $isInputsFilled === true ? theme.colors.darkBlue : theme.colors.normalGrey};
+  color: ${({ theme }) => theme.colors.white};
+  cursor: not-allowed;
+`;
+
 const OthersiseWrapper = styled.div`
   display: flex;
   gap: 5px;
@@ -134,6 +141,7 @@ export const Sign = {
   Input,
   Wrapper,
   Button,
+  SignUpButton,
   OthersiseWrapper,
   Otherwise,
   CheckButton,
