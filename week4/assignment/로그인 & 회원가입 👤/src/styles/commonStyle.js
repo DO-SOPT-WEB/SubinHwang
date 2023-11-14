@@ -72,7 +72,7 @@ const Otherwise = styled.span`
   font-weight: 700;
 `;
 
-const CheckButton = styled(Sign.Button)`
+const CheckButton = styled(Button)`
   position: absolute;
   top: 10px;
   right: 10px;
