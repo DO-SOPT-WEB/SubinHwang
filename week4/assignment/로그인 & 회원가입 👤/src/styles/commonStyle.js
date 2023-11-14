@@ -82,6 +82,29 @@ const CheckButton = styled(Button)`
   font-size: ${({ theme }) => theme.fontSize.s};
 `;
 
+const ProfileImg = styled.div`
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  background-image: ${({ $profileImg }) => `url(${$profileImg})`};
+  background-size: cover;
+`;
+const InfoText = styled.p`
+  text-align: start;
+`;
+const InfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+`;
+const LogoutButton = styled(Button)`
+  width: 100px;
+  height: 40px;
+
+  margin-top: 100px;
+`;
+
 export const Sign = {
   Title,
   InputWrapper,
@@ -92,4 +115,13 @@ export const Sign = {
   OthersiseWrapper,
   Otherwise,
   CheckButton,
+};
+
+export const My = {
+  Title,
+  Wrapper,
+  ProfileImg,
+  InfoText,
+  InfoWrapper,
+  LogoutButton,
 };
