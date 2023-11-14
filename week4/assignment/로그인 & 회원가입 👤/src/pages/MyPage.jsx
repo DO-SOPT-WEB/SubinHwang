@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import { My } from "../styles/commonStyle";
 import profileImg from "../assets/imgs/profile.png";
 
 const MyPage = () => {
+  const navigate = useNavigate();
   const location = useLocation();
 
   const [id, setID] = useState("");
@@ -27,6 +28,10 @@ const MyPage = () => {
     fetchData();
   }, [location]);
 
+  const logout = () => {
+    navigate("/login");
+  };
+
   return (
     <My.Wrapper>
       <My.Title>마이페이지</My.Title>
@@ -35,7 +40,7 @@ const MyPage = () => {
         <My.InfoText>ID : {id}</My.InfoText>
         <My.InfoText>닉네임 : {name}</My.InfoText>
       </My.InfoWrapper>
-      <My.LogoutButton>로그아웃</My.LogoutButton>
+      <My.LogoutButton onClick={logout}>로그아웃</My.LogoutButton>
     </My.Wrapper>
   );
 };
