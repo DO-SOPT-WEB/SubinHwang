@@ -15,7 +15,7 @@ const Input = ({ pageType, inputType }) => {
     switch (inputType) {
       case FLAG.ID:
         setIconSrc(loginIcon);
-        setPlaceholderText("로그인");
+        setPlaceholderText("아이디");
         break;
       case FLAG.PW:
         setIconSrc(passwordIcon);
