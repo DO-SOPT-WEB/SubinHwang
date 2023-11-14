@@ -1,8 +1,8 @@
 import SignForm from "../components/SignForm";
-import { FLAG } from "../constants/constant";
+import { PAGE } from "../constants/page";
 
 const LoginPage = () => {
-  return <SignForm type={FLAG.LOGIN} />;
+  return <SignForm type={PAGE.LOGIN} />;
 };
 
 export default LoginPage;

@@ -4,7 +4,8 @@ import { useState } from "react";
 import loginIcon from "../assets/icons/Message.svg";
 import passwordIcon from "../assets/icons/Password.svg";
 import UserIcon from "../assets/icons/User.svg";
-import { FLAG } from "../constants/constant";
+import { PAGE } from "../constants/page";
+import { INPUT } from "../constants/input";
 import { useEffect } from "react";
 import DoubleCheck from "./DoubleCheck";
 
@@ -17,20 +18,20 @@ const Input = ({ pageType, inputType, onInputChange, isExist, setIsExist }) => {
   const handleChange = (e) => {
     setIsExist && setIsExist(0);
     setInputValue(e.target.value);
-    pageType === FLAG.SIGNUP && onInputChange(inputType, e.target.value);
+    pageType === PAGE.SIGNUP && onInputChange(inputType, e.target.value);
   };
 
   useEffect(() => {
     switch (inputType) {
-      case FLAG.ID:
+      case INPUT.ID:
         setIconSrc(loginIcon);
         setPlaceholderText("아이디");
         break;
-      case FLAG.PW:
+      case INPUT.PW:
         setIconSrc(passwordIcon);
         setPlaceholderText("비밀번호");
         break;
-      case FLAG.PWCHECK:
+      case INPUT.PWCHECK:
         setIconSrc(passwordIcon);
         setPlaceholderText("비밀번호");
         break;
@@ -49,7 +50,7 @@ const Input = ({ pageType, inputType, onInputChange, isExist, setIsExist }) => {
         value={inputValue}
         onChange={handleChange}
       />
-      {pageType === FLAG.SIGNUP && inputType === FLAG.ID && (
+      {pageType === PAGE.SIGNUP && inputType === INPUT.ID && (
         <DoubleCheck
           id={inputValue}
           isExist={isExist}

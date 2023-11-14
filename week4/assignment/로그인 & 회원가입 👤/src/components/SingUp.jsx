@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Sign } from "../styles/commonStyle";
-import { FLAG } from "../constants/constant";
+import { INPUT } from "../constants/input";
 const SignUp = ({ isInputsFilled, info }) => {
   const requestData = {
-    username: info[FLAG.ID],
-    password: info[FLAG.PW],
-    nickname: info[FLAG.NAME],
+    username: info[INPUT.ID],
+    password: info[INPUT.PW],
+    nickname: info[INPUT.NAME],
   };
 
   const navigate = useNavigate();
