@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { Sign } from "../styles/commonStyle";
+import axios from "axios";
+
 import { INPUT } from "../constants/input";
+
 const SignUp = ({ isInputsFilled, info }) => {
   const requestData = {
     username: info[INPUT.ID],

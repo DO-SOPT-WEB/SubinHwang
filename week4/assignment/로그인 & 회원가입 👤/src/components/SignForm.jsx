@@ -1,9 +1,11 @@
-import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Sign } from "../styles/commonStyle";
-import { PAGE } from "../constants/page";
+
 import Input from "./Input";
 import SignUp from "./SingUp";
+
+import { PAGE } from "../constants/page";
 import { INPUT } from "../constants/input";
 
 const SignForm = ({ type }) => {

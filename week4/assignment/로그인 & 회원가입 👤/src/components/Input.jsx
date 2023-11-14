@@ -1,13 +1,14 @@
+import { useState, useEffect } from "react";
 import { Sign } from "../styles/commonStyle";
-import { useState } from "react";
+
+import DoubleCheck from "./DoubleCheck";
+
+import { PAGE } from "../constants/page";
+import { INPUT } from "../constants/input";
 
 import loginIcon from "../assets/icons/Message.svg";
 import passwordIcon from "../assets/icons/Password.svg";
 import UserIcon from "../assets/icons/User.svg";
-import { PAGE } from "../constants/page";
-import { INPUT } from "../constants/input";
-import { useEffect } from "react";
-import DoubleCheck from "./DoubleCheck";
 
 const Input = ({ pageType, inputType, onInputChange, isExist, setIsExist }) => {
   const [iconSrc, setIconSrc] = useState("");
