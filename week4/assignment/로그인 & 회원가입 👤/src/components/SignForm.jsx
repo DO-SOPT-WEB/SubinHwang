@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Sign } from "../styles/commonStyle";
 import { FLAG } from "../constants/constant";
 import Input from "./Input";
+import SignUp from "./SingUp";
 
 const SignForm = ({ type }) => {
   const navigate = useNavigate();
@@ -81,9 +82,7 @@ const SignForm = ({ type }) => {
       {type === FLAG.LOGIN ? (
         <Sign.Button>로그인</Sign.Button>
       ) : (
-        <Sign.SignUpButton $isInputsFilled={isInputsFilled}>
-          회원가입
-        </Sign.SignUpButton>
+        <SignUp isInputsFilled={isInputsFilled} info={inputValues} />
       )}
       {type === FLAG.LOGIN && (
         <Sign.OthersiseWrapper onClick={navigateToSignUpPage}>
