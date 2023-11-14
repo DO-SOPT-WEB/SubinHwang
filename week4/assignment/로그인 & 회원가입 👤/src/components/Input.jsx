@@ -8,15 +8,18 @@ import { FLAG } from "../constants/constant";
 import { useEffect } from "react";
 import DoubleCheck from "./DoubleCheck";
 
-const Input = ({ pageType, inputType }) => {
+const Input = ({ pageType, inputType, onInputChange, isExist, setIsExist }) => {
   const [iconSrc, setIconSrc] = useState("");
   const [placeholderText, setPlaceholderText] = useState("");
 
-  const [inputID, setInputID] = useState("");
+  const [inputValue, setInputValue] = useState("");
 
   const handleChange = (e) => {
-    setInputID(e.target.value);
+    setIsExist && setIsExist(0);
+    setInputValue(e.target.value);
+    pageType === FLAG.SIGNUP && onInputChange(inputType, e.target.value);
   };
+
   useEffect(() => {
     switch (inputType) {
       case FLAG.ID:
@@ -43,13 +46,15 @@ const Input = ({ pageType, inputType }) => {
       <img src={iconSrc} />
       <Sign.Input
         placeholder={placeholderText}
-        {...(inputType === FLAG.ID && {
-          value: inputID,
-          onChange: handleChange,
-        })}
+        value={inputValue}
+        onChange={handleChange}
       />
       {pageType === FLAG.SIGNUP && inputType === FLAG.ID && (
-        <DoubleCheck id={inputID} />
+        <DoubleCheck
+          id={inputValue}
+          isExist={isExist}
+          setIsExist={setIsExist}
+        />
       )}
     </Sign.InputWrapper>
   );
