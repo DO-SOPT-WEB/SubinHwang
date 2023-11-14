@@ -34,7 +34,7 @@ const Input = ({ pageType, inputType }) => {
 
   return (
     <Sign.InputWrapper>
-      <Sign.InputIcon src={iconSrc}></Sign.InputIcon>
+      <img src={iconSrc} />
       <Sign.Input placeholder={placeholderText} />
       {pageType === FLAG.SIGNUP && inputType === FLAG.ID && (
         <Sign.CheckButton>중복확인</Sign.CheckButton>

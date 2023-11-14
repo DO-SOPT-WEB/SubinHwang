@@ -1,9 +1,12 @@
 import { styled } from "styled-components";
+
 const Title = styled.h1`
   margin-bottom: 20px;
+
   font-size: ${({ theme }) => theme.fontSize.l};
   color: ${({ theme }) => theme.colors.darkBlue};
 `;
+
 const InputWrapper = styled.div`
   position: relative;
 
@@ -12,12 +15,14 @@ const InputWrapper = styled.div`
 
   display: flex;
   gap: 10px;
+
   padding: 0 20px;
+
   border-radius: 16px;
 
   background-color: ${({ theme }) => theme.colors.lightBlue};
 `;
-const InputIcon = styled.img``;
+
 const Input = styled.input`
   flex-grow: 1;
 
@@ -29,6 +34,7 @@ const Input = styled.input`
   font-size: ${({ theme }) => theme.fontSize.m};
   font-family: "Pretendard-SemiBold";
 `;
+
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -45,6 +51,7 @@ const Wrapper = styled.div`
 
   background-color: ${({ theme }) => theme.colors.white};
 `;
+
 const Button = styled.button`
   width: 90%;
   height: 60px;
@@ -54,10 +61,12 @@ const Button = styled.button`
   border-radius: 16px;
 
   background-color: ${({ theme }) => theme.colors.darkBlue};
+
   color: ${({ theme }) => theme.colors.white};
   font-size: ${({ theme }) => theme.fontSize.m};
   font-weight: 700;
 `;
+
 const OthersiseWrapper = styled.div`
   display: flex;
   gap: 5px;
@@ -68,6 +77,7 @@ const OthersiseWrapper = styled.div`
 
   cursor: pointer;
 `;
+
 const Otherwise = styled.span`
   font-weight: 700;
 `;
@@ -85,19 +95,26 @@ const CheckButton = styled(Button)`
 const ProfileImg = styled.div`
   width: 200px;
   height: 200px;
+
   border-radius: 100%;
+
   background-image: ${({ $profileImg }) => `url(${$profileImg})`};
   background-size: cover;
 `;
+
 const InfoText = styled.p`
-  text-align: start;
+  font-size: ${({ theme }) => theme.fontSize.m};
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.darkBlue};
 `;
+
 const InfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: 20px;
+  gap: 16px;
 `;
+
 const LogoutButton = styled(Button)`
   width: 100px;
   height: 40px;
@@ -108,7 +125,6 @@ const LogoutButton = styled(Button)`
 export const Sign = {
   Title,
   InputWrapper,
-  InputIcon,
   Input,
   Wrapper,
   Button,
