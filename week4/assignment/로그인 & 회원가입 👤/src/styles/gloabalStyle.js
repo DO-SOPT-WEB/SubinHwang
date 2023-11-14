@@ -1,7 +1,35 @@
 import { createGlobalStyle } from "styled-components";
+import PPRETENDARD_BOLD from "../assets/fonts/PretendardStd-Bold.woff";
+import PPRETENDARD_MEDIUM from "../assets/fonts/PretendardStd-Medium.woff";
+import PPRETENDARD_REGULAR from "../assets/fonts/PretendardStd-Regular.woff";
+import PPRETENDARD_SEMIBOLD from "../assets/fonts/PretendardStd-SemiBold.woff";
 
 const globalStyle = createGlobalStyle`
 * {
+    @font-face {
+        font-family: 'Pretendard-Bold'; 
+        src: url(${PPRETENDARD_BOLD}) format('woff');
+        font-weight: 700;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Pretendard-Medium'; 
+        src: url(${PPRETENDARD_MEDIUM}) format('woff');
+        font-weight: 500;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Pretendard-Regular'; 
+        src: url(${PPRETENDARD_REGULAR}) format('woff');
+        font-weight: 400;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Pretendard-SemiBold'; 
+        src: url(${PPRETENDARD_SEMIBOLD}) format('woff');
+        font-weight: 600;
+        font-style: normal;
+    }
     box-sizing : border-box;
 }
 
@@ -28,6 +56,7 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	vertical-align: baseline;
+    font-family: 'Pretendard-Regular';
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
