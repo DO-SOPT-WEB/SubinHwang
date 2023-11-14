@@ -5,6 +5,8 @@ const Title = styled.h1`
   color: ${({ theme }) => theme.colors.darkBlue};
 `;
 const InputWrapper = styled.div`
+  position: relative;
+
   width: 90%;
   height: 60px;
 
@@ -70,6 +72,16 @@ const Otherwise = styled.span`
   font-weight: 700;
 `;
 
+const CheckButton = styled(Sign.Button)`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 80px;
+  height: 40px;
+
+  font-size: ${({ theme }) => theme.fontSize.s};
+`;
+
 export const Sign = {
   Title,
   InputWrapper,
@@ -79,4 +91,5 @@ export const Sign = {
   Button,
   OthersiseWrapper,
   Otherwise,
+  CheckButton,
 };
