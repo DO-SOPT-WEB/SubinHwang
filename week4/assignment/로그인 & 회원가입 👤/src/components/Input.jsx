@@ -6,11 +6,17 @@ import passwordIcon from "../assets/icons/Password.svg";
 import UserIcon from "../assets/icons/User.svg";
 import { FLAG } from "../constants/constant";
 import { useEffect } from "react";
+import DoubleCheck from "./DoubleCheck";
 
 const Input = ({ pageType, inputType }) => {
   const [iconSrc, setIconSrc] = useState("");
   const [placeholderText, setPlaceholderText] = useState("");
 
+  const [inputID, setInputID] = useState("");
+
+  const handleChange = (e) => {
+    setInputID(e.target.value);
+  };
   useEffect(() => {
     switch (inputType) {
       case FLAG.ID:
@@ -35,9 +41,15 @@ const Input = ({ pageType, inputType }) => {
   return (
     <Sign.InputWrapper>
       <img src={iconSrc} />
-      <Sign.Input placeholder={placeholderText} />
+      <Sign.Input
+        placeholder={placeholderText}
+        {...(inputType === FLAG.ID && {
+          value: inputID,
+          onChange: handleChange,
+        })}
+      />
       {pageType === FLAG.SIGNUP && inputType === FLAG.ID && (
-        <Sign.CheckButton>중복확인</Sign.CheckButton>
+        <DoubleCheck id={inputID} />
       )}
     </Sign.InputWrapper>
   );

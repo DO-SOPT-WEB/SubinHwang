@@ -3,6 +3,8 @@ const colors = {
   lightBlue: "#f1f4ff",
   lightGrey: "#f5f5f5",
   white: "#ffffff",
+  red: "#ff3232",
+  green: "#069729",
 };
 
 const fontSize = {

@@ -90,6 +90,12 @@ const CheckButton = styled(Button)`
   height: 40px;
 
   font-size: ${({ theme }) => theme.fontSize.s};
+  background-color: ${({ $isExist, theme }) =>
+    $isExist === 1
+      ? theme.colors.red
+      : $isExist === 2
+      ? theme.colors.green
+      : theme.colors.darkBlue};
 `;
 
 const ProfileImg = styled.div`
