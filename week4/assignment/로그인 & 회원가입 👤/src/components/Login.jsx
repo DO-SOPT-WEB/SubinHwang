@@ -1,14 +1,21 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { createPortal } from "react-dom";
 import { Sign } from "../styles/commonStyle";
 import axios from "axios";
 
 import { INPUT } from "../constants/input";
+
+import Toast from "./Toast";
 
 const Login = ({ info }) => {
   const requestData = {
     username: info[INPUT.ID],
     password: info[INPUT.PW],
   };
+
+  const [toast, setToast] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -20,9 +27,20 @@ const Login = ({ info }) => {
       })
       .catch((error) => {
         console.error(error);
+        setToast(true);
+        setErrorMessage(error.message);
       });
   };
 
-  return <Sign.Button onClick={RequestLogin}>로그인</Sign.Button>;
+  return (
+    <>
+      <Sign.Button onClick={RequestLogin}>로그인</Sign.Button>
+      {toast &&
+        createPortal(
+          <Toast toast={toast} setToast={setToast} message={errorMessage} />,
+          document.body
+        )}
+    </>
+  );
 };
 export default Login;
