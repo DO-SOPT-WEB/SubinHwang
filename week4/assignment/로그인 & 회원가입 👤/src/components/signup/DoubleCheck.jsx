@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Sign } from "../styles/commonStyle";
+import { Sign } from "../../styles/commonStyle";
 
 const DoubleCheck = ({ id, isAvailable, setIsAvailable }) => {
   const checkIdExist = async () => {

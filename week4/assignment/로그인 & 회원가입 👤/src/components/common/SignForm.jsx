@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { Sign } from "../styles/commonStyle";
-import { INPUT } from "../constants/input";
-import { PAGE } from "../constants/page";
+import { Sign } from "../../styles/commonStyle";
+import { INPUT } from "../../constants/input";
+import { PAGE } from "../../constants/page";
 
 import Input from "./Input";
-import SignUp from "./SingUp";
-import Login from "./Login";
-import { CHECK } from "../constants/check";
+import SignUp from "../signup/SingUp";
+import Login from "../login/Login";
+import { CHECK } from "../../constants/check";
 
 const SignForm = ({ type }) => {
   const navigate = useNavigate();

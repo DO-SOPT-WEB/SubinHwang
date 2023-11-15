@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
-import { My } from "../styles/commonStyle";
+import { My } from "../../styles/commonStyle";
 
 const UserInfo = () => {
   const location = useLocation();

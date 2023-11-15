@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { My } from "../styles/commonStyle";
 import profileImg from "../assets/imgs/profile.png";
-import UserInfo from "../components/UserInfo";
+import UserInfo from "../components/my/UserInfo";
 
 const MyPage = () => {
   const navigate = useNavigate();

@@ -1,4 +1,4 @@
-import SignForm from "../components/SignForm";
+import SignForm from "../components/common/SignForm";
 import { PAGE } from "../constants/page";
 
 const LoginPage = () => {

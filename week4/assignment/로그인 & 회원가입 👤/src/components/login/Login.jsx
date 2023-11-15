@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createPortal } from "react-dom";
-import { Sign } from "../styles/commonStyle";
+import { Sign } from "../../styles/commonStyle";
 import axios from "axios";
 
-import { INPUT } from "../constants/input";
+import { INPUT } from "../../constants/input";
 
 import Toast from "./Toast";
 
