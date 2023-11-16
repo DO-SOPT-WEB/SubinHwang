@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { styled } from "styled-components";
+import { createPortal } from "react-dom";
 
 const Toast = ({ toast, setToast, message }) => {
   useEffect(() => {
@@ -11,10 +12,11 @@ const Toast = ({ toast, setToast, message }) => {
     };
   }, [toast, setToast]);
 
-  return (
-    <ToastWrapper $toast={toast}>
+  return createPortal(
+    <ToastWrapper>
       <ToastMessage>{message}</ToastMessage>
-    </ToastWrapper>
+    </ToastWrapper>,
+    document.body
   );
 };
 

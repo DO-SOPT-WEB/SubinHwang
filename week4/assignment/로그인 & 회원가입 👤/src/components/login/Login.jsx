@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createPortal } from "react-dom";
 import { Sign } from "../../styles/commonStyle";
 import axios from "axios";
 
@@ -35,11 +34,7 @@ const Login = ({ info }) => {
   return (
     <>
       <Sign.Button onClick={RequestLogin}>로그인</Sign.Button>
-      {toast &&
-        createPortal(
-          <Toast toast={toast} setToast={setToast} message={errorMessage} />,
-          document.body
-        )}
+      {toast && <Toast setToast={setToast} message={errorMessage} />}
     </>
   );
 };
