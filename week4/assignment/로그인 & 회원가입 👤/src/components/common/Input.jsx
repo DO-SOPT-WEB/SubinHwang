@@ -40,7 +40,7 @@ const Input = ({
         break;
       case INPUT.PWCHECK:
         setIconSrc(passwordIcon);
-        setPlaceholderText("비밀번호");
+        setPlaceholderText("비밀번호 확인");
         break;
       default:
         setIconSrc(UserIcon);
