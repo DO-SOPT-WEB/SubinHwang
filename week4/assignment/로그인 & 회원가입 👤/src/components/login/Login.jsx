@@ -5,7 +5,7 @@ import axios from "axios";
 
 import { INPUT } from "../../constants/input";
 
-import Toast from "./Toast";
+import Toast from "../common/Toast";
 
 const Login = ({ info }) => {
   const requestData = {
