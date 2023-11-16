@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 import { Sign } from "../../styles/commonStyle";
 import { INPUT } from "../../constants/input";
@@ -10,14 +9,9 @@ import SignUp from "../signup/SingUp";
 import Login from "../login/Login";
 import { CHECK } from "../../constants/check";
 import Title from "./Title";
+import NavigateToSignUp from "../login/NavigateToSignUp";
 
 const SignForm = ({ type }) => {
-  const navigate = useNavigate();
-
-  const navigateToSignUpPage = () => {
-    navigate("/signup");
-  };
-
   const [isAvailable, setIsAvailable] = useState(CHECK.NOT_CHECKED);
   const [isInputsFilled, setIsInputsFilled] = useState(false);
   const [inputValues, setInputValues] = useState({
@@ -91,11 +85,7 @@ const SignForm = ({ type }) => {
       ) : (
         <SignUp isInputsFilled={isInputsFilled} info={inputValues} />
       )}
-      {type === PAGE.LOGIN && (
-        <Sign.OthersiseWrapper onClick={navigateToSignUpPage}>
-          계정이 없으신가요 ?<Sign.Otherwise>회원가입</Sign.Otherwise>
-        </Sign.OthersiseWrapper>
-      )}
+      {type === PAGE.LOGIN && <NavigateToSignUp />}
     </Sign.Wrapper>
   );
 };

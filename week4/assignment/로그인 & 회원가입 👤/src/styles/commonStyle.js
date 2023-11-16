@@ -67,21 +67,6 @@ const SignUpButton = styled(Button)`
   cursor: not-allowed;
 `;
 
-const OthersiseWrapper = styled.div`
-  display: flex;
-  gap: 5px;
-
-  font-size: ${({ theme }) => theme.fontSize.s};
-  color: ${({ theme }) => theme.colors.darkBlue};
-  font-weight: 500;
-
-  cursor: pointer;
-`;
-
-const Otherwise = styled.span`
-  font-weight: 700;
-`;
-
 const CheckButton = styled(Button)`
   position: absolute;
   top: 10px;
@@ -134,8 +119,6 @@ export const Sign = {
   Wrapper,
   Button,
   SignUpButton,
-  OthersiseWrapper,
-  Otherwise,
   CheckButton,
 };
 
