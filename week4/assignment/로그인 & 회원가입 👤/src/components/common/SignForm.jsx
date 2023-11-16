@@ -9,6 +9,7 @@ import Input from "./Input";
 import SignUp from "../signup/SingUp";
 import Login from "../login/Login";
 import { CHECK } from "../../constants/check";
+import Title from "./Title";
 
 const SignForm = ({ type }) => {
   const navigate = useNavigate();
@@ -58,7 +59,7 @@ const SignForm = ({ type }) => {
 
   return (
     <Sign.Wrapper>
-      <Sign.Title>{type === PAGE.LOGIN ? "로그인" : "회원가입"}</Sign.Title>
+      <Title page={type} />
       <Input
         pageType={type}
         inputType={INPUT.ID}

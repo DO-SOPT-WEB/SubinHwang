@@ -1,12 +1,5 @@
 import { styled } from "styled-components";
 
-const Title = styled.h1`
-  margin-bottom: 20px;
-
-  font-size: ${({ theme }) => theme.fontSize.l};
-  color: ${({ theme }) => theme.colors.darkBlue};
-`;
-
 const InputWrapper = styled.div`
   position: relative;
 
@@ -136,7 +129,6 @@ const LogoutButton = styled(Button)`
 `;
 
 export const Sign = {
-  Title,
   InputWrapper,
   Input,
   Wrapper,
@@ -148,7 +140,6 @@ export const Sign = {
 };
 
 export const My = {
-  Title,
   Wrapper,
   ProfileImg,
   InfoText,
