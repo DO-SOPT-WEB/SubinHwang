@@ -20,7 +20,10 @@ const Login = ({ info }) => {
 
   const RequestLogin = async () => {
     await axios
-      .post("http://3.39.54.196/api/v1/members/sign-in", requestData)
+      .post(
+        import.meta.env.VITE_BASE_URL + "/api/v1/members/sign-in",
+        requestData
+      )
       .then((response) => {
         navigate(`/mypage/${response.data.id}`);
       })

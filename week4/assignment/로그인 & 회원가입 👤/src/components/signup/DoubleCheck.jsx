@@ -5,7 +5,7 @@ import { Sign } from "../../styles/commonStyle";
 const DoubleCheck = ({ id, isAvailable, setIsAvailable }) => {
   const checkIdExist = async () => {
     const data = await axios.get(
-      `http://3.39.54.196/api/v1/members/check?username=${id}`
+      import.meta.env.VITE_BASE_URL + `/api/v1/members/check?username=${id}`
     );
     data.data.isExist
       ? setIsAvailable(CHECK.EXIST)

@@ -15,7 +15,7 @@ const SignUp = ({ isInputsFilled, info }) => {
 
   const RequestSignUp = async () => {
     await axios
-      .post("http://3.39.54.196/api/v1/members", requestData)
+      .post(import.meta.env.VITE_BASE_URL + "/api/v1/members", requestData)
       .then(() => {
         navigate("/login");
       })

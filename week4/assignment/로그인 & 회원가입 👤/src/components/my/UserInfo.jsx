@@ -15,7 +15,7 @@ const UserInfo = () => {
       const idFromURL = path.substring(path.lastIndexOf("/") + 1);
       try {
         const data = await axios.get(
-          `http://3.39.54.196/api/v1/members/${idFromURL}`
+          import.meta.env.VITE_BASE_URL + `/api/v1/members/${idFromURL}`
         );
         setID(data.data.username);
         setName(data.data.nickname);
