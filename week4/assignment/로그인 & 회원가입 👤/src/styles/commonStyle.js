@@ -64,7 +64,8 @@ const SignUpButton = styled(Button)`
   background-color: ${({ $isInputsFilled, theme }) =>
     $isInputsFilled === true ? theme.colors.darkBlue : theme.colors.normalGrey};
   color: ${({ theme }) => theme.colors.white};
-  cursor: not-allowed;
+  cursor: ${({ $isInputsFilled }) =>
+    $isInputsFilled === true ? "cusor" : "not-allowed"};
 `;
 
 const CheckButton = styled(Button)`
