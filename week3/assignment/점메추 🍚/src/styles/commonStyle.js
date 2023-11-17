@@ -1,4 +1,10 @@
 import { styled } from "styled-components";
+const centerFlex = `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const Section = styled.section`
   display: flex;
   justify-content: center;
@@ -23,9 +29,7 @@ export const Answer = styled.div`
 `;
 export const Balloon = styled.div`
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${centerFlex}
 
   margin: 20px;
   padding: 10px;
@@ -67,9 +71,7 @@ export const BalloonText = styled.p`
 export const WhiteBox = styled.div`
   position: relative;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${centerFlex}
 
   margin: 20px;
   padding: 10px;
@@ -101,9 +103,7 @@ export const Button = styled.button`
 export const RadioBalloon = styled.label`
   position: relative;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${centerFlex}
 
   width: 200px;
   height: 150px;
