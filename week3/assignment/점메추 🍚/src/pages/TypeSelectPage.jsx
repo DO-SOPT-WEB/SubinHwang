@@ -1,35 +1,24 @@
-import {
-  Answer,
-  Balloon,
-  BalloonText,
-  Quetion,
-  Section,
-} from "../styles/GlobalStyle";
+import { Balloon, BalloonText } from "../styles/commonStyle";
 
-import { PAGE, RECOMMEND_BY } from "../utils/constants";
-import Header from "../components/Header";
-import MainCharacter from "../components/MainCharacter";
+import MainSection from "../components/MainSection";
+import { RECOMMEND_BY } from "../utils/recommendType";
+import { PAGE } from "../utils/page";
 
 export default function TypeSelectPage({ nextPage }) {
+  const contents = (
+    <>
+      <Balloon onClick={() => nextPage(PAGE.TYPE_SELECT, RECOMMEND_BY.TYPE)}>
+        <BalloonText>{RECOMMEND_BY.TYPE}</BalloonText>
+      </Balloon>
+      <Balloon onClick={() => nextPage(PAGE.TYPE_SELECT, RECOMMEND_BY.RANDOM)}>
+        <BalloonText>{RECOMMEND_BY.RANDOM}</BalloonText>
+      </Balloon>
+    </>
+  );
+
   return (
     <>
-      <Header isTypeSelectPage={true} />
-      <Section>
-        <Quetion>원하는 추천 방식을 골라줘!</Quetion>
-        <Answer>
-          <Balloon
-            onClick={() => nextPage(PAGE.TYPE_SELECT, RECOMMEND_BY.TYPE)}
-          >
-            <BalloonText>{RECOMMEND_BY.TYPE}</BalloonText>
-          </Balloon>
-          <Balloon
-            onClick={() => nextPage(PAGE.TYPE_SELECT, RECOMMEND_BY.RANDOM)}
-          >
-            <BalloonText>{RECOMMEND_BY.RANDOM}</BalloonText>
-          </Balloon>
-        </Answer>
-        <MainCharacter />
-      </Section>
+      <MainSection page={PAGE.TYPE_SELECT} contents={contents} />
     </>
   );
 }

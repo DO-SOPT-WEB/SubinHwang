@@ -1,4 +1,4 @@
-import { Section, WhiteBox } from "../styles/GlobalStyle";
+import { Section, WhiteBox } from "../styles/commonStyle";
 import Header from "../components/Header";
 import spinner1 from "../assets/img/spinner1.png";
 import spinner2 from "../assets/img/spinner2.png";
@@ -6,7 +6,7 @@ import spinner3 from "../assets/img/spinner3.png";
 import { styled } from "styled-components";
 import { useState, useEffect, useRef } from "react";
 import ResultPage from "./ResultPage";
-import { foodData } from "../utils/constants";
+import { foodData } from "../utils/foodData";
 
 const LoadingBox = styled(WhiteBox)`
   width: 500px;

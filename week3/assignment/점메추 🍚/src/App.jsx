@@ -1,20 +1,14 @@
 import { useReducer } from "react";
 
-import {
-  amountOptions,
-  foodData,
-  PAGE,
-  question,
-  RECOMMEND_BY,
-  regionOptions,
-  tasteOptions,
-} from "./utils/constants";
-
 import TypeSelectPage from "./pages/TypeSelectPage";
 import StartPage from "./pages/StartPage";
 import ResultPage from "./pages/ResultPage";
 import TypeQuestionPage from "./pages/TypeQuestionPage";
 import RandomRecommendPage from "./pages/CountdownPage";
+import { PAGE } from "./utils/page";
+import { RECOMMEND_BY } from "./utils/recommendType";
+import { foodData } from "./utils/foodData";
+import { amountOptions, regionOptions, tasteOptions } from "./utils/options";
 
 const initialState = {
   page: 0,
@@ -200,7 +194,7 @@ function App() {
       case PAGE.RECOMMEND_BY_TYPE_QUESTION_1:
         return (
           <TypeQuestionPage
-            type={question.region}
+            page={PAGE.RECOMMEND_BY_TYPE_QUESTION_1}
             options={regionOptions}
             selectedValue={state.selectedRegion}
             saveAnswer={saveAnswer}
@@ -215,7 +209,7 @@ function App() {
       case PAGE.RECOMMEND_BY_TYPE_QUESTION_2:
         return (
           <TypeQuestionPage
-            type={question.amount}
+            page={PAGE.RECOMMEND_BY_TYPE_QUESTION_2}
             options={amountOptions}
             selectedValue={state.selectedAmount}
             saveAnswer={saveAnswer}
@@ -230,7 +224,7 @@ function App() {
       case PAGE.RECOMMEND_BY_TYPE_QUESTION_3:
         return (
           <TypeQuestionPage
-            type={question.taste}
+            page={PAGE.RECOMMEND_BY_TYPE_QUESTION_3}
             options={tasteOptions}
             selectedValue={state.selectedTaste}
             saveAnswer={saveAnswer}

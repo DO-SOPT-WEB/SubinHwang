@@ -1,29 +1,24 @@
-import {
-  Answer,
-  BalloonText,
-  Button,
-  Quetion,
-  Section,
-  WhiteBox,
-} from "../styles/GlobalStyle";
-import { PAGE } from "../utils/constants";
-import Header from "../components/Header";
-import MainCharacter from "../components/MainCharacter";
+import MainSection from "../components/MainSection";
+import { BalloonText, Button, WhiteBox } from "../styles/commonStyle";
+import { PAGE } from "../utils/page";
 
 export default function StartPage({ answer, nextPage, restart }) {
+  const contents = (
+    <WhiteBox>
+      <BalloonText>{answer}</BalloonText>
+    </WhiteBox>
+  );
+  const nav = (
+    <Button onClick={() => nextPage(PAGE.START, answer)}>시작!</Button>
+  );
   return (
     <>
-      <Header restart={restart} />
-      <Section>
-        <Quetion>원하는 추천 방식을 골라줘!</Quetion>
-        <Answer>
-          <WhiteBox>
-            <BalloonText>{answer}</BalloonText>
-          </WhiteBox>
-        </Answer>
-        <Button onClick={() => nextPage(PAGE.START, answer)}>시작!</Button>
-        <MainCharacter />
-      </Section>
+      <MainSection
+        page={PAGE.START}
+        contents={contents}
+        nav={nav}
+        restart={restart}
+      />
     </>
   );
 }

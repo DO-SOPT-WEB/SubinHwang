@@ -1,34 +1,31 @@
-import {
-  Button,
-  Answer,
-  Quetion,
-  Section,
-  WhiteBox,
-} from "../styles/GlobalStyle";
+import { Button, WhiteBox } from "../styles/commonStyle";
 import { styled } from "styled-components";
-import Header from "../components/Header";
-import MainCharacter from "../components/MainCharacter";
+import MainSection from "../components/MainSection";
+import { PAGE } from "../utils/page";
 
 const FoodImg = styled.img`
   width: 150px;
 `;
 
 export default function ResultPage({ type, result, retry, restart }) {
+  const contents = (
+    <WhiteBox>
+      <FoodImg src={result} alt="추천음식"></FoodImg>
+    </WhiteBox>
+  );
+
+  const nav = (
+    <Button type="button" onClick={() => retry(type)}>
+      다시하기
+    </Button>
+  );
+
   return (
-    <>
-      <Header restart={restart} />
-      <Section>
-        <Quetion>오늘의 추천음식은</Quetion>
-        <Answer>
-          <WhiteBox>
-            <FoodImg src={result} alt="추천음식"></FoodImg>
-          </WhiteBox>
-        </Answer>
-        <Button type="button" onClick={() => retry(type)}>
-          다시하기
-        </Button>
-        <MainCharacter />
-      </Section>
-    </>
+    <MainSection
+      page={PAGE.RECOMMEND_BY_TYPE_RESULT}
+      restart={restart}
+      contents={contents}
+      nav={nav}
+    />
   );
 }

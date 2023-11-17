@@ -1,14 +1,10 @@
-import { useMemo } from "react";
-import { Answer, Quetion, Section } from "../styles/GlobalStyle";
-
-import Header from "../components/Header";
-import MainCharacter from "../components/MainCharacter";
 import PageMoveButton from "../components/PageMoveButton";
 import ProgressBar from "../components/ProgressBar";
 import { Option } from "../components/Option";
+import MainSection from "../components/MainSection";
 
 const TypeQuestionPage = ({
-  type,
+  page,
   options,
   selectedValue,
   saveAnswer,
@@ -17,33 +13,38 @@ const TypeQuestionPage = ({
   nextPage,
   restart,
 }) => {
-  const mainCharacter = useMemo(() => <MainCharacter />, []);
+  const contents = (
+    <>
+      {options.map((option) => (
+        <Option
+          key={option.id}
+          option={option}
+          saveAnswer={saveAnswer}
+          currentPage={currentPage}
+          selectedValue={selectedValue}
+        />
+      ))}
+    </>
+  );
 
+  const nav = (
+    <PageMoveButton
+      currentPage={currentPage}
+      isSelected={selectedValue}
+      prevPage={prevPage}
+      nextPage={nextPage}
+    />
+  );
+  const progress = <ProgressBar page={currentPage - 1} />;
   return (
     <>
-      <Header restart={restart} />
-      <Section>
-        <ProgressBar page={currentPage - 1} />
-        <Quetion>{type.question}</Quetion>
-        <Answer>
-          {options.map((option) => (
-            <Option
-              key={option.id}
-              option={option}
-              saveAnswer={saveAnswer}
-              currentPage={currentPage}
-              selectedValue={selectedValue}
-            />
-          ))}
-        </Answer>
-        {mainCharacter}
-        <PageMoveButton
-          currentPage={currentPage}
-          isSelected={selectedValue}
-          prevPage={prevPage}
-          nextPage={nextPage}
-        />
-      </Section>
+      <MainSection
+        restart={restart}
+        page={page}
+        progressBar={progress}
+        contents={contents}
+        nav={nav}
+      />
     </>
   );
 };

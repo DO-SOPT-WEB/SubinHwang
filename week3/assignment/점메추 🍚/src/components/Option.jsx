@@ -1,16 +1,20 @@
-import { BalloonText, RadioBalloon, RadioInput } from "../styles/GlobalStyle";
+import { BalloonText, RadioBalloon, RadioInput } from "../styles/commonStyle";
 
-export const Option = ({ option, saveAnswer, currentPage, selectedValue }) => (
-  <div key={option.id}>
-    <RadioInput
-      type="radio"
-      id={option.id}
-      name={option.name}
-      onChange={() => saveAnswer(option.id, currentPage)}
-      checked={selectedValue === option.id}
-    ></RadioInput>
-    <RadioBalloon htmlFor={option.id}>
-      <BalloonText>{option.label}</BalloonText>
-    </RadioBalloon>
-  </div>
-);
+export const Option = ({ option, saveAnswer, currentPage, selectedValue }) => {
+  const { id, name, label } = option;
+
+  return (
+    <div key={id}>
+      <RadioInput
+        type="radio"
+        id={id}
+        name={name}
+        onChange={() => saveAnswer(id, currentPage)}
+        checked={selectedValue === id}
+      ></RadioInput>
+      <RadioBalloon htmlFor={id}>
+        <BalloonText>{label}</BalloonText>
+      </RadioBalloon>
+    </div>
+  );
+};
