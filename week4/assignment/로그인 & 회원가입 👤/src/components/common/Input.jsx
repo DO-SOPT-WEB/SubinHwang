@@ -5,6 +5,7 @@ import DoubleCheck from "../signup/DoubleCheck";
 
 import { PAGE } from "../../constants/page";
 import { INPUT } from "../../constants/input";
+import { CHECK } from "../../constants/check";
 
 import loginIcon from "../../assets/icons/Message.svg";
 import passwordIcon from "../..//assets/icons/Password.svg";
@@ -23,7 +24,7 @@ const Input = ({
   const [inputValue, setInputValue] = useState("");
 
   const handleChange = (e) => {
-    setIsAvailable && setIsAvailable(0);
+    setIsAvailable && setIsAvailable(CHECK.NOT_CHECKED);
     setInputValue(e.target.value);
     onInputChange(inputType, e.target.value);
   };
